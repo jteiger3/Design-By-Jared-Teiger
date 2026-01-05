@@ -1,53 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jared Teiger — Design</title>
+  <meta name="description" content="Jared Teiger — selected work in design, prototyping, and creative systems." />
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0b0b0f;
-      color: #f4f4f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+    :root{
+      --bg:#0b0c10; --card:#10131c; --text:#f2f3f5; --muted:#a7abb6;
+      --line:#1f2432; --accent:#7aa2ff; --max:1080px;
+      --r:18px;
     }
-    main {
-      max-width: 720px;
-      padding: 24px;
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text); background:
+      radial-gradient(900px 600px at 80% 10%, rgba(122,162,255,.18), transparent 60%),
+      radial-gradient(700px 500px at 15% 20%, rgba(120,255,178,.10), transparent 55%),
+      var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      line-height:1.55;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:44px 18px 60px}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .brand{font-weight:800; letter-spacing:.2px}
+    .links{display:flex; gap:14px; flex-wrap:wrap}
+    .links a{color:var(--muted); text-decoration:none; font-size:14px}
+    .links a:hover{color:var(--text)}
+    .hero{display:grid; grid-template-columns:1.25fr .75fr; gap:18px; margin-top:22px}
+    @media (max-width:880px){.hero{grid-template-columns:1fr}}
+    .card{
+      background: rgba(16,19,28,.85);
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      padding:22px;
+      box-shadow:0 16px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
     }
-    p {
-      color: #a1a1aa;
-      font-size: 1.1rem;
+    h1{font-size:44px; line-height:1.07; margin:0 0 10px}
+    .sub{margin:0; color:var(--muted); font-size:16px}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:11px 14px; border-radius:12px;
+      border:1px solid var(--line);
+      background:#0e1220;
+      text-decoration:none; font-weight:700; font-size:14px;
     }
-    a {
-      color: #60a5fa;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 500;
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(122,162,255,.95), rgba(122,162,255,.72));
+      color:#081022; border-color: rgba(122,162,255,.55);
     }
-    a:hover {
-      text-decoration: underline;
-    }
+    .btn:hover{transform:translateY(-1px)}
+    .meta{display:grid; gap:10px}
+    .pill{display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:14px}
+    .dot{width:8px; height:8px; border-radius:99px; background:var(--accent); display:inline-block}
+    .section{margin-top:22px}
+    .section h2{margin:0 0 10px; font-size:14px; letter-spacing:.18em; text-transform:uppercase; color:#d7d9df}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}}
+    .proj{padding:16px; border-radius:16px; border:1px solid var(--line); background:#0b0f1b}
+    .proj h3{margin:0 0 6px; font-size:16px}
+    .proj p{margin:0; color:var(--muted); font-size:14px}
+    .tags{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
+    .tag{font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); color:#cfd3de}
+    footer{margin-top:28px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:13px}
   </style>
 </head>
 <body>
-  <main>
-    <h1>Jared Teiger</h1>
-    <p>Design • Prototyping • Creative Systems</p>
-    <p>
-      <a href="https://github.com/jteiger3" target="_blank">GitHub</a>
-      <a href="mailto:YOUR_EMAIL">Email</a>
-      <a href="#">Portfolio (soon)</a>
-    </p>
-  </main>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">Jared Teiger</div>
+      <div class="links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/jteiger3" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1>Design that becomes real.</h1>
+        <p class="sub">I build products, prototypes, and systems — from sketch to physical outcome.</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">View work</a>
+          <a class="btn" href="mailto:YOUR_EMAIL">Email</a>
+          <a class="btn" href="YOUR_RESUME_LINK" target="_blank" rel="noreferrer">Resume</a>
+        </div>
+
+        <div id="work" class="section">
+          <h2>Selected work</h2>
+          <div class="grid">
+            <div class="proj">
+              <h3>Project One</h3>
+              <p>One sentence describing the problem and outcome.</p>
+              <div class="tags"><span class="tag">Role</span><span class="tag">Tools</span></div>
+            </div>
+            <div class="proj">
+              <h3>Project Two</h3>
+              <p>One sentence describing what you built and why it matters.</p>
+              <div class="tags"><span class="tag">Role</span><span class="tag">Tools</span></div>
+            </div>
+            <div class="proj">
+              <h3>Project Three</h3>
+              <p>One sentence describing the result (speed, quality, impact).</p>
+              <div class="tags"><span class="tag">Role</span><span class="tag">Tools</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="about">
+        <div class="meta">
+          <div class="pill"><span class="dot"></span> Available for projects / roles</div>
+          <p class="sub">
+            Add a short bio here: what you love building, where you’ve worked, and what you’re exploring next.
+          </p>
+          <div class="section" id="contact">
+            <h2>Contact</h2>
+            <div class="cta">
+              <a class="btn" href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+              <a class="btn" href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>© <span id="y"></span> Jared Teiger</div>
+      <div>Built on GitHub Pages</div>
+    </footer>
+  </div>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
