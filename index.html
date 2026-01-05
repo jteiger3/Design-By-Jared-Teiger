@@ -14,7 +14,10 @@
   <style>
     :root{
       --bg:#3f4347;
-      --panelBg: rgba(255,255,255,0.92);
+
+      /* MENU + NAV now solid white when open */
+      --panelBg: #ffffff;
+
       --text:#111;
       --muted:#666;
       --pill:#e9eaec;
@@ -48,6 +51,7 @@
       padding: 0 18px;
       pointer-events:none;
 
+      /* default integrated look over hero */
       background: linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,0));
       backdrop-filter: blur(6px);
       transition: background 180ms ease, backdrop-filter 180ms ease;
@@ -72,6 +76,7 @@
       justify-self:start;
       -webkit-tap-highlight-color: transparent;
     }
+
     .burger{
       width: 22px;
       height: 16px;
@@ -89,6 +94,7 @@
     .burger span:nth-child(1){ top:0; }
     .burger span:nth-child(2){ top:7px; }
     .burger span:nth-child(3){ top:14px; }
+
     .icon-btn.open .burger span:nth-child(1){ top:7px; transform: rotate(45deg); }
     .icon-btn.open .burger span:nth-child(2){ opacity:0; }
     .icon-btn.open .burger span:nth-child(3){ top:7px; transform: rotate(-45deg); }
@@ -127,6 +133,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* ===== NAV when menu is open: match menu background (solid white) ===== */
     .nav.menu-open{
       background: #ffffff;
       backdrop-filter: none;
@@ -186,10 +193,10 @@
     }
     .panel.open{ display:block; }
 
+    /* Solid white menu background now */
     .panel-bg{
       position:absolute; inset:0;
       background: var(--panelBg);
-      backdrop-filter: blur(10px);
       animation: fadeIn 180ms ease forwards;
     }
     @keyframes fadeIn{
@@ -204,10 +211,10 @@
       margin:0 auto;
       padding: 22px 18px 22px;
       display:grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 360px 1fr;
       gap: 26px;
       color: var(--text);
-      overflow:auto; /* important on small screens */
+      overflow:auto;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -224,8 +231,25 @@
     }
     .left a.big:hover{ text-decoration: underline; }
 
+    /* NEW: Image slot under top links */
+    .link-image{
+      margin-top: 14px;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(0,0,0,.10);
+      background: #f0f0f0;
+    }
+    .link-image img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
     .label{
-      margin-top: 22px;
+      margin-top: 20px;
       font-size: 12px;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -277,9 +301,7 @@
 
     body.noscroll{ overflow:hidden; }
 
-    /* ===== RESPONSIVE BREAKPOINTS ===== */
-
-    /* Tablets */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 980px){
       .panel-inner{
         grid-template-columns: 1fr;
@@ -291,25 +313,19 @@
         flex-wrap: wrap;
         gap: 10px;
       }
-      .center{
-        justify-content:flex-start;
-      }
-      .image-frame{
-        width: 100%;
-        max-width: 760px;
-      }
+      .center{ justify-content:flex-start; }
+      .image-frame{ width: 100%; max-width: 760px; }
     }
 
-    /* Phones */
     @media (max-width: 560px){
       :root{ --navH: 64px; }
-
       .nav{ padding: 0 12px; }
       .nav-inner{ grid-template-columns: 48px 1fr 48px; }
 
       .icon-btn, .social, .social a{
         width:48px; height:48px;
       }
+
       .burger{ width:20px; height:14px; }
       .burger span:nth-child(2){ top:6px; }
       .burger span:nth-child(3){ top:12px; }
@@ -321,17 +337,10 @@
         letter-spacing: .05em;
       }
 
-      .panel{
-        top: var(--navH);
-        height: calc(100vh - var(--navH));
-      }
-
-      .left a.big{
-        font-size: 34px;
-      }
+      .left a.big{ font-size: 34px; }
 
       .image-frame{
-        aspect-ratio: 4 / 5; /* feels better on phones than a square */
+        aspect-ratio: 4 / 5;
         border-radius: 22px;
       }
     }
@@ -377,9 +386,15 @@
 
     <div class="panel-inner">
       <div class="left">
-        <a class="big" href="#about">About Me</a>
-        <a class="big" href="#contact">Get in Touch</a>
-        <a class="big" href="#what-i-do">What I Do</a>
+        <!-- Reordered links: About, What I Do, Get in Touch -->
+        <a class="big" href="#about" data-section="about">About Me</a>
+        <a class="big" href="#what-i-do" data-section="what">What I Do</a>
+        <a class="big" href="#contact" data-section="contact">Get in Touch</a>
+
+        <!-- NEW: image area for the above links -->
+        <div class="link-image" aria-label="Section preview">
+          <img id="sectionImg" src="assets/about.jpg" alt="Section image">
+        </div>
 
         <div class="label">Case Studies</div>
         <div class="pill-list" id="pillList">
@@ -394,7 +409,7 @@
       </div>
 
       <div class="center">
-        <div class="image-frame" aria-label="Preview image">
+        <div class="image-frame" aria-label="Project preview image">
           <img id="previewImg" src="assets/slide-2.jpg" alt="Project preview">
         </div>
       </div>
@@ -422,6 +437,15 @@
     const homeLink = document.getElementById("homeLink");
     const pillList = document.getElementById("pillList");
 
+    // NEW: Section image swapping
+    const sectionImg = document.getElementById("sectionImg");
+    const sectionLinks = Array.from(document.querySelectorAll("[data-section]"));
+    const sectionMap = {
+      about: "assets/about.jpg",
+      what: "assets/what-i-do.jpg",
+      contact: "assets/get-in-touch.jpg"
+    };
+
     function openPanel() {
       panel.classList.add("open");
       panel.setAttribute("aria-hidden", "false");
@@ -432,7 +456,10 @@
       menuBtn.classList.add("open");
 
       body.classList.add("noscroll");
+
+      // Defaults
       previewImg.src = "assets/slide-2.jpg";
+      sectionImg.src = sectionMap.about;
     }
 
     function closePanel() {
@@ -466,9 +493,22 @@
       if (e.target.classList.contains("panel-bg")) closePanel();
     });
 
-    // ===== Desktop hover preview =====
+    // Section link hover/tap changes section image
+    sectionLinks.forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        if (!window.matchMedia("(hover: hover)").matches) return;
+        const key = link.getAttribute("data-section");
+        sectionImg.src = sectionMap[key] || sectionMap.about;
+      });
+
+      link.addEventListener("click", () => {
+        const key = link.getAttribute("data-section");
+        sectionImg.src = sectionMap[key] || sectionMap.about;
+      });
+    });
+
+    // ===== Desktop hover project preview =====
     pillList.addEventListener("mouseover", (e) => {
-      // Only meaningful on devices that actually hover
       if (!window.matchMedia("(hover: hover)").matches) return;
       const pill = e.target.closest(".pill");
       if (!pill) return;
@@ -482,7 +522,7 @@
       previewImg.src = "assets/slide-2.jpg";
     });
 
-    // ===== Mobile tap preview =====
+    // ===== Mobile tap project preview =====
     pillList.addEventListener("click", (e) => {
       const pill = e.target.closest(".pill");
       if (!pill) return;
