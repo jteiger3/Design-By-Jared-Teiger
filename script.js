@@ -1,101 +1,101 @@
-/* =========================
-   script.js
-   Shared site behavior
-   ========================= */
-
+// script.js
 (function () {
-  const body = document.body;
-
-  // MENU
+  const menuBtn = document.getElementById("menuBtn");
   const menuOverlay = document.getElementById("menuOverlay");
-  const menuBtn = document.querySelector(".menuBtn");
-  const previewImg = document.getElementById("menuPreviewImg");
+  const closeBtn = document.getElementById("closeBtn");
+  const backdropBtn = document.getElementById("backdropBtn");
+  const previewEl = document.getElementById("menuPreview");
 
+  const body = document.body;
+  const page = body.getAttribute("data-page");
+
+  // ----- MENU -----
   function openMenu() {
-    if (!menuOverlay || !menuBtn) return;
+    if (!menuOverlay) return;
     menuOverlay.classList.add("is-open");
     menuOverlay.setAttribute("aria-hidden", "false");
-    menuBtn.setAttribute("aria-expanded", "true");
-    body.classList.add("noScroll");
+    menuBtn?.setAttribute("aria-expanded", "true");
+    body.classList.add("no-scroll");
+
+    // set default preview = about.jpg
+    if (previewEl) {
+      previewEl.style.backgroundImage = "url('./assets/about.jpg')";
+    }
   }
 
   function closeMenu() {
-    if (!menuOverlay || !menuBtn) return;
+    if (!menuOverlay) return;
     menuOverlay.classList.remove("is-open");
     menuOverlay.setAttribute("aria-hidden", "true");
-    menuBtn.setAttribute("aria-expanded", "false");
-    body.classList.remove("noScroll");
+    menuBtn?.setAttribute("aria-expanded", "false");
+    body.classList.remove("no-scroll");
   }
 
-  function toggleMenu() {
-    if (!menuOverlay) return;
-    const isOpen = menuOverlay.classList.contains("is-open");
+  menuBtn?.addEventListener("click", () => {
+    const isOpen = menuOverlay?.classList.contains("is-open");
     isOpen ? closeMenu() : openMenu();
-  }
+  });
 
-  // Click menu button toggles
-  if (menuBtn) {
-    menuBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      toggleMenu();
-    });
-  }
+  closeBtn?.addEventListener("click", closeMenu);
+  backdropBtn?.addEventListener("click", closeMenu);
 
-  // Prevent overlay click from closing accidentally (per your request)
-  // Close only with ESC key.
+  // Escape closes menu
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
+    if (e.key === "Escape" && menuOverlay?.classList.contains("is-open")) closeMenu();
   });
 
-  // Hover/focus preview swap (links + pills)
-  function setPreview(src) {
-    if (!previewImg || !src) return;
-    // swap with a tiny fade
-    previewImg.classList.remove("is-visible");
-    window.setTimeout(() => {
-      previewImg.src = src;
-      previewImg.classList.add("is-visible");
-    }, 120);
-  }
-
-  const previewTargets = document.querySelectorAll("[data-preview]");
-  previewTargets.forEach((el) => {
-    const src = el.getAttribute("data-preview");
-    // hover
-    el.addEventListener("mouseenter", () => setPreview(src));
-    // keyboard focus
-    el.addEventListener("focus", () => setPreview(src));
+  // Hover preview switching (desktop)
+  const previewLinks = document.querySelectorAll("[data-preview]");
+  previewLinks.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      const src = el.getAttribute("data-preview");
+      if (src && previewEl) previewEl.style.backgroundImage = `url('${src}')`;
+    });
+    el.addEventListener("focus", () => {
+      const src = el.getAttribute("data-preview");
+      if (src && previewEl) previewEl.style.backgroundImage = `url('${src}')`;
+    });
   });
 
-  // Ensure menu panel never scrolls on mobile; if content gets tall, we clamp instead.
-  // (You can later add internal scroll if you ever need it.)
-  if (menuOverlay) {
-    // Stop touch scroll from "rubber-banding" the background on iOS
-    menuOverlay.addEventListener(
-      "touchmove",
-      (e) => {
-        if (menuOverlay.classList.contains("is-open")) e.preventDefault();
-      },
-      { passive: false }
-    );
-  }
+  // Mobile: tap updates preview (without navigating) if you tap once; second tap navigates.
+  // (Simple heuristic)
+  let lastTapped = null;
+  previewLinks.forEach((el) => {
+    el.addEventListener("touchstart", (ev) => {
+      const src = el.getAttribute("data-preview");
+      if (!src || !previewEl) return;
 
-  // HOME CAROUSEL (simple)
-  const carousel = document.getElementById("homeCarousel");
-  if (carousel) {
-    const slides = Array.from(carousel.querySelectorAll(".hero__slide"));
-    const dots = Array.from(document.querySelectorAll(".hero__dots .dot"));
-    let idx = 0;
+      if (lastTapped !== el) {
+        ev.preventDefault();
+        previewEl.style.backgroundImage = `url('${src}')`;
+        lastTapped = el;
+        setTimeout(() => (lastTapped = null), 1200);
+      }
+    }, { passive: false });
+  });
 
-    function show(i) {
-      slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
-      dots.forEach((d, k) => d.classList.toggle("is-active", k === i));
+  // Prevent overlay scroll / accidental "click outside right edge" behavior:
+  // We already use a full-width backdrop button; this just stops touchmove bubbling.
+  menuOverlay?.addEventListener("touchmove", (e) => {
+    if (menuOverlay.classList.contains("is-open")) e.preventDefault();
+  }, { passive: false });
+
+  // ----- HOME CAROUSEL -----
+  if (page === "home") {
+    const slides = Array.from(document.querySelectorAll(".carousel__slide"));
+    const dots = Array.from(document.querySelectorAll(".dot"));
+    let i = 0;
+
+    function show(idx) {
+      slides.forEach((s) => s.classList.remove("is-active"));
+      dots.forEach((d) => d.classList.remove("is-active"));
+      slides[idx]?.classList.add("is-active");
+      dots[idx]?.classList.add("is-active");
     }
 
-    window.setInterval(() => {
-      idx = (idx + 1) % slides.length;
-      show(idx);
+    setInterval(() => {
+      i = (i + 1) % slides.length;
+      show(i);
     }, 4500);
   }
 })();
-
