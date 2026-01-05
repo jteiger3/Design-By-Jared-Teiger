@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Jared Teiger</title>
+  <meta name="description" content="About Jared Teiger." />
 
   <!-- Roboto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,61 +13,96 @@
 
   <style>
     :root{
-      --navH: 76px;
-      --maxW: 980px;
       --text:#111;
       --muted:#666;
       --line: rgba(0,0,0,.12);
-      --shadow: 0 18px 60px rgba(0,0,0,.10);
+      --shadow: 0 18px 60px rgba(0,0,0,.18);
+      --radius: 28px;
+
+      --panelBg:#ffffff;
+      --maxW: 1200px;
+      --navH: 76px;
     }
+
     *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
       font-family: Roboto, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial;
       background:#fff;
-      color:var(--text);
+      color: var(--text);
+      overflow-x:hidden;
     }
 
-    /* NAV (solid white on this page) */
+    /* ===== NAV ===== */
     .nav{
-      position:sticky;
-      top:0;
+      position:fixed;
+      top:0; left:0; right:0;
       height:var(--navH);
-      z-index:10;
+      z-index:50;
       display:flex;
       align-items:center;
       justify-content:center;
       padding: 0 18px;
-      background:#fff;
-      border-bottom: 1px solid rgba(0,0,0,.06);
+      pointer-events:none;
+
+      /* integrated over hero */
+      background: linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,0));
+      backdrop-filter: blur(6px);
+      transition: background 180ms ease, backdrop-filter 180ms ease;
     }
     .nav-inner{
       width: min(1400px, 100%);
       display:grid;
       grid-template-columns: 56px 1fr 56px;
       align-items:center;
+      pointer-events:auto;
     }
 
     .icon-btn{
-      width:56px; height:56px;
-      display:grid; place-items:center;
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
       background:transparent;
       border:none;
       padding:0;
       cursor:pointer;
       justify-self:start;
-      color:#111;
-      font-size:18px;
+      -webkit-tap-highlight-color: transparent;
     }
+
+    .burger{
+      width: 22px;
+      height: 16px;
+      position: relative;
+    }
+    .burger span{
+      position:absolute;
+      left:0;
+      width:100%;
+      height:2px;
+      background:#fff;
+      border-radius:2px;
+      transition: transform 220ms ease, top 220ms ease, opacity 180ms ease, background 180ms ease;
+    }
+    .burger span:nth-child(1){ top:0; }
+    .burger span:nth-child(2){ top:7px; }
+    .burger span:nth-child(3){ top:14px; }
+
+    .icon-btn.open .burger span:nth-child(1){ top:7px; transform: rotate(45deg); }
+    .icon-btn.open .burger span:nth-child(2){ opacity:0; }
+    .icon-btn.open .burger span:nth-child(3){ top:7px; transform: rotate(-45deg); }
 
     .brand{
       justify-self:center;
       text-decoration:none;
-      color:#111;
-      font-size: 28px;
+      color:#fff;
+      font-size: 34px;
       letter-spacing: .06em;
       text-transform: uppercase;
       user-select:none;
+      transition: color 180ms ease;
       line-height:1;
       white-space:nowrap;
     }
@@ -75,103 +111,388 @@
 
     .social{
       justify-self:end;
-      width:56px; height:56px;
-      display:grid; place-items:center;
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
     }
     .social a{
       width:56px; height:56px;
       display:grid; place-items:center;
-      color:#111;
+      background:transparent;
+      border:none;
       text-decoration:none;
+      color:#fff;
+      cursor:pointer;
+      transition: color 180ms ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    /* PAGE */
-    .wrap{
-      width: min(var(--maxW), 100%);
-      margin: 0 auto;
-      padding: 28px 18px 90px;
+    /* NAV when menu is open: solid white */
+    .nav.menu-open{
+      background: var(--panelBg);
+      backdrop-filter: none;
+    }
+    .nav.menu-open .brand,
+    .nav.menu-open .social a{
+      color:#111;
+    }
+    .nav.menu-open .burger span{
+      background:#111;
     }
 
-    .hero{
+    /* ===== MENU PANEL ===== */
+    .panel{
+      position:fixed;
+      top: var(--navH);
+      left:0; right:0;
+      height: calc(100vh - var(--navH));
+      z-index:40;
+      display:none;
+    }
+    .panel.open{ display:block; }
+
+    .panel-bg{
+      position:absolute; inset:0;
+      background: var(--panelBg);
+      animation: fadeIn 180ms ease forwards;
+    }
+    @keyframes fadeIn{
+      from{ opacity:0; }
+      to{ opacity:1; }
+    }
+
+    .panel-inner{
+      position:relative;
+      width:min(1400px, 100%);
+      height:100%;
+      margin:0 auto;
+      padding: 22px 18px 22px;
       display:grid;
-      grid-template-columns: 180px 1fr;
-      gap: 22px;
-      align-items:start;
-      margin-top: 20px;
+      grid-template-columns: 360px 1fr;
+      gap: 26px;
+      color: var(--text);
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .headshot{
-      width:180px;
-      aspect-ratio: 1 / 1;
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(0,0,0,.10);
-      box-shadow: var(--shadow);
-      background:#f2f2f2;
+    .top-links{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-top: 8px;
     }
-    .headshot img{
+    .top-link{
+      display:block;
+      font-size: 42px;
+      line-height: 1.05;
+      text-decoration:none;
+      color: var(--text);
+      width: fit-content;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .top-link:hover{ text-decoration: underline; }
+
+    .label{
+      margin-top: 10px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pill-list{
+      margin-top: 10px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 260px;
+    }
+    .pill{
+      width: fit-content;
+      border: 1px solid var(--line);
+      background: #e9eaec;
+      color: #1b1b1b;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 650;
+      cursor: pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .center{
+      padding-top: 8px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+    }
+    .image-frame{
+      width: min(760px, 100%);
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#ddd;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.12);
+    }
+    .image-frame img{
       width:100%;
       height:100%;
       object-fit: cover;
       display:block;
+      transform: scale(1.01);
+      transition: opacity 160ms ease;
     }
 
-    h1{
-      margin:0 0 8px;
-      font-size: 34px;
-      font-weight:700;
+    body.noscroll{ overflow:hidden; }
+
+    /* ===== ABOUT CONTENT ===== */
+    .page{
+      padding-top: var(--navH);
+    }
+
+    .hero{
+      width:100%;
+      height: min(72vh, 720px);
+      position:relative;
+      overflow:hidden;
+      background:#111;
+    }
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      filter: grayscale(100%);
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.10) 40%, rgba(0,0,0,.0));
+      pointer-events:none;
+    }
+
+    .wrap{
+      width: min(var(--maxW), 100%);
+      margin: 0 auto;
+      padding: 54px 18px 80px;
+    }
+
+    .intro h1{
+      margin:0;
+      font-size: 46px;
+      font-weight:400;
       letter-spacing:-0.02em;
     }
-    .sub{
-      margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.55;
-      font-size: 16px;
+    .tagline{
+      margin: 10px 0 0;
+      font-size: 20px;
+      color: var(--muted);
+    }
+    .big-quote{
+      margin: 34px 0 0;
+      font-size: 28px;
+      line-height: 1.35;
+      font-weight:400;
+      letter-spacing:-0.01em;
+    }
+    .body{
+      margin: 22px 0 0;
+      max-width: 980px;
+      font-size: 20px;
+      line-height: 1.55;
+      color:#222;
     }
 
-    .section{
-      margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(0,0,0,.08);
+    .section-title{
+      margin: 78px 0 18px;
+      font-size: 56px;
+      font-weight:400;
+      letter-spacing:-0.02em;
     }
 
-    .section h2{
-      margin:0 0 10px;
-      font-size: 18px;
-      letter-spacing: .02em;
-      text-transform: uppercase;
+    /* Education */
+    .edu{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 800px;
+    }
+    .edu-item .school{
+      font-size: 24px;
       font-weight:700;
     }
-
-    .list{
-      margin:0;
-      padding-left: 18px;
+    .edu-item .degree{
+      margin-top: 4px;
+      font-size: 20px;
       color:#222;
-      line-height:1.7;
     }
 
-    /* Responsive */
-    @media (max-width: 640px){
-      :root{ --navH: 64px; }
-      .nav-inner{ grid-template-columns: 48px 1fr 48px; }
-      .icon-btn,.social,.social a{ width:48px; height:48px; }
-      .brand{ font-size: 22px; }
+    /* Experience layout like your screenshot: left role/dates, right company/description */
+    .experience-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items:start;
+      margin-top: 20px;
+      border: none;
+      padding: 34px;
+    }
 
-      .hero{ grid-template-columns: 1fr; }
-      .headshot{ width:100%; max-width: 360px; }
+    .roles, .companies{
+      display:flex;
+      flex-direction:column;
+      gap: 44px;
+    }
+
+    .role .title{
+      font-weight:700;
+      font-size: 20px;
+      margin:0;
+    }
+    .role .meta{
+      margin-top: 10px;
+      color:#222;
+      font-size: 18px;
+    }
+
+    .company .name{
+      font-weight:700;
+      font-size: 22px;
+      margin:0 0 10px;
+    }
+    .company .desc{
+      margin:0;
+      font-size: 18px;
+      line-height: 1.55;
+      color:#222;
+      max-width: 520px;
+    }
+
+    /* Awards */
+    .awards{
+      margin-top: 14px;
+    }
+    .award{
+      margin: 22px 0;
+    }
+    .award .name{
+      font-weight:700;
+      font-size: 22px;
+      margin:0;
+    }
+    .award .meta{
+      margin: 8px 0 0;
+      font-size: 18px;
+      color:#222;
+    }
+    .award a{
+      color:#111;
+      text-decoration: underline;
+    }
+
+    /* Footer help section */
+    .help{
+      margin-top: 90px;
+      padding: 46px 18px;
+      background:#f3f3f3;
+    }
+    .help-inner{
+      width: min(var(--maxW), 100%);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items:start;
+    }
+    .help h2{
+      margin:0;
+      font-size: 56px;
+      font-weight:400;
+      letter-spacing:-0.02em;
+    }
+    .help-links{
+      display:flex;
+      flex-direction:column;
+      gap: 18px;
+      align-items:flex-end;
+    }
+    .help-link{
+      width: min(620px, 100%);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,.18);
+      text-decoration:none;
+      color:#111;
+      font-size: 26px;
+      font-weight:400;
+    }
+    .arrow{
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 980px){
+      .panel-inner{ grid-template-columns: 1fr; gap: 18px; }
+      .pill-list{
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .center{ justify-content:flex-start; }
+      .image-frame{ width: 100%; max-width: 760px; }
+      .experience-grid{ grid-template-columns: 1fr; gap: 34px; }
+      .help-inner{ grid-template-columns: 1fr; }
+      .help-links{ align-items:flex-start; }
+    }
+
+    @media (max-width: 560px){
+      :root{ --navH: 64px; }
+      .nav{ padding: 0 12px; }
+      .nav-inner{ grid-template-columns: 48px 1fr 48px; }
+
+      .icon-btn, .social, .social a{ width:48px; height:48px; }
+
+      .burger{ width:20px; height:14px; }
+      .burger span:nth-child(2){ top:6px; }
+      .burger span:nth-child(3){ top:12px; }
+      .icon-btn.open .burger span:nth-child(1){ top:6px; }
+      .icon-btn.open .burger span:nth-child(3){ top:6px; }
+
+      .brand{ font-size: 22px; }
+      .top-link{ font-size: 34px; }
+
+      .intro h1{ font-size: 36px; }
+      .section-title{ font-size: 42px; }
+
+      .hero{ height: 52vh; }
+      .experience-grid{ padding: 22px; }
+
+      .help h2{ font-size: 42px; }
+      .help-link{ font-size: 22px; }
     }
   </style>
 </head>
 
 <body>
-  <header class="nav">
+  <!-- NAV -->
+  <header class="nav" aria-label="Top Navigation">
     <div class="nav-inner">
-      <!-- Back/Home button -->
-      <button class="icon-btn" type="button" onclick="window.location.href='index.html'" aria-label="Back to home">
-        ←
+      <button class="icon-btn" id="menuBtn" type="button" aria-expanded="false" aria-label="Open menu">
+        <div class="burger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
       </button>
 
-      <a class="brand" href="index.html" aria-label="Home">
+      <a class="brand" href="index.html" id="homeLink" aria-label="Home">
         <span class="brand-regular">JARED</span><span class="brand-bold">TEIGER</span>
       </a>
 
@@ -185,49 +506,328 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="hero">
-      <div class="headshot">
-        <!-- Put your about/headshot image here -->
-        <img src="assets/about.jpg" alt="Jared Teiger">
+  <!-- MENU PANEL -->
+  <section class="panel" id="panel" aria-hidden="true">
+    <div class="panel-bg"></div>
+
+    <div class="panel-inner">
+      <div>
+        <div class="top-links" id="topLinks">
+          <a class="top-link" href="about.html" data-preview="assets/about.jpg">About Me</a>
+          <a class="top-link" href="what-i-do.html" data-preview="assets/what-i-do.jpg">What I Do</a>
+          <a class="top-link" href="contact.html" data-preview="assets/get-in-touch.jpg">Get in Touch</a>
+        </div>
+
+        <div class="label">Case Studies</div>
+        <div class="pill-list" id="pillList">
+          <div class="pill" data-preview="assets/star-wars.jpg" role="button" tabindex="0">Star Wars</div>
+          <div class="pill" data-preview="assets/the-covenant.jpg" role="button" tabindex="0">The Covenant</div>
+          <div class="pill" data-preview="assets/magimates.jpg" role="button" tabindex="0">Magimates</div>
+          <div class="pill" data-preview="assets/helloreal.jpg" role="button" tabindex="0">Helloreal</div>
+          <div class="pill" data-preview="assets/nightflare.jpg" role="button" tabindex="0">Nightflare</div>
+          <div class="pill" data-preview="assets/sapele-serenade.jpg" role="button" tabindex="0">Sapele Serenade</div>
+          <div class="pill" data-preview="assets/social-queue.jpg" role="button" tabindex="0">Social Queue</div>
+        </div>
       </div>
 
-      <div>
-        <h1>About</h1>
-        <p class="sub">
-          Replace this with your short story: who you are, what you build, what you care about.
-          Keep it 3–5 lines — crisp and human.
-        </p>
-        <p class="sub">
-          You can add a longer paragraph here with your background (industrial design, robotics, film/game work, etc.)
-          and the kind of projects you want next.
-        </p>
+      <div class="center">
+        <div class="image-frame" aria-label="Preview">
+          <img id="previewImg" src="assets/about.jpg" alt="Preview">
+        </div>
       </div>
     </div>
+  </section>
 
-    <section class="section">
-      <h2>Highlights</h2>
-      <ul class="list">
-        <li>Industrial design + prototyping</li>
-        <li>3D, visualization, and storytelling</li>
-        <li>Robotics / physical product development</li>
-      </ul>
+  <!-- ABOUT PAGE CONTENT -->
+  <main class="page">
+    <!-- Section 1: Hero image -->
+    <section class="hero" aria-label="About hero">
+      <img src="assets/about-hero.jpg" alt="Jared Teiger in studio">
     </section>
 
-    <section class="section">
-      <h2>Tools</h2>
-      <ul class="list">
-        <li>Replace with your real stack (SolidWorks, Blender, Rhino, Adobe, etc.)</li>
-        <li>Replace with your real stack</li>
-      </ul>
-    </section>
+    <div class="wrap">
+      <!-- Section 2: Intro text -->
+      <section class="intro" aria-label="Intro">
+        <h1>Jared Teiger</h1>
+        <p class="tagline">I build stories you can hold in your hands.</p>
 
-    <section class="section">
-      <h2>Contact</h2>
-      <p class="sub">
-        Add your preferred contact method here (email, calendar link, etc.)
-      </p>
-    </section>
+        <p class="big-quote">
+          I’m fascinated by the process of turning imagination into something tangible; from sketch to prototype,
+          from pixels to production.
+        </p>
+
+        <p class="body">
+          My journey began at Georgia Tech, where I learned to think critically about how design, art, and engineering
+          come together. Since then, I’ve explored it all: 3D printing, sculpture, animation, and design visualization.
+          I’ve helped take products from concept to full-scale manufacturing, and I continue to push my curiosity into
+          new creative mediums.
+        </p>
+      </section>
+
+      <!-- Section 3: Education -->
+      <section aria-label="Education">
+        <h2 class="section-title">Education</h2>
+        <div class="edu">
+          <div class="edu-item">
+            <div class="school">Georgia Institute of Technology 2021-2025</div>
+            <div class="degree">Bachelors of Science in Industrial Design</div>
+          </div>
+
+          <div class="edu-item">
+            <div class="school">Technological University of Delft 2024</div>
+            <div class="degree">Bachelors of Science in Industrial Design</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Experience -->
+      <section aria-label="Experience">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="experience-grid">
+          <div class="roles">
+            <div class="role">
+              <p class="title">Industrial Designer</p>
+              <div class="meta">2025 - Present | San Francisco, CA</div>
+            </div>
+
+            <div class="role">
+              <p class="title">Campus Ambassador Leader</p>
+              <div class="meta">2024-2025 | Atlanta, GA</div>
+            </div>
+
+            <div class="role">
+              <p class="title">Industrial Designer</p>
+              <div class="meta">2023 | Atlanta, GA</div>
+            </div>
+
+            <div class="role">
+              <p class="title">Design Intern</p>
+              <div class="meta">2022-2023 | Los Angeles, CA</div>
+            </div>
+
+            <div class="role">
+              <p class="title">Design Consultant</p>
+              <div class="meta">2020-2022 | Los Angeles, CA</div>
+            </div>
+          </div>
+
+          <div class="companies">
+            <div class="company">
+              <p class="name">Spacer Robotics</p>
+              <p class="desc">
+                I partnered closely with the founding team to shape Spacer Robotics’ early product strategy,
+                researching construction-site workflows, defining user needs, and co-designing next-generation
+                robotic concepts that aligned form, function, and brand vision. I created the company’s visual
+                identity, produced a three-minute investor pitch video from storyboard to final edit, and
+                engineered a functional 3D-printed prototype that integrated mechanical, electrical, and iterative
+                design to validate core mechanisms and support fundraising efforts.
+              </p>
+            </div>
+
+            <div class="company">
+              <p class="name">Autodesk</p>
+              <p class="desc">
+                Led hands-on Fusion workshops, introducing students to 3D modeling and real-world design.
+                Strengthened ties between Autodesk and Georgia Tech’s maker community. Built communication skills
+                by adapting to diverse learners and fostering a collaborative environment.
+              </p>
+            </div>
+
+            <div class="company">
+              <p class="name">Helloreal</p>
+              <p class="desc">
+                Launched PSVR2 adapter, expanding product line into VR. Designed 25+ concepts and 15+ Fusion-based
+                prototypes to test clasp and lock mechanisms. Optimized prints for efficiency. Supported marketing
+                by starring in and editing a Tennis Pro Swing promo video.
+              </p>
+            </div>
+
+            <div class="company">
+              <p class="name">Actasys Inc.</p>
+              <p class="desc">
+                Rendered and animated visuals of Actajet tech for CES 2023 and client outreach. Created 10+
+                infographics and videos explaining sensor-cleaning products. Designed a thermal vent mock-up and
+                filmed a promo video during CES for social media use.
+              </p>
+            </div>
+
+            <div class="company">
+              <p class="name">Panspatial Aerospace Concept Design</p>
+              <p class="desc">
+                Designed Trillium Stargate aircraft and Epiguard Shuttle for portfolio and pitch assets. Researched
+                flight systems to guide modeling decisions. Created Argonas rail weapon for Modern Warship,
+                ensuring accurate form, function, and visual detail across all assets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5A: Awards -->
+      <section aria-label="Awards and Recognition">
+        <h2 class="section-title">Awards and Recognition</h2>
+
+        <div class="awards">
+          <div class="award">
+            <p class="name">Undergraduate Leadership and Service Award</p>
+            <div class="meta">Georgia Tech Faculty - 2025</div>
+          </div>
+
+          <div class="award">
+            <p class="name">Best Overall Project Industrial Design and Engineering</p>
+            <div class="meta">Georgia Tech Capstone - 2025</div>
+          </div>
+
+          <div class="award">
+            <p class="name">Student Design Excellence Award</p>
+            <div class="meta">HRI/ACM/IEEE Conference - 2025<br><a href="#" target="_blank" rel="noreferrer">Read our paper here</a></div>
+          </div>
+
+          <div class="award">
+            <p class="name">Orange Sparkle Ball Honorable Mention</p>
+            <div class="meta">Make 10 Market - 2024</div>
+          </div>
+
+          <div class="award">
+            <p class="name">Lucasfilm and Autodesk Droid Competition - Student Winner</p>
+            <div class="meta">Lucasfilm Promotional Contest - 2024<br>Recognized in Digital Engineering Article</div>
+          </div>
+
+          <div class="award">
+            <p class="name">LIT Lighting Design Award</p>
+            <div class="meta">Nightflare Design - 2023</div>
+          </div>
+
+          <div class="award">
+            <p class="name">SIT Furniture Design Award</p>
+            <div class="meta">Sapele Serenade Design - 2023<br>Recognized on Core77 and Dezeen</div>
+          </div>
+
+          <div class="award">
+            <p class="name">ID Faculty Merit Award</p>
+            <div class="meta">Georgia Tech - 2022</div>
+          </div>
+
+          <div class="award">
+            <p class="name">Scholastic Art and Writing - Industrial Design</p>
+            <div class="meta">Gold Key and National Medal - 2021</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Section 5B: How can I help -->
+    <footer class="help" aria-label="How can I help">
+      <div class="help-inner">
+        <h2>How can I help</h2>
+
+        <div class="help-links">
+          <a class="help-link" href="contact.html">
+            <span>Work together</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="help-link" href="contact.html">
+            <span>Just say hello</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </footer>
   </main>
+
+  <script>
+    // ===== Menu open/close (same behavior as home) =====
+    const body = document.body;
+    const nav = document.querySelector(".nav");
+    const menuBtn = document.getElementById("menuBtn");
+    const panel = document.getElementById("panel");
+
+    const previewImg = document.getElementById("previewImg");
+    const topLinks = document.getElementById("topLinks");
+    const pillList = document.getElementById("pillList");
+
+    const DEFAULT_PREVIEW = "assets/about.jpg";
+
+    function setPreview(src){
+      if (!src) return;
+      previewImg.style.opacity = "0.15";
+      const next = new Image();
+      next.onload = () => {
+        previewImg.src = src;
+        previewImg.style.opacity = "1";
+      };
+      next.onerror = () => {
+        previewImg.style.opacity = "1";
+        console.warn("Preview image failed to load:", src);
+      };
+      next.src = src;
+    }
+
+    function openPanel() {
+      panel.classList.add("open");
+      panel.setAttribute("aria-hidden", "false");
+      nav.classList.add("menu-open");
+
+      menuBtn.setAttribute("aria-expanded", "true");
+      menuBtn.setAttribute("aria-label", "Close menu");
+      menuBtn.classList.add("open");
+
+      body.classList.add("noscroll");
+      setPreview(DEFAULT_PREVIEW);
+    }
+
+    function closePanel() {
+      panel.classList.remove("open");
+      panel.setAttribute("aria-hidden", "true");
+      nav.classList.remove("menu-open");
+
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Open menu");
+      menuBtn.classList.remove("open");
+
+      body.classList.remove("noscroll");
+    }
+
+    menuBtn.addEventListener("click", () => {
+      if (panel.classList.contains("open")) closePanel();
+      else openPanel();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && panel.classList.contains("open")) closePanel();
+    });
+
+    panel.addEventListener("click", (e) => {
+      if (e.target.classList.contains("panel-bg")) closePanel();
+    });
+
+    // ===== Preview hover/tap =====
+    function attachPreviewHandlers(container){
+      container.addEventListener("mouseover", (e) => {
+        if (!window.matchMedia("(hover: hover)").matches) return;
+        const el = e.target.closest("[data-preview]");
+        if (!el) return;
+        setPreview(el.getAttribute("data-preview"));
+      });
+
+      container.addEventListener("click", (e) => {
+        const el = e.target.closest("[data-preview]");
+        if (!el) return;
+        setPreview(el.getAttribute("data-preview"));
+      });
+
+      container.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const el = e.target.closest("[data-preview]");
+        if (!el) return;
+        e.preventDefault();
+        setPreview(el.getAttribute("data-preview"));
+      });
+    }
+
+    attachPreviewHandlers(topLinks);
+    attachPreviewHandlers(pillList);
+  </script>
 </body>
 </html>
