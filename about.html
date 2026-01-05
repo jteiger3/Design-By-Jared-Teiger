@@ -1,267 +1,209 @@
-<!-- =========================
-     about.html
-     ========================= -->
+<!-- about.html -->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Jared Teiger</title>
 
   <!-- Roboto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Shared CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
+<body data-page="about">
 
-<body>
-  <!-- NAV (over hero) -->
-  <header class="nav nav--overlay">
-    <div class="nav__inner">
-      <button class="iconBtn menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
-        <span class="hamburger" aria-hidden="true"></span>
+  <!-- NAV (over hero image) -->
+  <header class="nav nav--overlay" id="nav">
+    <div class="nav__bar" id="navBar">
+      <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
       </button>
 
-      <a class="brand" href="index.html" aria-label="Go to home">
+      <a class="brand" href="./index.html" aria-label="Go to home">
         <span class="brand__first">JARED</span><span class="brand__last">TEIGER</span>
       </a>
 
-      <a class="iconBtn linkedin" href="https://www.linkedin.com/in/jared-teiger/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <a class="icon-btn linkedin" href="https://www.linkedin.com/in/jared-teiger/" target="_blank" rel="noopener" aria-label="LinkedIn">
         in
       </a>
     </div>
   </header>
 
-  <main>
-    <!-- SECTION 1: Full-height hero image -->
-    <section class="hero hero--about" aria-label="About hero">
-      <!-- Replace with your hero image asset -->
-      <img class="hero__img" src="assets/about-hero.jpg" alt="Jared in the studio" />
-      <div class="hero__overlay" aria-hidden="true"></div>
+  <!-- HERO: full viewport height -->
+  <section class="page-hero" style="background-image:url('./assets/about-hero.jpg')">
+    <div class="page-hero__scrim" aria-hidden="true"></div>
+  </section>
+
+  <main class="page">
+    <!-- SECTION 1 -->
+    <section class="section section--intro">
+      <h1 class="h1">Jared Teiger</h1>
+      <p class="lead">I build stories you can hold in your hands.</p>
+      <p class="body">
+        I’m fascinated by the process of turning imagination into something tangible; from sketch to prototype, from pixels to production.
+      </p>
+      <p class="body">
+        My journey began at Georgia Tech, where I learned to think critically about how design, art, and engineering come together. Since then, I’ve explored it all: 3D printing, sculpture, animation, and design visualization. I’ve helped take products from concept to full-scale manufacturing, and I continue to push my curiosity into new creative mediums.
+      </p>
     </section>
 
-    <!-- SECTION 2: Intro -->
+    <!-- SECTION 2 -->
     <section class="section">
-      <div class="container">
-        <h1 class="h1">Jared Teiger</h1>
-        <p class="lead">I build stories you can hold in your hands.</p>
-
-        <p class="bodyText">
-          I’m fascinated by the process of turning imagination into something tangible; from sketch to prototype,
-          from pixels to production.
-        </p>
-
-        <p class="bodyText">
-          My journey began at Georgia Tech, where I learned to think critically about how design, art, and engineering come together.
-          Since then, I’ve explored it all: 3D printing, sculpture, animation, and design visualization. I’ve helped take products
-          from concept to full-scale manufacturing, and I continue to push my curiosity into new creative mediums.
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 3: Education -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="h2">Education</h2>
-
-        <div class="eduList">
-          <div class="eduItem">
-            <div class="eduTitle">Georgia Institute of Technology <span class="muted">2021–2025</span></div>
-            <div class="eduSub">Bachelors of Science in Industrial Design</div>
-          </div>
-
-          <div class="eduItem">
-            <div class="eduTitle">Technological University of Delft <span class="muted">2024</span></div>
-            <div class="eduSub">Bachelors of Science in Industrial Design</div>
-          </div>
+      <h2 class="h2">Education</h2>
+      <div class="edu">
+        <div class="edu__item">
+          <div class="edu__school">Georgia Institute of Technology <span class="muted">2021–2025</span></div>
+          <div class="edu__degree">Bachelors of Science in Industrial Design</div>
+        </div>
+        <div class="edu__item">
+          <div class="edu__school">Technological University of Delft <span class="muted">2024</span></div>
+          <div class="edu__degree">Bachelors of Science in Industrial Design</div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: Experience (paired rows) -->
+    <!-- SECTION 3 -->
     <section class="section">
-      <div class="container">
-        <h2 class="h2">Experience</h2>
+      <h2 class="h2">Experience</h2>
 
-        <div class="xpGrid">
-          <!-- Row 1 -->
-          <div class="xpLeft">
-            <div class="xpRole">Industrial Designer</div>
-            <div class="xpMeta">2025 – Present | San Francisco, CA</div>
+      <!-- Each row aligns role ↔ company -->
+      <div class="xp">
+        <div class="xp__row">
+          <div class="xp__left">
+            <div class="xp__role">Industrial Designer</div>
+            <div class="xp__meta">2025 – Present | San Francisco, CA</div>
           </div>
-          <div class="xpRight">
-            <div class="xpCompany">Spacer Robotics</div>
-            <p class="xpText">
-              I partnered closely with the founding team to shape Spacer Robotics’ early product strategy, researching construction-site workflows,
-              defining user needs, and co-designing next-generation robotic concepts that aligned form, function, and brand vision.
-              I created the company’s visual identity, produced a three-minute investor pitch video from storyboard to final edit, and engineered
-              a functional 3D-printed prototype that integrated mechanical, electrical, and iterative design to validate core mechanisms and support fundraising efforts.
-            </p>
+          <div class="xp__right">
+            <div class="xp__company">Spacer Robotics</div>
+            <div class="xp__desc">
+              I partnered closely with the founding team to shape Spacer Robotics’ early product strategy, researching construction-site workflows, defining user needs, and co-designing next-generation robotic concepts that aligned form, function, and brand vision. I created the company’s visual identity, produced a three-minute investor pitch video from storyboard to final edit, and engineered a functional 3D-printed prototype that integrated mechanical, electrical, and iterative design to validate core mechanisms and support fundraising efforts.
+            </div>
           </div>
+        </div>
 
-          <!-- Row 2 -->
-          <div class="xpLeft">
-            <div class="xpRole">Campus Ambassador Leader</div>
-            <div class="xpMeta">2024–2025 | Atlanta, GA</div>
+        <div class="xp__row">
+          <div class="xp__left">
+            <div class="xp__role">Campus Ambassador Leader</div>
+            <div class="xp__meta">2024–2025 | Atlanta, GA</div>
           </div>
-          <div class="xpRight">
-            <div class="xpCompany">Autodesk</div>
-            <p class="xpText">
-              Led hands-on Fusion workshops, introducing students to 3D modeling and real-world design. Strengthened ties between Autodesk and Georgia Tech’s maker community.
-              Built communication skills by adapting to diverse learners and fostering a collaborative environment.
-            </p>
+          <div class="xp__right">
+            <div class="xp__company">Autodesk</div>
+            <div class="xp__desc">
+              Led hands-on Fusion workshops, introducing students to 3D modeling and real-world design. Strengthened ties between Autodesk and Georgia Tech’s maker community. Built communication skills by adapting to diverse learners and fostering a collaborative environment.
+            </div>
           </div>
+        </div>
 
-          <!-- Row 3 -->
-          <div class="xpLeft">
-            <div class="xpRole">Industrial Designer</div>
-            <div class="xpMeta">2023 | Atlanta, GA</div>
+        <div class="xp__row">
+          <div class="xp__left">
+            <div class="xp__role">Industrial Designer</div>
+            <div class="xp__meta">2023 | Atlanta, GA</div>
           </div>
-          <div class="xpRight">
-            <div class="xpCompany">Helloreal</div>
-            <p class="xpText">
-              Launched PSVR2 adapter, expanding product line into VR. Designed 25+ concepts and 15+ Fusion-based prototypes to test clasp and lock mechanisms.
-              Optimized prints for efficiency. Supported marketing by starring in and editing a Tennis Pro Swing promo video.
-            </p>
+          <div class="xp__right">
+            <div class="xp__company">Helloreal</div>
+            <div class="xp__desc">
+              Launched PSVR2 adapter, expanding product line into VR. Designed 25+ concepts and 15+ Fusion-based prototypes to test clasp and lock mechanisms. Optimized prints for efficiency. Supported marketing by starring in and editing a Tennis Pro Swing promo video.
+            </div>
           </div>
+        </div>
 
-          <!-- Row 4 -->
-          <div class="xpLeft">
-            <div class="xpRole">Design Intern</div>
-            <div class="xpMeta">2022–2023 | Los Angeles, CA</div>
+        <div class="xp__row">
+          <div class="xp__left">
+            <div class="xp__role">Design Intern</div>
+            <div class="xp__meta">2022–2023 | Los Angeles, CA</div>
           </div>
-          <div class="xpRight">
-            <div class="xpCompany">Actasys Inc.</div>
-            <p class="xpText">
-              Rendered and animated visuals of Actajet tech for CES 2023 and client outreach. Created 10+ infographics and videos explaining sensor-cleaning products.
-              Designed a thermal vent mock-up and filmed a promo video during CES for social media use.
-            </p>
+          <div class="xp__right">
+            <div class="xp__company">Actasys Inc.</div>
+            <div class="xp__desc">
+              Rendered and animated visuals of Actajet tech for CES 2023 and client outreach. Created 10+ infographics and videos explaining sensor-cleaning products. Designed a thermal vent mock-up and filmed a promo video during CES for social media use.
+            </div>
           </div>
+        </div>
 
-          <!-- Row 5 -->
-          <div class="xpLeft">
-            <div class="xpRole">Design Consultant</div>
-            <div class="xpMeta">2020–2022 | Los Angeles, CA</div>
+        <div class="xp__row">
+          <div class="xp__left">
+            <div class="xp__role">Design Consultant</div>
+            <div class="xp__meta">2020–2022 | Los Angeles, CA</div>
           </div>
-          <div class="xpRight">
-            <div class="xpCompany">Panspatial Aerospace Concept Design</div>
-            <p class="xpText">
-              Designed Trillium Stargate aircraft and Epiguard Shuttle for portfolio and pitch assets. Researched flight systems to guide modeling decisions.
-              Created Argonas rail weapon for Modern Warship, ensuring accurate form, function, and visual detail across all assets.
-            </p>
+          <div class="xp__right">
+            <div class="xp__company">Panspatial Aerospace Concept Design</div>
+            <div class="xp__desc">
+              Designed Trillium Stargate aircraft and Epiguard Shuttle for portfolio and pitch assets. Researched flight systems to guide modeling decisions. Created Argonas rail weapon for Modern Warship, ensuring accurate form, function, and visual detail across all assets.
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 5: Awards + How can I help -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="h2">Awards and Recognition</h2>
+    <!-- SECTION 4 -->
+    <section class="section">
+      <h2 class="h2">Awards and Recognition</h2>
+      <ul class="list">
+        <li><span class="strong">Undergraduate Leadership and Service Award</span> — Georgia Tech Faculty (2025)</li>
+        <li><span class="strong">Best Overall Project Industrial Design and Engineering</span> — Georgia Tech Capstone (2025)</li>
+        <li><span class="strong">Student Design Excellence Award</span> — HRI/ACM/IEEE Conference (2025)</li>
+        <li><span class="strong">Orange Sparkle Ball Honorable Mention</span> — Make 10 Market (2024)</li>
+        <li><span class="strong">Lucasfilm and Autodesk Droid Competition – Student Winner</span> (2024)</li>
+        <li><span class="strong">LIT Lighting Design Award</span> — Nightflare Design (2023)</li>
+        <li><span class="strong">SIT Furniture Design Award</span> — Sapele Serenade Design (2023)</li>
+        <li><span class="strong">ID Faculty Merit Award</span> — Georgia Tech (2022)</li>
+        <li><span class="strong">Scholastic Art and Writing – Industrial Design</span> — Gold Key + National Medal (2021)</li>
+      </ul>
+    </section>
 
-        <div class="awards">
-          <div class="awardItem">
-            <div class="awardTitle">Undergraduate Leadership and Service Award</div>
-            <div class="awardMeta">Georgia Tech Faculty — 2025</div>
-          </div>
-
-          <div class="awardItem">
-            <div class="awardTitle">Best Overall Project Industrial Design and Engineering</div>
-            <div class="awardMeta">Georgia Tech Capstone — 2025</div>
-          </div>
-
-          <div class="awardItem">
-            <div class="awardTitle">Student Design Excellence Award</div>
-            <div class="awardMeta">HRI/ACM/IEEE Conference — 2025</div>
-            <a class="inlineLink" href="#" aria-label="Read our paper">Read our paper here</a>
-          </div>
-
-          <div class="awardItem">
-            <div class="awardTitle">Orange Sparkle Ball Honorable Mention</div>
-            <div class="awardMeta">Make 10 Market — 2024</div>
-          </div>
-
-          <div class="awardItem">
-            <div class="awardTitle">Lucasfilm and Autodesk Droid Competition — Student Winner</div>
-            <div class="awardMeta">Lucasfilm Promotional Contest — 2024</div>
-            <div class="awardMeta">Recognized in Digital Engineering Article</div>
-          </div>
-
-          <div class="awardItem">
-            <div class="awardTitle">LIT Lighting Design Award</div>
-            <div class="awardMeta">Nightflare Design — 2023</div>
-          </div>
-
-          <div class="awardItem">
-            <div class="awardTitle">SIT Furniture Design Award</div>
-            <div class="awardMeta">Sapele Serenade Design — 2023</div>
-            <div class="awardMeta">Recognized on Core77 and Dezeen</div>
-          </div>
-
-          <div class="awardItem">
-            <div class="awardTitle">ID Faculty Merit Award</div>
-            <div class="awardMeta">Georgia Tech — 2022</div>
-          </div>
-
-          <div class="awardItem">
-            <div class="awardTitle">Scholastic Art and Writing — Industrial Design</div>
-            <div class="awardMeta">Gold Key and National Medal — 2021</div>
-          </div>
-        </div>
-
-        <div class="helpRow">
-          <div class="helpLeft">
-            <h2 class="h2">How can I help</h2>
-          </div>
-          <div class="helpRight">
-            <a class="helpLink" href="contact.html">
-              <span>Work together</span>
-              <span class="arrow">↗</span>
-            </a>
-            <a class="helpLink" href="mailto:hello@jaredteiger.com">
-              <span>Just say hello</span>
-              <span class="arrow">↗</span>
-            </a>
-          </div>
+    <!-- SECTION 5 -->
+    <section class="section section--cta">
+      <div class="cta">
+        <h2 class="h2">How can I help</h2>
+        <div class="cta__links">
+          <a class="cta__link" href="./contact.html">Work together <span aria-hidden="true">↗</span></a>
+          <a class="cta__link" href="./contact.html">Just say hello <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
   </main>
 
   <!-- MENU OVERLAY (same as home) -->
-  <div class="menuOverlay" id="menuOverlay" aria-hidden="true">
-    <div class="menuPanel" role="dialog" aria-modal="true" aria-label="Menu">
-      <div class="menuLeft">
-        <nav class="menuNav">
-          <a class="menuLink" href="about.html" data-preview="assets/about_me_page.jpg">About Me</a>
-          <a class="menuLink" href="what-i-do.html" data-preview="assets/what-i-do.jpg">What I Do</a>
-          <a class="menuLink" href="contact.html" data-preview="assets/get-in-touch.jpg">Get in Touch</a>
+  <section class="menu" id="menuOverlay" aria-hidden="true">
+    <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="menu__left">
+        <div class="menu__toprow">
+          <button class="icon-btn close" id="closeBtn" aria-label="Close menu">
+            <span class="close__line"></span>
+            <span class="close__line"></span>
+          </button>
+        </div>
 
-          <div class="menuDivider"></div>
+        <nav class="menu__nav" aria-label="Primary">
+          <a class="menu__link" href="./about.html" data-preview="./assets/about.jpg">About Me</a>
+          <a class="menu__link" href="./what-i-do.html" data-preview="./assets/what-i-do.jpg">What I Do</a>
+          <a class="menu__link" href="./contact.html" data-preview="./assets/get-in-touch.jpg">Get in Touch</a>
 
-          <div class="menuLabel">CASE STUDIES</div>
-          <button class="pill" data-preview="assets/star-wars.jpg">Star Wars</button>
-          <button class="pill" data-preview="assets/the-covenant.jpg">The Covenant</button>
-          <button class="pill" data-preview="assets/magimates.jpg">Magimates</button>
-          <button class="pill" data-preview="assets/helloreal.jpg">Helloreal</button>
-          <button class="pill" data-preview="assets/nightflare.jpg">Nightflare</button>
-          <button class="pill" data-preview="assets/sapele-serenade.jpg">Sapele Serenade</button>
-          <button class="pill" data-preview="assets/social-queue.jpg">Social Queue</button>
+          <div class="menu__section-title">CASE STUDIES</div>
+
+          <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
+          <a class="pill" href="./project-the-covenant.html" data-preview="./assets/the-covenant.jpg">The Covenant</a>
+          <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">Magimates</a>
+          <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
+          <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
+          <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
+          <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">Social Queue</a>
         </nav>
       </div>
 
-      <div class="menuRight">
-        <div class="menuPreview" aria-label="Project preview">
-          <img id="menuPreviewImg" src="assets/about_me_page.jpg" alt="Project preview" />
-        </div>
+      <div class="menu__right">
+        <div class="preview" id="menuPreview" role="img" aria-label="Project preview"></div>
       </div>
     </div>
-  </div>
 
-  <!-- Shared JS -->
-  <script src="script.js"></script>
+    <button class="menu__backdrop" id="backdropBtn" aria-label="Close menu (backdrop)"></button>
+  </section>
+
+  <script src="./script.js" defer></script>
 </body>
 </html>
