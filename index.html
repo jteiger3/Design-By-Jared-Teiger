@@ -15,8 +15,8 @@
     :root{
       --bg:#3f4347;
 
-      /* MENU + NAV now solid white when open */
-      --panelBg: #ffffff;
+      /* Menu + nav open state = solid white */
+      --panelBg:#ffffff;
 
       --text:#111;
       --muted:#666;
@@ -133,9 +133,9 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* ===== NAV when menu is open: match menu background (solid white) ===== */
+    /* NAV when menu is open: solid white (matches menu) */
     .nav.menu-open{
-      background: #ffffff;
+      background: var(--panelBg);
       backdrop-filter: none;
     }
     .nav.menu-open .brand,
@@ -193,7 +193,6 @@
     }
     .panel.open{ display:block; }
 
-    /* Solid white menu background now */
     .panel-bg{
       position:absolute; inset:0;
       background: var(--panelBg);
@@ -220,36 +219,27 @@
 
     .left{ padding-top: 8px; }
 
-    .left a.big{
+    /* Top links behave like "big interactive targets" */
+    .top-links{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .top-link{
       display:block;
       font-size: 42px;
       line-height: 1.05;
       text-decoration:none;
       color: var(--text);
-      margin: 10px 0;
       width: fit-content;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
     }
-    .left a.big:hover{ text-decoration: underline; }
-
-    /* NEW: Image slot under top links */
-    .link-image{
-      margin-top: 14px;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(0,0,0,.10);
-      background: #f0f0f0;
-    }
-    .link-image img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-    }
+    .top-link:hover{ text-decoration: underline; }
 
     .label{
-      margin-top: 20px;
+      margin-top: 10px;
       font-size: 12px;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -297,6 +287,7 @@
       object-fit: cover;
       display:block;
       transform: scale(1.01);
+      transition: opacity 160ms ease;
     }
 
     body.noscroll{ overflow:hidden; }
@@ -337,7 +328,7 @@
         letter-spacing: .05em;
       }
 
-      .left a.big{ font-size: 34px; }
+      .top-link{ font-size: 34px; }
 
       .image-frame{
         aspect-ratio: 4 / 5;
@@ -386,31 +377,28 @@
 
     <div class="panel-inner">
       <div class="left">
-        <!-- Reordered links: About, What I Do, Get in Touch -->
-        <a class="big" href="#about" data-section="about">About Me</a>
-        <a class="big" href="#what-i-do" data-section="what">What I Do</a>
-        <a class="big" href="#contact" data-section="contact">Get in Touch</a>
-
-        <!-- NEW: image area for the above links -->
-        <div class="link-image" aria-label="Section preview">
-          <img id="sectionImg" src="assets/about.jpg" alt="Section image">
+        <!-- These now update the SAME right preview square -->
+        <div class="top-links" id="topLinks">
+          <a class="top-link" href="#about" data-preview="assets/about.jpg">About Me</a>
+          <a class="top-link" href="#what-i-do" data-preview="assets/what-i-do.jpg">What I Do</a>
+          <a class="top-link" href="#contact" data-preview="assets/get-in-touch.jpg">Get in Touch</a>
         </div>
 
         <div class="label">Case Studies</div>
         <div class="pill-list" id="pillList">
-          <div class="pill" data-img="assets/star-wars.jpg" role="button" tabindex="0">Star Wars</div>
-          <div class="pill" data-img="assets/the-covenant.jpg" role="button" tabindex="0">The Covenant</div>
-          <div class="pill" data-img="assets/magimates.jpg" role="button" tabindex="0">Magimates</div>
-          <div class="pill" data-img="assets/helloreal.jpg" role="button" tabindex="0">Helloreal</div>
-          <div class="pill" data-img="assets/nightflare.jpg" role="button" tabindex="0">Nightflare</div>
-          <div class="pill" data-img="assets/sapele-serenade.jpg" role="button" tabindex="0">Sapele Serenade</div>
-          <div class="pill" data-img="assets/social-queue.jpg" role="button" tabindex="0">Social Queue</div>
+          <div class="pill" data-preview="assets/star-wars.jpg" role="button" tabindex="0">Star Wars</div>
+          <div class="pill" data-preview="assets/the-covenant.jpg" role="button" tabindex="0">The Covenant</div>
+          <div class="pill" data-preview="assets/magimates.jpg" role="button" tabindex="0">Magimates</div>
+          <div class="pill" data-preview="assets/helloreal.jpg" role="button" tabindex="0">Helloreal</div>
+          <div class="pill" data-preview="assets/nightflare.jpg" role="button" tabindex="0">Nightflare</div>
+          <div class="pill" data-preview="assets/sapele-serenade.jpg" role="button" tabindex="0">Sapele Serenade</div>
+          <div class="pill" data-preview="assets/social-queue.jpg" role="button" tabindex="0">Social Queue</div>
         </div>
       </div>
 
       <div class="center">
-        <div class="image-frame" aria-label="Project preview image">
-          <img id="previewImg" src="assets/slide-2.jpg" alt="Project preview">
+        <div class="image-frame" aria-label="Preview">
+          <img id="previewImg" src="assets/slide-2.jpg" alt="Preview">
         </div>
       </div>
     </div>
@@ -428,23 +416,34 @@
       slides[idx].classList.add("active");
     }, SLIDE_MS);
 
-    // ===== Menu open/close + nav color change =====
+    // ===== Menu open/close =====
     const body = document.body;
     const nav = document.querySelector(".nav");
     const menuBtn = document.getElementById("menuBtn");
     const panel = document.getElementById("panel");
-    const previewImg = document.getElementById("previewImg");
     const homeLink = document.getElementById("homeLink");
+
+    const previewImg = document.getElementById("previewImg");
+    const topLinks = document.getElementById("topLinks");
     const pillList = document.getElementById("pillList");
 
-    // NEW: Section image swapping
-    const sectionImg = document.getElementById("sectionImg");
-    const sectionLinks = Array.from(document.querySelectorAll("[data-section]"));
-    const sectionMap = {
-      about: "assets/about.jpg",
-      what: "assets/what-i-do.jpg",
-      contact: "assets/get-in-touch.jpg"
-    };
+    const DEFAULT_PREVIEW = "assets/slide-2.jpg";
+
+    function setPreview(src){
+      if (!src) return;
+      // tiny crossfade feel
+      previewImg.style.opacity = "0.15";
+      const next = new Image();
+      next.onload = () => {
+        previewImg.src = src;
+        previewImg.style.opacity = "1";
+      };
+      next.onerror = () => {
+        previewImg.style.opacity = "1";
+        console.warn("Preview image failed to load:", src);
+      };
+      next.src = src;
+    }
 
     function openPanel() {
       panel.classList.add("open");
@@ -457,9 +456,8 @@
 
       body.classList.add("noscroll");
 
-      // Defaults
-      previewImg.src = "assets/slide-2.jpg";
-      sectionImg.src = sectionMap.about;
+      // default right preview when menu opens
+      setPreview(DEFAULT_PREVIEW);
     }
 
     function closePanel() {
@@ -493,53 +491,42 @@
       if (e.target.classList.contains("panel-bg")) closePanel();
     });
 
-    // Section link hover/tap changes section image
-    sectionLinks.forEach(link => {
-      link.addEventListener("mouseenter", () => {
+    // ===== Unified preview behavior (top links + pills) =====
+    function attachPreviewHandlers(container){
+      // Desktop hover
+      container.addEventListener("mouseover", (e) => {
         if (!window.matchMedia("(hover: hover)").matches) return;
-        const key = link.getAttribute("data-section");
-        sectionImg.src = sectionMap[key] || sectionMap.about;
+        const el = e.target.closest("[data-preview]");
+        if (!el) return;
+        setPreview(el.getAttribute("data-preview"));
       });
 
-      link.addEventListener("click", () => {
-        const key = link.getAttribute("data-section");
-        sectionImg.src = sectionMap[key] || sectionMap.about;
+      // Mobile / click
+      container.addEventListener("click", (e) => {
+        const el = e.target.closest("[data-preview]");
+        if (!el) return;
+        setPreview(el.getAttribute("data-preview"));
       });
-    });
 
-    // ===== Desktop hover project preview =====
-    pillList.addEventListener("mouseover", (e) => {
+      // Keyboard (Enter/Space)
+      container.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const el = e.target.closest("[data-preview]");
+        if (!el) return;
+        e.preventDefault();
+        setPreview(el.getAttribute("data-preview"));
+      });
+    }
+
+    attachPreviewHandlers(topLinks);
+    attachPreviewHandlers(pillList);
+
+    // Optional: revert preview when leaving the left column on desktop
+    // (comment out if you want the last hovered item to "stick")
+    const leftColumn = document.querySelector(".left");
+    leftColumn.addEventListener("mouseleave", () => {
       if (!window.matchMedia("(hover: hover)").matches) return;
-      const pill = e.target.closest(".pill");
-      if (!pill) return;
-      const img = pill.getAttribute("data-img");
-      if (!img) return;
-      previewImg.src = img;
-    });
-
-    pillList.addEventListener("mouseleave", () => {
-      if (!window.matchMedia("(hover: hover)").matches) return;
-      previewImg.src = "assets/slide-2.jpg";
-    });
-
-    // ===== Mobile tap project preview =====
-    pillList.addEventListener("click", (e) => {
-      const pill = e.target.closest(".pill");
-      if (!pill) return;
-      const img = pill.getAttribute("data-img");
-      if (!img) return;
-      previewImg.src = img;
-    });
-
-    // Keyboard accessibility (Enter/Space on pills)
-    pillList.addEventListener("keydown", (e) => {
-      if (e.key !== "Enter" && e.key !== " ") return;
-      const pill = e.target.closest(".pill");
-      if (!pill) return;
-      e.preventDefault();
-      const img = pill.getAttribute("data-img");
-      if (!img) return;
-      previewImg.src = img;
+      setPreview(DEFAULT_PREVIEW);
     });
 
     // Debug image load failures (open console)
