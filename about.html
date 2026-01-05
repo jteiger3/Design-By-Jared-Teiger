@@ -251,7 +251,7 @@
 
     /* ===== ABOUT CONTENT ===== */
     .page{
-      padding-top: var(--navH);
+      padding-top: 0;
     }
 
     .hero{
@@ -333,44 +333,53 @@
 
     /* Experience layout like your screenshot: left role/dates, right company/description */
     .experience-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items:start;
-      margin-top: 20px;
-      border: none;
-      padding: 34px;
-    }
+  display:flex;
+  flex-direction:column;
+  gap: 44px;
+  margin-top: 20px;
+  padding: 0;          /* no box */
+  border: none;        /* no outline */
+}
 
-    .roles, .companies{
-      display:flex;
-      flex-direction:column;
-      gap: 44px;
-    }
+.exp-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items:start;
+}
 
-    .role .title{
-      font-weight:700;
-      font-size: 20px;
-      margin:0;
-    }
-    .role .meta{
-      margin-top: 10px;
-      color:#222;
-      font-size: 18px;
-    }
+.role .title{
+  font-weight:700;
+  font-size: 20px;
+  margin:0;
+}
 
-    .company .name{
-      font-weight:700;
-      font-size: 22px;
-      margin:0 0 10px;
-    }
-    .company .desc{
-      margin:0;
-      font-size: 18px;
-      line-height: 1.55;
-      color:#222;
-      max-width: 520px;
-    }
+.role .meta{
+  margin-top: 10px;
+  color:#222;
+  font-size: 18px;
+}
+
+.company .name{
+  font-weight:700;
+  font-size: 22px;
+  margin:0 0 10px;
+}
+
+.company .desc{
+  margin:0;
+  font-size: 18px;
+  line-height: 1.55;
+  color:#222;
+  max-width: 520px;
+}
+    /* Mobile stacks nicely */
+@media (max-width: 980px){
+  .exp-row{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
 
     /* Awards */
     .awards{
@@ -585,83 +594,84 @@
         <h2 class="section-title">Experience</h2>
 
         <div class="experience-grid">
-          <div class="roles">
-            <div class="role">
-              <p class="title">Industrial Designer</p>
-              <div class="meta">2025 - Present | San Francisco, CA</div>
-            </div>
+  <div class="exp-row">
+    <div class="role">
+      <p class="title">Industrial Designer</p>
+      <div class="meta">2025 - Present | San Francisco, CA</div>
+    </div>
+    <div class="company">
+      <p class="name">Spacer Robotics</p>
+      <p class="desc">
+        I partnered closely with the founding team to shape Spacer Robotics’ early product strategy,
+        researching construction-site workflows, defining user needs, and co-designing next-generation
+        robotic concepts that aligned form, function, and brand vision. I created the company’s visual
+        identity, produced a three-minute investor pitch video from storyboard to final edit, and
+        engineered a functional 3D-printed prototype that integrated mechanical, electrical, and iterative
+        design to validate core mechanisms and support fundraising efforts.
+      </p>
+    </div>
+  </div>
 
-            <div class="role">
-              <p class="title">Campus Ambassador Leader</p>
-              <div class="meta">2024-2025 | Atlanta, GA</div>
-            </div>
+  <div class="exp-row">
+    <div class="role">
+      <p class="title">Campus Ambassador Leader</p>
+      <div class="meta">2024-2025 | Atlanta, GA</div>
+    </div>
+    <div class="company">
+      <p class="name">Autodesk</p>
+      <p class="desc">
+        Led hands-on Fusion workshops, introducing students to 3D modeling and real-world design.
+        Strengthened ties between Autodesk and Georgia Tech’s maker community. Built communication skills
+        by adapting to diverse learners and fostering a collaborative environment.
+      </p>
+    </div>
+  </div>
 
-            <div class="role">
-              <p class="title">Industrial Designer</p>
-              <div class="meta">2023 | Atlanta, GA</div>
-            </div>
+  <div class="exp-row">
+    <div class="role">
+      <p class="title">Industrial Designer</p>
+      <div class="meta">2023 | Atlanta, GA</div>
+    </div>
+    <div class="company">
+      <p class="name">Helloreal</p>
+      <p class="desc">
+        Launched PSVR2 adapter, expanding product line into VR. Designed 25+ concepts and 15+ Fusion-based
+        prototypes to test clasp and lock mechanisms. Optimized prints for efficiency. Supported marketing
+        by starring in and editing a Tennis Pro Swing promo video.
+      </p>
+    </div>
+  </div>
 
-            <div class="role">
-              <p class="title">Design Intern</p>
-              <div class="meta">2022-2023 | Los Angeles, CA</div>
-            </div>
+  <div class="exp-row">
+    <div class="role">
+      <p class="title">Design Intern</p>
+      <div class="meta">2022-2023 | Los Angeles, CA</div>
+    </div>
+    <div class="company">
+      <p class="name">Actasys Inc.</p>
+      <p class="desc">
+        Rendered and animated visuals of Actajet tech for CES 2023 and client outreach. Created 10+
+        infographics and videos explaining sensor-cleaning products. Designed a thermal vent mock-up and
+        filmed a promo video during CES for social media use.
+      </p>
+    </div>
+  </div>
 
-            <div class="role">
-              <p class="title">Design Consultant</p>
-              <div class="meta">2020-2022 | Los Angeles, CA</div>
-            </div>
-          </div>
-
-          <div class="companies">
-            <div class="company">
-              <p class="name">Spacer Robotics</p>
-              <p class="desc">
-                I partnered closely with the founding team to shape Spacer Robotics’ early product strategy,
-                researching construction-site workflows, defining user needs, and co-designing next-generation
-                robotic concepts that aligned form, function, and brand vision. I created the company’s visual
-                identity, produced a three-minute investor pitch video from storyboard to final edit, and
-                engineered a functional 3D-printed prototype that integrated mechanical, electrical, and iterative
-                design to validate core mechanisms and support fundraising efforts.
-              </p>
-            </div>
-
-            <div class="company">
-              <p class="name">Autodesk</p>
-              <p class="desc">
-                Led hands-on Fusion workshops, introducing students to 3D modeling and real-world design.
-                Strengthened ties between Autodesk and Georgia Tech’s maker community. Built communication skills
-                by adapting to diverse learners and fostering a collaborative environment.
-              </p>
-            </div>
-
-            <div class="company">
-              <p class="name">Helloreal</p>
-              <p class="desc">
-                Launched PSVR2 adapter, expanding product line into VR. Designed 25+ concepts and 15+ Fusion-based
-                prototypes to test clasp and lock mechanisms. Optimized prints for efficiency. Supported marketing
-                by starring in and editing a Tennis Pro Swing promo video.
-              </p>
-            </div>
-
-            <div class="company">
-              <p class="name">Actasys Inc.</p>
-              <p class="desc">
-                Rendered and animated visuals of Actajet tech for CES 2023 and client outreach. Created 10+
-                infographics and videos explaining sensor-cleaning products. Designed a thermal vent mock-up and
-                filmed a promo video during CES for social media use.
-              </p>
-            </div>
-
-            <div class="company">
-              <p class="name">Panspatial Aerospace Concept Design</p>
-              <p class="desc">
-                Designed Trillium Stargate aircraft and Epiguard Shuttle for portfolio and pitch assets. Researched
-                flight systems to guide modeling decisions. Created Argonas rail weapon for Modern Warship,
-                ensuring accurate form, function, and visual detail across all assets.
-              </p>
-            </div>
-          </div>
-        </div>
+  <div class="exp-row">
+    <div class="role">
+      <p class="title">Design Consultant</p>
+      <div class="meta">2020-2022 | Los Angeles, CA</div>
+    </div>
+    <div class="company">
+      <p class="name">Panspatial Aerospace Concept Design</p>
+      <p class="desc">
+        Designed Trillium Stargate aircraft and Epiguard Shuttle for portfolio and pitch assets. Researched
+        flight systems to guide modeling decisions. Created Argonas rail weapon for Modern Warship,
+        ensuring accurate form, function, and visual detail across all assets.
+      </p>
+    </div>
+  </div>
+</div>
       </section>
 
       <!-- Section 5A: Awards -->
