@@ -1,9 +1,11 @@
-<!-- index.html -->
-<!doctype html>
+<!-- =========================
+index.html
+========================= -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jared Teiger</title>
 
   <!-- Roboto -->
@@ -11,81 +13,85 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-page="home">
 
+<body class="home">
   <!-- NAV -->
-  <header class="nav nav--overlay" id="nav">
-    <div class="nav__bar" id="navBar">
-      <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
-        <span class="burger__line"></span>
-        <span class="burger__line"></span>
-        <span class="burger__line"></span>
+  <header class="nav nav--blur" role="banner">
+    <div class="nav__inner">
+      <button id="menuBtn" class="icon-btn" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
       </button>
 
-      <a class="brand" href="./index.html" aria-label="Go to home">
-        <span class="brand__first">JARED</span><span class="brand__last">TEIGER</span>
+      <a class="nav__title" href="index.html" aria-label="Home">
+        <span class="first">JARED</span> <span class="last">TEIGER</span>
       </a>
 
-      <a class="icon-btn linkedin" href="https://www.linkedin.com/in/jared-teiger/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        in
-      </a>
+      <div class="nav__right">
+        <a class="linkedin" href="https://www.linkedin.com/in/jared-teiger/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          in
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- FULLSCREEN CAROUSEL -->
-  <main class="hero hero--full">
-    <div class="carousel" id="carousel" aria-label="Project slideshow">
-      <div class="carousel__slide is-active" style="background-image:url('./assets/slide-1.jpg')" role="img" aria-label="Slide 1"></div>
-      <div class="carousel__slide" style="background-image:url('./assets/slide-2.jpg')" role="img" aria-label="Slide 2"></div>
-      <div class="carousel__slide" style="background-image:url('./assets/slide-3.jpg')" role="img" aria-label="Slide 3"></div>
+  <!-- HERO CAROUSEL -->
+  <main class="home-hero" aria-label="Homepage carousel">
+    <div class="carousel" id="carousel">
+      <div class="carousel__slides" id="carouselSlides">
+        <!-- Replace/add your images here -->
+        <div class="carousel__slide is-active">
+          <img src="assets/slide-1.jpg" alt="Slide 1" />
+        </div>
+        <div class="carousel__slide">
+          <img src="assets/slide-2.jpg" alt="Slide 2" />
+        </div>
+        <div class="carousel__slide">
+          <img src="assets/slide-3.jpg" alt="Slide 3" />
+        </div>
+      </div>
 
-      <div class="carousel__dots" aria-hidden="true">
-        <span class="dot is-active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+      <div class="carousel__dots" id="carouselDots" aria-label="Carousel navigation">
+        <button class="dot is-active" aria-label="Go to slide 1"></button>
+        <button class="dot" aria-label="Go to slide 2"></button>
+        <button class="dot" aria-label="Go to slide 3"></button>
       </div>
     </div>
   </main>
 
   <!-- MENU OVERLAY -->
-  <section class="menu" id="menuOverlay" aria-hidden="true">
-    <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
-      <div class="menu__left">
-        <div class="menu__toprow">
-          <button class="icon-btn close" id="closeBtn" aria-label="Close menu">
-            <span class="close__line"></span>
-            <span class="close__line"></span>
-          </button>
-        </div>
-
-        <nav class="menu__nav" aria-label="Primary">
-          <a class="menu__link" href="./about.html" data-preview="./assets/about.jpg">About Me</a>
-          <a class="menu__link" href="./what-i-do.html" data-preview="./assets/what-i-do.jpg">What I Do</a>
-          <a class="menu__link" href="./contact.html" data-preview="./assets/get-in-touch.jpg">Get in Touch</a>
-
-          <div class="menu__section-title">CASE STUDIES</div>
-
-          <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
-          <a class="pill" href="./project-the-covenant.html" data-preview="./assets/the-covenant.jpg">The Covenant</a>
-          <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">Magimates</a>
-          <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
-          <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
-          <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
-          <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">Social Queue</a>
+  <div id="menuOverlay" class="menu-overlay" aria-hidden="true">
+    <div class="menu">
+      <div class="menu-left">
+        <nav class="menu-links" aria-label="Site">
+          <a href="about.html" data-preview="assets/about.jpg">About Me</a>
+          <a href="#" data-preview="assets/what.jpg">What I Do</a>
+          <a href="#" data-preview="assets/contact.jpg">Get in Touch</a>
         </nav>
+
+        <div class="case-wrap">
+          <div class="case-label">CASE STUDIES</div>
+          <div class="case-studies">
+            <a class="pill" href="#" data-preview="assets/star-wars.jpg">Star Wars</a>
+            <a class="pill" href="#" data-preview="assets/the-covenant.jpg">The Covenant</a>
+            <a class="pill" href="#" data-preview="assets/magimates.jpg">Magimates</a>
+            <a class="pill" href="#" data-preview="assets/helloreal.jpg">Helloreal</a>
+            <a class="pill" href="#" data-preview="assets/nightflare.jpg">Nightflare</a>
+            <a class="pill" href="#" data-preview="assets/sapele-serenade.jpg">Sapele Serenade</a>
+            <a class="pill" href="#" data-preview="assets/social-queue.jpg">Social Queue</a>
+          </div>
+        </div>
       </div>
 
-      <div class="menu__right">
-        <div class="preview" id="menuPreview" role="img" aria-label="Project preview"></div>
+      <div class="menu-preview">
+        <img id="menuPreviewImg" src="assets/about.jpg" alt="Project preview" />
       </div>
     </div>
+  </div>
 
-    <!-- clicking outside closes, but we prevent the “scrollbar strip” issue by making overlay solid + no pointer gaps -->
-    <button class="menu__backdrop" id="backdropBtn" aria-label="Close menu (backdrop)"></button>
-  </section>
-
-  <script src="./script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
