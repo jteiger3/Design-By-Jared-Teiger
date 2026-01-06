@@ -1,7 +1,9 @@
 /* styles.css */
 :root{
   --nav-h: 76px;
-  --blur-bg: rgba(25,25,25,.22);
+
+  /* ↓ Update #2: reduce blur strength slightly */
+  --blur-bg: rgba(25,25,25,.18);
   --blur-border: rgba(255,255,255,.12);
 
   --text: #111;
@@ -39,16 +41,26 @@ button{ font-family:inherit; }
   padding: 0 22px;
   gap: 16px;
 
-  /* bring back the blurred bar */
+  /* blurred bar */
   background: var(--blur-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+
+  /* ↓ Update #2: slightly less blur */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
   border-bottom: 1px solid var(--blur-border);
 }
 
+/* Default nav text (menu CLOSED) stays white over hero */
 .nav--overlay .brand,
 .nav--overlay .icon-btn{
-  color:#fff; /* IMPORTANT: brand text stays white when menu closed */
+  color:#fff;
+}
+
+/* ↓ Update #3: when menu opens, keep nav visible but turn it black */
+body.menu-open .nav--overlay .brand,
+body.menu-open .nav--overlay .icon-btn{
+  color:#111;
 }
 
 .brand{
@@ -75,7 +87,8 @@ button{ font-family:inherit; }
   justify-content:center;
 }
 
-/* Hamburger (3 lines) */
+/* Hamburger (3 lines stacked vertically — this is the classic hamburger) */
+/* Update #1: keep it as the 3-line hamburger (stacked) */
 .burger{
   width:48px;
   height:48px;
@@ -87,13 +100,13 @@ button{ font-family:inherit; }
   display:block;
   background: currentColor;
   border-radius:2px;
-  margin:4px auto;
+  margin:4px auto; /* stacks them vertically */
 }
 
 /* LinkedIn "in" */
 .linkedin{
   font-weight:700;
-  font-size: 20px; /* bigger to match JaredTeiger */
+  font-size: 20px;
   width:48px;
   height:48px;
 }
@@ -154,12 +167,12 @@ button{ font-family:inherit; }
   opacity:1;
 }
 
-/* Solid white overlay to stop “page behind” flicker */
+/* Solid white overlay to stop flicker */
 .menu__backdrop{
   position:absolute;
   inset:0;
   border:0;
-  background: #fff; /* solid */
+  background: #fff;
   cursor:pointer;
   z-index:0;
 }
@@ -182,7 +195,7 @@ button{ font-family:inherit; }
 
 /* keep close button visible */
 .menu__toprow{
-  height: 0; /* just to anchor spacing (we use absolute nav already) */
+  height: 0;
 }
 
 .close{
@@ -218,6 +231,13 @@ button{ font-family:inherit; }
   width:fit-content;
 }
 
+/* ↓ Update #4: underline hover/focus for top links */
+.menu__link:hover,
+.menu__link:focus-visible{
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
 .menu__section-title{
   margin-top: 28px;
   font-size: 12px;
@@ -226,15 +246,27 @@ button{ font-family:inherit; }
 }
 
 .pill{
-  display:inline-block;
+  /* ↓ Update #5: force vertical stack on desktop */
+  display:block;
+
   margin-top: 12px;
   padding: 10px 16px;
   border: 1px solid rgba(0,0,0,.15);
   border-radius: 999px;
+
   background: rgba(0,0,0,.02);
   font-size: 14px;
   font-weight:700;
   width: fit-content;
+
+  /* ↓ Update #6: smoother hover fill */
+  transition: background .18s ease;
+}
+
+/* ↓ Update #6: pill fills slightly darker on hover/focus */
+.pill:hover,
+.pill:focus-visible{
+  background: rgba(0,0,0,.08);
 }
 
 .menu__right{
@@ -255,7 +287,7 @@ button{ font-family:inherit; }
 
 /* ---------- ABOUT PAGE ---------- */
 .page-hero{
-  height: 100vh;              /* full height as requested */
+  height: 100vh;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -307,7 +339,7 @@ button{ font-family:inherit; }
 .xp{ display:flex; flex-direction:column; gap: 30px; margin-top: 10px; }
 .xp__row{
   display:grid;
-  grid-template-columns: minmax(260px, 360px) 1fr; /* aligns role ↔ company */
+  grid-template-columns: minmax(260px, 360px) 1fr;
   gap: 46px;
   align-items:start;
 }
