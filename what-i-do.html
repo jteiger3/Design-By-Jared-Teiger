@@ -1,233 +1,305 @@
+<!-- what-i-do.html -->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — Jared Teiger</title>
+  <title>What I Do — Jared Teiger</title>
 
   <!-- Roboto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Page-specific styles (kept here so you don't have to edit styles.css) -->
   <style>
-    :root{
-      --navH: 76px;
-      --maxW: 980px;
-      --text:#111;
-      --muted:#666;
-      --line: rgba(0,0,0,.12);
-      --shadow: 0 18px 60px rgba(0,0,0,.10);
-    }
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: Roboto, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial;
-      background:#fff;
-      color:var(--text);
+    /* Full-bleed hero already matches your About page */
+    .page-hero { background-position: center; }
+
+    /* WHAT I DO — two column layout like your screenshots */
+    .what-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 64px;
+      align-items:start;
+      padding-top: 10px;
     }
 
-    /* NAV (solid white on this page) */
-    .nav{
-      position:sticky;
-      top:0;
-      height:var(--navH);
-      z-index:10;
+    .what-kicker{
+      font-size:18px;
+      color: rgba(0,0,0,.55);
+      margin: 0 0 18px;
+    }
+
+    .what-list{
+      display:flex;
+      flex-direction:column;
+      gap: 34px;
+    }
+
+    .what-item{
+      font-size: clamp(34px, 4.2vw, 58px);
+      line-height: 1.06;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      margin: 0;
+    }
+
+    .what-notes{
+      display:flex;
+      flex-direction:column;
+      gap: 44px;
+      padding-top: 44px; /* gives the same “floaty” right column feel */
+    }
+
+    .what-note{
+      font-size:18px;
+      line-height:1.65;
+      color: rgba(0,0,0,.72);
+      max-width: 30ch;
+      margin:0;
+    }
+
+    /* SKILLSETS — 3 columns */
+    .skill-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      margin-top: 18px;
+    }
+
+    .skill-col h3{
+      font-size:14px;
+      letter-spacing:.08em;
+      text-transform:none;
+      margin:0 0 16px;
+      color: rgba(0,0,0,.72);
+      font-weight:700;
+    }
+
+    .skill-col ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+
+    .skill-col li{
+      font-size:18px;
+      color: rgba(0,0,0,.62);
+    }
+
+    /* CTA — match screenshot layout */
+    .cta{
+      display:grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+      align-items:center;
+      padding: 28px 0;
+    }
+
+    .cta__title{
+      font-size: clamp(44px, 5vw, 72px);
+      line-height:1.02;
+      font-weight:400;
+      margin:0;
+    }
+
+    .cta__links{
+      display:flex;
+      flex-direction:column;
+      gap: 26px;
+    }
+
+    .cta__link{
       display:flex;
       align-items:center;
-      justify-content:center;
-      padding: 0 18px;
-      background:#fff;
-      border-bottom: 1px solid rgba(0,0,0,.06);
-    }
-    .nav-inner{
-      width: min(1400px, 100%);
-      display:grid;
-      grid-template-columns: 56px 1fr 56px;
-      align-items:center;
+      justify-content:space-between;
+      font-size:22px;
+      padding: 8px 0 14px;
+      border-bottom: 1px solid rgba(0,0,0,.18);
     }
 
-    .icon-btn{
-      width:56px; height:56px;
-      display:grid; place-items:center;
-      background:transparent;
-      border:none;
-      padding:0;
-      cursor:pointer;
-      justify-self:start;
-      color:#111;
-      font-size:18px;
-    }
-
-    .brand{
-      justify-self:center;
-      text-decoration:none;
-      color:#111;
-      font-size: 28px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      user-select:none;
+    .cta__arrow{
+      font-size:28px;
       line-height:1;
-      white-space:nowrap;
-    }
-    .brand-regular{ font-weight:400; }
-    .brand-bold{ font-weight:700; margin-left:.18em; }
-
-    .social{
-      justify-self:end;
-      width:56px; height:56px;
-      display:grid; place-items:center;
-    }
-    .social a{
-      width:56px; height:56px;
-      display:grid; place-items:center;
-      color:#111;
-      text-decoration:none;
+      transform: translateY(-1px);
     }
 
-    /* PAGE */
-    .wrap{
-      width: min(var(--maxW), 100%);
-      margin: 0 auto;
-      padding: 28px 18px 90px;
-    }
-
-    .hero{
-      display:grid;
-      grid-template-columns: 180px 1fr;
-      gap: 22px;
-      align-items:start;
-      margin-top: 20px;
-    }
-
-    .headshot{
-      width:180px;
-      aspect-ratio: 1 / 1;
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(0,0,0,.10);
-      box-shadow: var(--shadow);
-      background:#f2f2f2;
-    }
-    .headshot img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-    }
-
-    h1{
-      margin:0 0 8px;
-      font-size: 34px;
-      font-weight:700;
-      letter-spacing:-0.02em;
-    }
-    .sub{
-      margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.55;
-      font-size: 16px;
-    }
-
-    .section{
-      margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(0,0,0,.08);
-    }
-
-    .section h2{
-      margin:0 0 10px;
-      font-size: 18px;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      font-weight:700;
-    }
-
-    .list{
-      margin:0;
-      padding-left: 18px;
-      color:#222;
-      line-height:1.7;
-    }
-
-    /* Responsive */
-    @media (max-width: 640px){
-      :root{ --navH: 64px; }
-      .nav-inner{ grid-template-columns: 48px 1fr 48px; }
-      .icon-btn,.social,.social a{ width:48px; height:48px; }
-      .brand{ font-size: 22px; }
-
-      .hero{ grid-template-columns: 1fr; }
-      .headshot{ width:100%; max-width: 360px; }
+    @media (max-width: 980px){
+      .what-grid{ grid-template-columns: 1fr; gap: 34px; }
+      .what-notes{ padding-top: 0; max-width: 54ch; }
+      .skill-grid{ grid-template-columns: 1fr; gap: 34px; }
+      .cta{ grid-template-columns: 1fr; gap: 22px; }
+      .cta__link{ font-size:20px; }
     }
   </style>
 </head>
 
-<body>
-  <header class="nav">
-    <div class="nav-inner">
-      <!-- Back/Home button -->
-      <button class="icon-btn" type="button" onclick="window.location.href='index.html'" aria-label="Back to home">
-        ←
+<body data-page="what-i-do">
+
+  <!-- NAV (over hero image) -->
+  <header class="nav nav--overlay" id="nav">
+    <div class="nav__bar" id="navBar">
+      <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
       </button>
 
-      <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand-regular">JARED</span><span class="brand-bold">TEIGER</span>
+      <a class="brand" href="./index.html" aria-label="Go to home">
+        <span class="brand__first">JARED</span><span class="brand__last">TEIGER</span>
       </a>
 
-      <div class="social">
-        <a href="https://www.linkedin.com/in/jared-teiger/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6.94 8.5V20H3.5V8.5h3.44ZM5.22 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM20.5 20h-3.44v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H9.53V8.5h3.3v1.57h.05c.46-.87 1.58-1.79 3.25-1.79 3.47 0 4.1 2.28 4.1 5.24V20Z" fill="currentColor"/>
-          </svg>
-        </a>
-      </div>
+      <a class="icon-btn linkedin" href="https://www.linkedin.com/in/jared-teiger/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        in
+      </a>
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="hero">
-      <div class="headshot">
-        <!-- Put your about/headshot image here -->
-        <img src="assets/about.jpg" alt="Jared Teiger">
+  <!-- HERO: full viewport height (uses your new image) -->
+  <section class="page-hero" style="background-image:url('./assets/process.jpg')">
+    <div class="page-hero__scrim" aria-hidden="true"></div>
+  </section>
+
+  <main class="page">
+
+    <!-- SECTION 1: What I Do -->
+    <section class="section">
+      <div class="what-grid">
+        <div>
+          <p class="what-kicker">What I Do</p>
+
+          <div class="what-list">
+            <p class="what-item">Define a clear vision for the future</p>
+            <p class="what-item">Set the bar for category defining design</p>
+            <p class="what-item">Ship new products from zero to one</p>
+            <p class="what-item">Inject fresh life into legacy experiences</p>
+          </div>
+        </div>
+
+        <div class="what-notes" aria-label="What I Do details">
+          <p class="what-note">
+            Uncertainty becomes direction when future possibilities are made visible,
+            tangible, and believable.
+          </p>
+
+          <p class="what-note">
+            Expectations rise when old patterns are challenged and new solutions simply
+            make sense.
+          </p>
+
+          <p class="what-note">
+            I move ideas from spark to substance, building early products that are testable
+            and ready to grow.
+          </p>
+
+          <p class="what-note">
+            Enduring products feel new again when what works is preserved and what’s possible
+            is thoughtfully reimagined.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Skillsets -->
+    <section class="section">
+      <h2 class="h2">Skillsets</h2>
+
+      <div class="skill-grid">
+        <div class="skill-col">
+          <h3>Industrial Design</h3>
+          <ul>
+            <li>Design Research</li>
+            <li>Mood and inspiration board</li>
+            <li>Concept Sketching</li>
+            <li>3D Concept Modeling</li>
+          </ul>
+        </div>
+
+        <div class="skill-col">
+          <h3>Visualization</h3>
+          <ul>
+            <li>Advanced Rendering</li>
+            <li>Storytelling Communication</li>
+            <li>Pitch Video</li>
+            <li>Product Animation</li>
+          </ul>
+        </div>
+
+        <div class="skill-col">
+          <h3>Engineering</h3>
+          <ul>
+            <li>3D Printing</li>
+            <li>Arduino</li>
+            <li>Rapid Prototyping</li>
+            <li>CAD Modeling</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CTA -->
+    <section class="section section--cta">
+      <div class="cta">
+        <h2 class="cta__title">How can I help</h2>
+
+        <div class="cta__links">
+          <a class="cta__link" href="./contact.html">
+            <span>Work together</span>
+            <span class="cta__arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="cta__link" href="./contact.html">
+            <span>Just say hello</span>
+            <span class="cta__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MENU OVERLAY (same as home/about) -->
+  <section class="menu" id="menuOverlay" aria-hidden="true">
+    <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="menu__left">
+        <div class="menu__toprow">
+          <button class="icon-btn close" id="closeBtn" aria-label="Close menu">
+            <span class="close__line"></span>
+            <span class="close__line"></span>
+          </button>
+        </div>
+
+        <nav class="menu__nav" aria-label="Primary">
+          <a class="menu__link" href="./about.html" data-preview="./assets/about.jpg">About Me</a>
+          <a class="menu__link" href="./what-i-do.html" data-preview="./assets/process.jpg">What I Do</a>
+          <a class="menu__link" href="./contact.html" data-preview="./assets/get-in-touch.jpg">Get in Touch</a>
+
+          <div class="menu__section-title">CASE STUDIES</div>
+
+          <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
+          <a class="pill" href="./project-the-covenant.html" data-preview="./assets/the-covenant.jpg">The Covenant</a>
+          <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">MagiMates</a>
+          <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
+          <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
+          <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
+          <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">Social Queue</a>
+        </nav>
       </div>
 
-      <div>
-        <h1>About</h1>
-        <p class="sub">
-          Replace this with your short story: who you are, what you build, what you care about.
-          Keep it 3–5 lines — crisp and human.
-        </p>
-        <p class="sub">
-          You can add a longer paragraph here with your background (industrial design, robotics, film/game work, etc.)
-          and the kind of projects you want next.
-        </p>
+      <div class="menu__right">
+        <div class="preview" id="menuPreview" role="img" aria-label="Project preview"></div>
       </div>
     </div>
 
-    <section class="section">
-      <h2>Highlights</h2>
-      <ul class="list">
-        <li>Industrial design + prototyping</li>
-        <li>3D, visualization, and storytelling</li>
-        <li>Robotics / physical product development</li>
-      </ul>
-    </section>
+    <button class="menu__backdrop" id="backdropBtn" aria-label="Close menu (backdrop)"></button>
+  </section>
 
-    <section class="section">
-      <h2>Tools</h2>
-      <ul class="list">
-        <li>Replace with your real stack (SolidWorks, Blender, Rhino, Adobe, etc.)</li>
-        <li>Replace with your real stack</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Contact</h2>
-      <p class="sub">
-        Add your preferred contact method here (email, calendar link, etc.)
-      </p>
-    </section>
-  </main>
+  <script src="./script.js" defer></script>
 </body>
 </html>
