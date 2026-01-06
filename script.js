@@ -1,101 +1,76 @@
-// script.js
+/* =========================
+script.js
+========================= */
+
 (function () {
   const menuBtn = document.getElementById("menuBtn");
   const menuOverlay = document.getElementById("menuOverlay");
-  const closeBtn = document.getElementById("closeBtn");
-  const backdropBtn = document.getElementById("backdropBtn");
-  const previewEl = document.getElementById("menuPreview");
+  const previewImg = document.getElementById("menuPreviewImg");
 
-  const body = document.body;
-  const page = body.getAttribute("data-page");
+  // Carousel (home only)
+  const slidesWrap = document.getElementById("carouselSlides");
+  const dotsWrap = document.getElementById("carouselDots");
 
-  // ----- MENU -----
-  function openMenu() {
-    if (!menuOverlay) return;
-    menuOverlay.classList.add("is-open");
-    menuOverlay.setAttribute("aria-hidden", "false");
-    menuBtn?.setAttribute("aria-expanded", "true");
-    body.classList.add("no-scroll");
+  function setMenu(open) {
+    document.body.classList.toggle("menu-open", open);
+    if (menuBtn) menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (menuOverlay) menuOverlay.setAttribute("aria-hidden", open ? "false" : "true");
 
-    // set default preview = about.jpg
-    if (previewEl) {
-      previewEl.style.backgroundImage = "url('./assets/about.jpg')";
-    }
-  }
-
-  function closeMenu() {
-    if (!menuOverlay) return;
-    menuOverlay.classList.remove("is-open");
-    menuOverlay.setAttribute("aria-hidden", "true");
-    menuBtn?.setAttribute("aria-expanded", "false");
-    body.classList.remove("no-scroll");
+    // Prevent body scroll when menu is open
+    document.documentElement.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = open ? "hidden" : "";
   }
 
   menuBtn?.addEventListener("click", () => {
-    const isOpen = menuOverlay?.classList.contains("is-open");
-    isOpen ? closeMenu() : openMenu();
+    const isOpen = document.body.classList.contains("menu-open");
+    setMenu(!isOpen);
   });
 
-  closeBtn?.addEventListener("click", closeMenu);
-  backdropBtn?.addEventListener("click", closeMenu);
-
-  // Escape closes menu
+  // Close with ESC only (no click-outside close)
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && menuOverlay?.classList.contains("is-open")) closeMenu();
+    if (e.key === "Escape") setMenu(false);
   });
 
-  // Hover preview switching (desktop)
-  const previewLinks = document.querySelectorAll("[data-preview]");
-  previewLinks.forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-      const src = el.getAttribute("data-preview");
-      if (src && previewEl) previewEl.style.backgroundImage = `url('${src}')`;
+  // Hover preview logic
+  if (menuOverlay && previewImg) {
+    const hoverables = menuOverlay.querySelectorAll("[data-preview]");
+    hoverables.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        const src = el.getAttribute("data-preview");
+        if (src) previewImg.src = src;
+      });
+      el.addEventListener("focus", () => {
+        const src = el.getAttribute("data-preview");
+        if (src) previewImg.src = src;
+      });
     });
-    el.addEventListener("focus", () => {
-      const src = el.getAttribute("data-preview");
-      if (src && previewEl) previewEl.style.backgroundImage = `url('${src}')`;
-    });
-  });
+  }
 
-  // Mobile: tap updates preview (without navigating) if you tap once; second tap navigates.
-  // (Simple heuristic)
-  let lastTapped = null;
-  previewLinks.forEach((el) => {
-    el.addEventListener("touchstart", (ev) => {
-      const src = el.getAttribute("data-preview");
-      if (!src || !previewEl) return;
+  // Simple carousel (dots)
+  if (slidesWrap && dotsWrap) {
+    const slides = Array.from(slidesWrap.querySelectorAll(".carousel__slide"));
+    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+    let idx = 0;
+    let timer = null;
 
-      if (lastTapped !== el) {
-        ev.preventDefault();
-        previewEl.style.backgroundImage = `url('${src}')`;
-        lastTapped = el;
-        setTimeout(() => (lastTapped = null), 1200);
-      }
-    }, { passive: false });
-  });
-
-  // Prevent overlay scroll / accidental "click outside right edge" behavior:
-  // We already use a full-width backdrop button; this just stops touchmove bubbling.
-  menuOverlay?.addEventListener("touchmove", (e) => {
-    if (menuOverlay.classList.contains("is-open")) e.preventDefault();
-  }, { passive: false });
-
-  // ----- HOME CAROUSEL -----
-  if (page === "home") {
-    const slides = Array.from(document.querySelectorAll(".carousel__slide"));
-    const dots = Array.from(document.querySelectorAll(".dot"));
-    let i = 0;
-
-    function show(idx) {
-      slides.forEach((s) => s.classList.remove("is-active"));
-      dots.forEach((d) => d.classList.remove("is-active"));
-      slides[idx]?.classList.add("is-active");
-      dots[idx]?.classList.add("is-active");
+    function goTo(i) {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s, si) => s.classList.toggle("is-active", si === idx));
+      dots.forEach((d, di) => d.classList.toggle("is-active", di === idx));
     }
 
-    setInterval(() => {
-      i = (i + 1) % slides.length;
-      show(i);
-    }, 4500);
+    dots.forEach((d, di) => {
+      d.addEventListener("click", () => {
+        goTo(di);
+        restart();
+      });
+    });
+
+    function restart() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(() => goTo(idx + 1), 5000);
+    }
+
+    restart();
   }
 })();
