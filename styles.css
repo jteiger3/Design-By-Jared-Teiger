@@ -27,7 +27,7 @@ button{ font-family:inherit; }
 .nav{
   position:fixed;
   top:0; left:0; right:0;
-  z-index:50;
+  z-index:120;
 }
 
 .nav__bar{
@@ -190,10 +190,14 @@ body.menu-open .nav--overlay .icon-btn{
 
 .menu__backdrop{
   position:absolute;
-  inset:0;
+  left:0;
+  right:0;
+  bottom:0;
+  top: var(--nav-h);  /* starts below the nav bar */
   background:#fff;
   border:0;
 }
+
 
 .menu__inner{
   position:relative;
