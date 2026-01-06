@@ -17,6 +17,9 @@
     menuBtn?.setAttribute("aria-expanded", "true");
     body.classList.add("no-scroll");
 
+    // ↓ Update #3: lets CSS flip nav to black while menu is open
+    body.classList.add("menu-open");
+
     // set default preview = about.jpg
     if (previewEl) {
       previewEl.style.backgroundImage = "url('./assets/about.jpg')";
@@ -29,6 +32,9 @@
     menuOverlay.setAttribute("aria-hidden", "true");
     menuBtn?.setAttribute("aria-expanded", "false");
     body.classList.remove("no-scroll");
+
+    // ↓ Update #3: revert nav back to white (default overlay state)
+    body.classList.remove("menu-open");
   }
 
   menuBtn?.addEventListener("click", () => {
@@ -58,7 +64,6 @@
   });
 
   // Mobile: tap updates preview (without navigating) if you tap once; second tap navigates.
-  // (Simple heuristic)
   let lastTapped = null;
   previewLinks.forEach((el) => {
     el.addEventListener("touchstart", (ev) => {
@@ -74,8 +79,7 @@
     }, { passive: false });
   });
 
-  // Prevent overlay scroll / accidental "click outside right edge" behavior:
-  // We already use a full-width backdrop button; this just stops touchmove bubbling.
+  // Prevent overlay scroll / accidental behavior
   menuOverlay?.addEventListener("touchmove", (e) => {
     if (menuOverlay.classList.contains("is-open")) e.preventDefault();
   }, { passive: false });
