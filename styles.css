@@ -89,19 +89,28 @@ body.menu-open .nav--overlay .icon-btn{
 
 /* Hamburger (3 lines stacked vertically — this is the classic hamburger) */
 /* Update #1: keep it as the 3-line hamburger (stacked) */
+/* Hamburger (force 3 stacked lines) */
 .burger{
   width:48px;
   height:48px;
   position:relative;
 }
+
 .burger__line{
+  position:absolute;
+  left:50%;
   width:22px;
   height:2px;
-  display:block;
   background: currentColor;
   border-radius:2px;
-  margin:4px auto; /* stacks them vertically */
+  transform: translateX(-50%);
 }
+
+/* top / middle / bottom */
+.burger__line:nth-child(1){ top: 16px; }
+.burger__line:nth-child(2){ top: 23px; }
+.burger__line:nth-child(3){ top: 30px; }
+
 
 /* LinkedIn "in" */
 .linkedin{
