@@ -100,15 +100,6 @@
     );
   });
 
-  // Prevent iOS “rubber band” scrolling behind the overlay
-  menuOverlay.addEventListener(
-    "touchmove",
-    (e) => {
-      if (menuOverlay.classList.contains("is-open")) e.preventDefault();
-    },
-    { passive: false }
-  );
-
   // ---------- HOME CAROUSEL ----------
   initCarousel(page);
 
@@ -133,7 +124,4 @@
 
     setInterval(() => {
       i = (i + 1) % slides.length;
-      show(i);
-    }, 4500);
-  }
-})();
+      sh
