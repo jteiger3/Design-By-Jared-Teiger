@@ -10,32 +10,33 @@
   const page = body.getAttribute("data-page");
 
   // ----- MENU -----
-  function openMenu() {
-    if (!menuOverlay) return;
-    menuOverlay.classList.add("is-open");
-    menuOverlay.setAttribute("aria-hidden", "false");
-    menuBtn?.setAttribute("aria-expanded", "true");
-    body.classList.add("no-scroll");
+function openMenu() {
+  if (!menuOverlay) return;
+  menuOverlay.classList.add("is-open");
+  menuOverlay.setAttribute("aria-hidden", "false");
+  menuBtn?.setAttribute("aria-expanded", "true");
+  body.classList.add("no-scroll");
 
-    // ↓ Update #3: lets CSS flip nav to black while menu is open
-    body.classList.add("menu-open");
+  //  lets CSS animate burger -> X + flip nav style
+  body.classList.add("menu-open");
 
-    // set default preview = about.jpg
-    if (previewEl) {
-      previewEl.style.backgroundImage = "url('./assets/about.jpg')";
-    }
+  // set default preview = about.jpg
+  if (previewEl) {
+    previewEl.style.backgroundImage = "url('./assets/about.jpg')";
   }
+}
 
-  function closeMenu() {
-    if (!menuOverlay) return;
-    menuOverlay.classList.remove("is-open");
-    menuOverlay.setAttribute("aria-hidden", "true");
-    menuBtn?.setAttribute("aria-expanded", "false");
-    body.classList.remove("no-scroll");
+function closeMenu() {
+  if (!menuOverlay) return;
+  menuOverlay.classList.remove("is-open");
+  menuOverlay.setAttribute("aria-hidden", "true");
+  menuBtn?.setAttribute("aria-expanded", "false");
+  body.classList.remove("no-scroll");
 
-    // ↓ Update #3: revert nav back to white (default overlay state)
-    body.classList.remove("menu-open");
-  }
+  //  IMPORTANT: remove it on close
+  body.classList.remove("menu-open");
+}
+
 
   menuBtn?.addEventListener("click", () => {
     const isOpen = menuOverlay?.classList.contains("is-open");
