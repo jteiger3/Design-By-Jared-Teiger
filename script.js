@@ -12,10 +12,30 @@
 
   // Safety: if someone loads a page without the overlay markup
   if (!menuBtn || !menuOverlay) {
-    // still run carousel if home
     initCarousel(page);
     return;
   }
+
+  // ---------- BACKGROUND SCROLL LOCK (mobile-safe) ----------
+  let scrollY = 0;
+
+  const lockBodyScroll = () => {
+    scrollY = window.scrollY || 0;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+  };
+
+  const unlockBodyScroll = () => {
+    body.style.position = "";
+    body.style.top = "";
+    body.style.left = "";
+    body.style.right = "";
+    body.style.width = "";
+    window.scrollTo(0, scrollY);
+  };
 
   // ---------- MENU OPEN/CLOSE ----------
   const openMenu = () => {
@@ -23,9 +43,12 @@
     menuOverlay.setAttribute("aria-hidden", "false");
     menuBtn.setAttribute("aria-expanded", "true");
 
-    // lock page scroll + flip nav colors + burger->X
-    body.classList.add("no-scroll");
+    // lock background + flip nav colors + burger->X
+    lockBodyScroll();
     body.classList.add("menu-open");
+
+    // ensure menu scroll starts at top
+    menuOverlay.scrollTop = 0;
 
     // default preview
     if (previewEl) {
@@ -38,8 +61,8 @@
     menuOverlay.setAttribute("aria-hidden", "true");
     menuBtn.setAttribute("aria-expanded", "false");
 
-    body.classList.remove("no-scroll");
     body.classList.remove("menu-open");
+    unlockBodyScroll();
   };
 
   const toggleMenu = () => {
@@ -80,17 +103,14 @@
     el.addEventListener(
       "touchstart",
       (ev) => {
-        // If menu isn't open, don't interfere
         if (!menuOverlay.classList.contains("is-open")) return;
-
-        // If no preview element, do nothing
         if (!previewEl) return;
 
         const src = el.getAttribute("data-preview");
         if (!src) return;
 
         if (lastTapped !== el) {
-          ev.preventDefault();
+          ev.preventDefault(); // only blocks the first tap to allow preview swap
           setPreview(el);
           lastTapped = el;
           setTimeout(() => (lastTapped = null), 1200);
@@ -119,9 +139,11 @@
       dots[idx]?.classList.add("is-active");
     };
 
-    // make sure initial state is correct
     show(0);
 
     setInterval(() => {
       i = (i + 1) % slides.length;
-      sh
+      show(i);
+    }, 4500);
+  }
+})();
