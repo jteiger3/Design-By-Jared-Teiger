@@ -30,24 +30,23 @@
     gap: 1.25rem;
   }
 
-  .headline {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+ .headline {
+  display: grid;
+  grid-template-columns: auto 15ch; /* adjust once, forget forever */
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.4em;
+}
 
-  .static {
-    margin-right: 0.4em;
-    white-space: nowrap;
-  }
+.static {
+  white-space: nowrap;
+}
 
-  .slot {
-    height: 1.2em;
-    overflow: hidden;
-  }
+.slot {
+  height: 1.2em;
+  overflow: hidden;
+}
+
 
   .slot-inner {
     display: flex;
