@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>YES AND DESIGN STUDIO</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0f0f0f;
+    color: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .loader {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .text {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+  }
+
+  .static {
+    margin-right: 0.4em;
+  }
+
+  .slot {
+    position: relative;
+    height: 1.2em;
+    overflow: hidden;
+  }
+
+  .slot span {
+    display: block;
+    height: 1.2em;
+    line-height: 1.2em;
+    animation: spin 6s ease-in-out forwards;
+  }
+
+  @keyframes spin {
+    0%   { transform: translateY(0); }
+    20%  { transform: translateY(-1.2em); }
+    40%  { transform: translateY(-2.4em); }
+    60%  { transform: translateY(-3.6em); }
+    80%  { transform: translateY(-4.8em); }
+    100% { transform: translateY(0); }
+  }
+</style>
+</head>
+
+<body>
+  <div class="loader">
+    <div class="text">
+      <div class="static">YES&nbsp;AND</div>
+      <div class="slot">
+        <span>
+          DESIGN<br>
+          CRAFT<br>
+          COLLABORATION<br>
+          POSSIBILITY<br>
+          JOY<br>
+          DESIGN
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
