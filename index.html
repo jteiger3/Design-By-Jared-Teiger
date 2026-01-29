@@ -20,14 +20,23 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    text-align: center;
   }
 
-  .text {
+  .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .headline {
     font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 600;
     letter-spacing: 0.05em;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .static {
@@ -36,7 +45,6 @@
   }
 
   .slot {
-    position: relative;
     height: 1.2em;
     overflow: hidden;
   }
@@ -44,7 +52,8 @@
   .slot-inner {
     display: flex;
     flex-direction: column;
-    animation: scroll 14s linear infinite;
+    /* 6 items listed (DESIGN..JOY..DESIGN duplicate) => move 5 steps total */
+    animation: slotSteps 12s steps(5, end) infinite;
   }
 
   .slot-inner span {
@@ -60,29 +69,71 @@
   .possibility { color: #9b7edc; }    /* violet */
   .joy { color: #f5c400; }            /* golden yellow */
 
-  @keyframes scroll {
+  /* Each step is exactly one line-height (1.2em).
+     Total travel for 5 transitions: 5 * 1.2em = 6em */
+  @keyframes slotSteps {
     from { transform: translateY(0); }
-    to { transform: translateY(-6em); }
+    to   { transform: translateY(-6em); }
+  }
+
+  .coming-soon {
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  .arrow {
+    width: 14px;
+    height: 14px;
+    opacity: 0.75;
+  }
+
+  /* Small subtle bounce to keep it alive (optional but nice) */
+  .arrow svg {
+    display: block;
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(4px); }
+  }
+
+  /* Accessibility: respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .slot-inner, .arrow svg { animation: none; }
   }
 </style>
 </head>
 
 <body>
   <div class="loader">
-    <div class="text">
-      <div class="static">YES&nbsp;AND</div>
+    <div class="stack">
+      <div class="headline">
+        <div class="static">YES&nbsp;AND</div>
 
-      <div class="slot">
-        <div class="slot-inner">
-          <span class="design">DESIGN</span>
-          <span class="craft">CRAFT</span>
-          <span class="collaboration">COLLABORATION</span>
-          <span class="possibility">POSSIBILITY</span>
-          <span class="joy">JOY</span>
-          <span class="design">DESIGN</span> <!-- seamless loop -->
+        <div class="slot" aria-label="Rotating words: DESIGN, CRAFT, COLLABORATION, POSSIBILITY, JOY">
+          <div class="slot-inner">
+            <span class="design">DESIGN</span>
+            <span class="craft">CRAFT</span>
+            <span class="collaboration">COLLABORATION</span>
+            <span class="possibility">POSSIBILITY</span>
+            <span class="joy">JOY</span>
+            <span class="design">DESIGN</span> <!-- duplicate for seamless loop -->
+          </div>
         </div>
       </div>
 
+      <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+        <div class="coming-soon">COMING SOON</div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 13l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </body>
