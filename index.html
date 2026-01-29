@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>YES AND DESIGN STUDIO</title>
+
 <style>
   html, body {
     margin: 0;
@@ -31,6 +32,7 @@
 
   .static {
     margin-right: 0.4em;
+    white-space: nowrap;
   }
 
   .slot {
@@ -39,20 +41,28 @@
     overflow: hidden;
   }
 
-  .slot span {
-    display: block;
-    height: 1.2em;
-    line-height: 1.2em;
-    animation: spin 6s ease-in-out forwards;
+  .slot-inner {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 14s linear infinite;
   }
 
-  @keyframes spin {
-    0%   { transform: translateY(0); }
-    20%  { transform: translateY(-1.2em); }
-    40%  { transform: translateY(-2.4em); }
-    60%  { transform: translateY(-3.6em); }
-    80%  { transform: translateY(-4.8em); }
-    100% { transform: translateY(0); }
+  .slot-inner span {
+    height: 1.2em;
+    line-height: 1.2em;
+    white-space: nowrap;
+  }
+
+  /* --- Color system --- */
+  .design { color: #ffffff; }
+  .craft { color: #d08c60; }          /* warm clay */
+  .collaboration { color: #7aaedc; }  /* soft blue */
+  .possibility { color: #9b7edc; }    /* violet */
+  .joy { color: #f5c400; }            /* golden yellow */
+
+  @keyframes scroll {
+    from { transform: translateY(0); }
+    to { transform: translateY(-6em); }
   }
 </style>
 </head>
@@ -61,16 +71,18 @@
   <div class="loader">
     <div class="text">
       <div class="static">YES&nbsp;AND</div>
+
       <div class="slot">
-        <span>
-          DESIGN<br>
-          CRAFT<br>
-          COLLABORATION<br>
-          POSSIBILITY<br>
-          JOY<br>
-          DESIGN
-        </span>
+        <div class="slot-inner">
+          <span class="design">DESIGN</span>
+          <span class="craft">CRAFT</span>
+          <span class="collaboration">COLLABORATION</span>
+          <span class="possibility">POSSIBILITY</span>
+          <span class="joy">JOY</span>
+          <span class="design">DESIGN</span> <!-- seamless loop -->
+        </div>
       </div>
+
     </div>
   </div>
 </body>
