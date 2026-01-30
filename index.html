@@ -83,20 +83,19 @@
   }
 
   /* Soft glass underlay */
-  .title::before {
-    content: "";
-    position: absolute;
-    inset: -0.25em -0.35em;
-    background: linear-gradient(
-      120deg,
-      rgba(255,255,255,0.12),
-      rgba(200,220,255,0.10),
-      rgba(255,220,180,0.10)
-    );
-    border-radius: 0.25em;
-    filter: blur(20px);
-    z-index: -1;
-  }
+ .title::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255,255,255,0.18),
+    transparent 70%
+  );
+  filter: blur(28px);
+  z-index: -1;
+}
+
 
   .coming-soon {
     margin-top: 22px;
