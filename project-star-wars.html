@@ -162,6 +162,70 @@
     max-width: 100%;
   }
 }
+/* ===============================
+   PROJECT TEMPLATE — SECTION 3
+   Image + Text Columns
+   =============================== */
+
+.proj-section--image-text{
+  padding-top: 0;
+}
+
+/* Full-width image */
+.proj-fig--full{
+  width: 100%;
+  margin: 0;
+}
+
+.proj-fig--full img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+/* Text row under image */
+.proj-text-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Text columns */
+.proj-text-col{
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(0,0,0,.75);
+}
+
+/* Right column visual alignment */
+.proj-text-col--right{
+  max-width: 42ch;
+  margin-left: auto;
+}
+
+/* If LEFT column is removed, RIGHT column still aligns right */
+.proj-text-row:has(.proj-text-col--right):not(:has(.proj-text-col--left)){
+  grid-template-columns: 1fr;
+}
+
+/* Mobile behavior */
+@media (max-width: 900px){
+  .proj-text-row{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .proj-text-col--right{
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
 
   </style>
   
@@ -241,6 +305,49 @@
     </p>
   </div>
 </section>
+
+  <!-- ======================================
+     SECTION 3 — IMAGE + TEXT
+     Reusable: supports 1 or 2 text columns
+     ====================================== -->
+<section class="proj-section proj-section--image-text">
+
+  <!-- Full-width image -->
+  <figure class="proj-fig proj-fig--full">
+    <img
+      src="./assets/Star-wars-image-2.jpg"
+      alt="Scrapper scavenging concept"
+      loading="lazy"
+    >
+  </figure>
+
+  <!-- Text row -->
+  <div class="proj-text-row">
+
+    <!-- OPTIONAL LEFT COLUMN
+         Remove this div entirely if you don’t want it -->
+    <div class="proj-text-col proj-text-col--left">
+      <p>
+        One of my favorite things about the Star Wars universe is its ability to
+        take a concept from our world and transform it into a beautiful piece
+        of design that fits right into the saga.
+      </p>
+    </div>
+
+    <!-- RIGHT COLUMN (can stand alone) -->
+    <div class="proj-text-col proj-text-col--right">
+      <p>
+        It shared the stories of Pemulung; these are the people who scavenge
+        through trash to find things that still have value to them and can be
+        used or sold. This act of scavenging was my inspiration process.
+        Connecting to these real-world references led me to start sketching
+        what this droid might look like.
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- ======================================
        MENU OVERLAY (SAME AS OTHER PAGES)
