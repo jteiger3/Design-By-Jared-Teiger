@@ -226,17 +226,23 @@
     max-width: 100%;
   }
 }
+    /* Tighten spacing before Vision section */
+.proj-section--image-text{
+  padding-bottom: 72px;
+}
+
     /* ===============================
    PROJECT TEMPLATE — SECTION 4
    Vision Statement
    =============================== */
 
 .proj-section--vision{
-  padding: 140px 44px;
+  padding: 96px 44px 120px; /* ⬅ reduced top spacing */
 }
 
 .proj-vision{
   max-width: 980px;
+  margin: 0 auto;          /* ⬅ centers the block */
 }
 
 .proj-vision__body{
@@ -245,8 +251,10 @@
   line-height: 1.15;
   font-weight: 400;
   color: rgba(0,0,0,.95);
-  max-width: 20ch;
+
+  max-width: 22ch;         /* ⬅ slightly wider for balance */
 }
+
 
 /* Mobile */
 @media (max-width: 760px){
