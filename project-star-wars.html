@@ -10,12 +10,118 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Global site styles -->
   <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Project template styles (scoped, so it won’t mess with other pages) -->
+  <style>
+    /* ===============================
+       PROJECT TEMPLATE — SECTION 1
+       Hero + Title + Meta Bar
+       =============================== */
+
+    .proj-hero{
+      height: 100vh;
+      position: relative;
+      background-image: url("./assets/Star-wars-image-1.jpg"); /* ✅ CHANGE THIS */
+      background-size: cover;
+      background-position: center;
+      background-color: #000; /* fallback */
+      overflow: hidden;
+    }
+
+    /* Dark fade on top of image so white text stays readable */
+    .proj-hero__scrim{
+      position:absolute;
+      inset:0;
+      background: radial-gradient(
+        circle at 50% 35%,
+        rgba(0,0,0,.12) 0%,
+        rgba(0,0,0,.55) 55%,
+        rgba(0,0,0,.78) 100%
+      );
+      pointer-events:none;
+    }
+
+    /* Content container inside hero */
+    .proj-hero__inner{
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: calc(var(--nav-h) + 52px) 44px 44px;
+      gap: 22px;
+    }
+
+    /* Project title */
+    .proj-title{
+      margin: 0;
+      font-size: clamp(48px, 7vw, 98px);
+      line-height: 1.02;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #fff;
+      max-width: 14ch;
+    }
+
+    /* Meta bar */
+    .proj-bar{
+      width: 100%;
+      padding: 18px 18px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.58);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .proj-meta{
+      min-width: 0;
+    }
+
+    .proj-meta__label{
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: none;
+      color: rgba(255,255,255,.70);
+      margin-bottom: 6px;
+    }
+
+    .proj-meta__value{
+      font-size: 14px;
+      color: rgba(255,255,255,.92);
+      line-height: 1.35;
+    }
+
+    /* Responsive */
+    @media (max-width: 760px){
+      .proj-hero__inner{
+        padding: calc(var(--nav-h) + 34px) 18px 18px;
+      }
+
+      .proj-title{
+        font-size: clamp(40px, 12vw, 64px);
+        max-width: 18ch;
+      }
+
+      .proj-bar{
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+      }
+    }
+  </style>
 </head>
 
 <body data-page="project">
 
-  <!-- NAV (over hero image) -->
+  <!-- ======================================
+       GLOBAL NAV (KEEP SAME AS OTHER PAGES)
+       ====================================== -->
   <header class="nav nav--overlay" id="nav">
     <div class="nav__bar" id="navBar">
       <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
@@ -34,121 +140,41 @@
     </div>
   </header>
 
-  <!-- SECTION 1 — HERO + BLACK INFO BAR -->
-  <section class="proj-hero" style="background-image:url('./assets/Star-wars-image-1.jpg')">
+  <!-- ======================================
+       SECTION 1 — HERO HEADER (TEMPLATE)
+       Copy/paste this section for other projects.
+       ====================================== -->
+  <section class="proj-hero" aria-label="Project hero">
     <div class="proj-hero__scrim" aria-hidden="true"></div>
 
-    <div class="proj-bar" role="group" aria-label="Project summary">
-      <div class="proj-bar__title">Star Wars</div>
+    <div class="proj-hero__inner">
+      <!-- ✅ CHANGE THIS title per project -->
+      <h1 class="proj-title">Scrapper</h1>
 
-      <div class="proj-bar__meta">
+      <!-- ✅ CHANGE THESE 3 meta blocks per project -->
+      <div class="proj-bar" role="group" aria-label="Project summary">
         <div class="proj-meta">
           <div class="proj-meta__label">Project Type</div>
-          <div class="proj-meta__value">Industrial Design</div>
+          <div class="proj-meta__value">Concept Design</div>
         </div>
 
         <div class="proj-meta">
           <div class="proj-meta__label">Stage</div>
-          <div class="proj-meta__value">Concept / Competition</div>
+          <div class="proj-meta__value">Competition</div>
         </div>
 
         <div class="proj-meta">
           <div class="proj-meta__label">Deliverables</div>
-          <div class="proj-meta__value">Droid concept + visuals</div>
+          <div class="proj-meta__value">Mechanical Designed Droid</div>
         </div>
       </div>
     </div>
   </section>
 
-  <main class="proj">
-
-    <!-- SECTION 2 — INTRO TEXT -->
-    <section class="proj-section">
-      <div class="proj-text">
-        <div class="proj-eyebrow">Introduction</div>
-        <div class="proj-body">
-          <!-- Replace with your real Star Wars project intro -->
-          This project explores form, function, and storytelling through a Star Wars droid concept—developed from early sketches through refinement and presentation visuals.
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3 — 2x2 GRID (3 images + text tile) -->
-    <section class="proj-section">
-      <div class="proj-grid-2x2">
-        <figure class="proj-fig">
-          <img src="./assets/Star-wars-image-2.jpg" alt="Star Wars image 2" loading="lazy">
-        </figure>
-
-        <figure class="proj-fig">
-          <img src="./assets/Star-wars-image-3.JPEG" alt="Star Wars image 3" loading="lazy">
-        </figure>
-
-        <figure class="proj-fig">
-          <img src="./assets/Star-wars-image-4.jpg" alt="Star Wars image 4" loading="lazy">
-        </figure>
-
-        <div class="proj-tile-text">
-          <div class="proj-tile-text__inner">
-            <!-- Replace with your real text for this section -->
-            Early exploration focused on silhouette, readability, and believable function—finding a shape language that felt at home in the Star Wars universe.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4 — “CENTER-ISH” TEXT -->
-    <section class="proj-section">
-      <div class="proj-text proj-text--centerish">
-        <div class="proj-eyebrow">The Vision</div>
-        <div class="proj-body">
-          <!-- Replace with your real vision line -->
-          Create a droid concept that feels iconic, practical, and story-ready.
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5 — LARGE HORIZONTAL IMAGE + caption -->
-    <section class="proj-section">
-      <figure class="proj-fig proj-fig--wide">
-        <img src="./assets/Star-wars-image-5.jpg" alt="Star Wars image 5" loading="lazy">
-        <figcaption class="proj-caption">
-          <!-- Replace with your real caption -->
-          Refinement and presentation: tightening proportions, detailing, and key moments that sell the narrative.
-        </figcaption>
-      </figure>
-    </section>
-
-    <!-- SECTION 6 — LEFT SQUARE + RIGHT (image + text) -->
-    <section class="proj-section">
-      <div class="proj-split-6">
-        <figure class="proj-fig proj-fig--square">
-          <img src="./assets/Star-wars-image-6.jpg" alt="Star Wars image 6" loading="lazy">
-        </figure>
-
-        <div class="proj-right-stack">
-          <figure class="proj-fig proj-fig--wide">
-            <img src="./assets/Star-wars-image-7.jpg" alt="Star Wars image 7" loading="lazy">
-          </figure>
-
-          <div class="proj-right-text">
-            <!-- Replace with your real closing text -->
-            Final composition and polish focused on clarity and presence—making the concept feel “real” through lighting, material cues, and storytelling details.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NOTE:
-         Your template had a SECTION 7 image (Section_07.jpg).
-         Star Wars only has 7 images total, and image 7 is already used above.
-         If you want a final “hero” at the bottom, we can reuse image 7 here,
-         or you can add an 8th image to assets.
-    -->
-
-  </main>
-
-  <!-- MENU OVERLAY (same as your other pages) -->
+  <!-- ======================================
+       MENU OVERLAY (SAME AS OTHER PAGES)
+       IMPORTANT: keep ids/classes so script.js works
+       ====================================== -->
   <section class="menu" id="menuOverlay" aria-hidden="true">
     <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="menu__left">
