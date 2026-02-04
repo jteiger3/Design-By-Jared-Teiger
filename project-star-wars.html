@@ -269,81 +269,132 @@
 }
 /* ===============================
    PROJECT TEMPLATE — SECTION 5
-   Offset Image Pair + Text
+   Full-viewport canvas layout
+   (matches your reference image)
    =============================== */
 
-.proj-section--offset-pair{
-  padding: 120px 44px;
+.proj-section--offset-canvas{
+  /* full-window section */
+  height: 100vh;
+  padding: 0;
+
+  /* prevents extra whitespace */
+  display: flex;
+  align-items: center;
 }
 
-.proj-offset-pair{
+/* Main canvas */
+.offset-canvas{
+  width: 100%;
+  height: 100%;
+  padding: 64px 44px; /* page breathing room */
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 64px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: 1fr 1.25fr;
+  column-gap: 64px;
   align-items: start;
 }
 
-/* LEFT */
-.proj-offset-left{
+/* LEFT column */
+.offset-left{
   display: flex;
   flex-direction: column;
   gap: 28px;
+  max-width: 520px; /* keeps it feeling like the reference */
 }
 
-/* Square image */
-.proj-fig--square img{
+/* Right column (offset down) */
+.offset-right{
+  padding-top: 120px; /* this creates the “halfway down” feel */
+}
+
+/* Images */
+.offset-fig{
+  margin: 0;
+}
+
+.offset-fig img{
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  height: 100%;
   display: block;
+  object-fit: cover;
   border-radius: 0; /* no fillet */
 }
 
-/* Text under left image */
-.proj-offset-text{
-  max-width: 42ch;
+/* Square image sizing */
+.offset-fig--square{
+  width: 100%;
+  aspect-ratio: 1 / 1;
 }
 
-.proj-offset-text p{
-  margin: 0 0 14px;
+/* Rectangle image sizing */
+.offset-fig--rect{
+  width: 100%;
+  max-width: 920px;
+  aspect-ratio: 16 / 9;
+}
+
+/* Text under the left image */
+.offset-copy{
   font-size: 16px;
   line-height: 1.7;
   color: rgba(0,0,0,.75);
+  max-width: 42ch;
 }
 
-/* RIGHT */
-.proj-offset-right{
-  margin-top: 120px; /* ⬅ vertical offset */
+.offset-copy p{
+  margin: 0 0 18px;
+}
+.offset-copy p:last-child{
+  margin-bottom: 0;
 }
 
-.proj-fig--rect img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0; /* no fillet */
+/* ===============================
+   Responsive behavior
+   =============================== */
+
+/* Medium screens: reduce offset + tighten spacing */
+@media (max-width: 1100px){
+  .offset-canvas{
+    grid-template-columns: 1fr 1.1fr;
+    padding: 56px 28px;
+    column-gap: 40px;
+  }
+  .offset-right{
+    padding-top: 84px;
+  }
 }
 
-/* Mobile */
-@media (max-width: 900px){
-  .proj-section--offset-pair{
-    padding: 88px 18px;
+/* Mobile: stack, keep rhythm, remove offset */
+@media (max-width: 860px){
+  .proj-section--offset-canvas{
+    height: auto;          /* allow natural height */
+    padding: 72px 0;
   }
 
-  .proj-offset-pair{
+  .offset-canvas{
+    height: auto;
     grid-template-columns: 1fr;
-    gap: 36px;
+    row-gap: 34px;
+    padding: 0 18px;
   }
 
-  .proj-offset-right{
-    margin-top: 0;
+  .offset-left{
+    max-width: 100%;
   }
 
-  .proj-offset-text{
+  .offset-right{
+    padding-top: 0;
+  }
+
+  .offset-fig--rect{
+    aspect-ratio: 3 / 2;
+  }
+
+  .offset-copy{
     max-width: 100%;
   }
 }
+
 
   </style>
   
@@ -475,18 +526,15 @@
   </div>
 </section>
 <!-- ======================================
-     SECTION 5 — OFFSET IMAGE PAIR + TEXT
-     Left: square image
-     Right: rectangle image (vertically offset)
-     Text: under left image only
+     SECTION 5 — FULL-VIEW OFFSET CANVAS
+     Matches: square left + text under, rect right offset
      ====================================== -->
-<section class="proj-section proj-section--offset-pair">
+<section class="proj-section proj-section--offset-canvas">
+  <div class="offset-canvas">
 
-  <div class="proj-offset-pair">
-
-    <!-- LEFT COLUMN -->
-    <div class="proj-offset-left">
-      <figure class="proj-fig proj-fig--square">
+    <!-- LEFT: square image + text -->
+    <div class="offset-left">
+      <figure class="offset-fig offset-fig--square">
         <img
           src="./assets/Star-wars-image-3.jpg"
           alt="Pemulung reference imagery"
@@ -494,26 +542,24 @@
         >
       </figure>
 
-      <div class="proj-offset-text">
+      <div class="offset-copy">
         <p>
-          I used images of Pemulung workers as underlay sketches to pull form and
-          poses that the droid would mimic in the Star Wars Universe.
+          I used images of Pemulung workers as underlay sketches to pull form and poses
+          that the droid would mimic in the Star Wars Universe.
         </p>
-
         <p>
-          After an initial round of sketching, I found the solo wheel droid to be
-          a good fit because of the energy and action it held in its form and
-          functionality.
+          After an initial round of sketching, I found the solo wheel droid to be a good fit
+          because of the energy and action it held in its form and functionality.
         </p>
       </div>
     </div>
 
-    <!-- RIGHT COLUMN -->
-    <div class="proj-offset-right">
-      <figure class="proj-fig proj-fig--rect">
+    <!-- RIGHT: rectangle image, offset downward -->
+    <div class="offset-right">
+      <figure class="offset-fig offset-fig--rect">
         <img
           src="./assets/Star-wars-image-4.jpg"
-          alt="Early sketch exploration"
+          alt="Sketch exploration"
           loading="lazy"
         >
       </figure>
