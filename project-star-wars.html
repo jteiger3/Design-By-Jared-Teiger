@@ -288,13 +288,26 @@
   border-radius: 0; /* no fillet */
 }
 
-/* RIGHT: top sketches (orange) + bottom text (green) */
-.split-right{
-  display: grid;
-  grid-template-rows: auto 1fr; /* top image, bottom area for text */
-  row-gap: 22px;
-  min-width: 0;
+.split-copy{
+  /* live in the “green box” = the remaining space under the sketches */
+  grid-row: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;      /* pin text to bottom of the photo */
+  
+  /* lock to right edge, expand left */
+  justify-self: end;              /* right edge fixed */
+  width: min(520px, 100%);        /* grows left as needed */
+  max-width: 46ch;
+
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(0,0,0,.75);
+
+  overflow: hidden;               /* text cannot spill below photo */
 }
+
 
 /* Orange box */
 .split-fig-wide{
