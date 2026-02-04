@@ -13,24 +13,23 @@
   <!-- Global site styles -->
   <link rel="stylesheet" href="./styles.css" />
 
-  <!-- Project template styles (scoped, so it won’t mess with other pages) -->
+  <!-- Project page styles (scoped to this file) -->
   <style>
-    /* ===============================
+    /* =========================================
        PROJECT TEMPLATE — SECTION 1
        Hero + Title + Meta Bar
-       =============================== */
+       ========================================= */
 
     .proj-hero{
       height: 100vh;
       position: relative;
-      background-image: url("./assets/Star-wars-image-1.jpg"); /* ✅ CHANGE THIS */
+      background-image: url("./assets/Star-wars-image-1.jpg"); /* ✅ CHANGE PER PROJECT */
       background-size: cover;
       background-position: center;
-      background-color: #000; /* fallback */
+      background-color: #000;
       overflow: hidden;
     }
 
-    /* Dark fade on top of image so white text stays readable */
     .proj-hero__scrim{
       position:absolute;
       inset:0;
@@ -43,7 +42,6 @@
       pointer-events:none;
     }
 
-    /* Content container inside hero */
     .proj-hero__inner{
       position: relative;
       height: 100%;
@@ -54,7 +52,6 @@
       gap: 22px;
     }
 
-    /* Project title */
     .proj-title{
       margin: 0;
       font-size: clamp(48px, 7vw, 98px);
@@ -65,7 +62,6 @@
       max-width: 14ch;
     }
 
-    /* Meta bar */
     .proj-bar{
       width: 100%;
       padding: 18px 18px;
@@ -79,14 +75,9 @@
       gap: 18px;
     }
 
-    .proj-meta{
-      min-width: 0;
-    }
-
     .proj-meta__label{
       font-size: 12px;
       letter-spacing: .12em;
-      text-transform: none;
       color: rgba(255,255,255,.70);
       margin-bottom: 6px;
     }
@@ -97,314 +88,267 @@
       line-height: 1.35;
     }
 
-    /* Responsive */
     @media (max-width: 760px){
       .proj-hero__inner{
         padding: calc(var(--nav-h) + 34px) 18px 18px;
       }
-
       .proj-title{
         font-size: clamp(40px, 12vw, 64px);
         max-width: 18ch;
       }
-
       .proj-bar{
         grid-template-columns: 1fr;
         gap: 14px;
         padding: 16px;
       }
     }
-    
-    /* ===============================
-   PROJECT TEMPLATE — SECTION 2
-   Introduction
-   =============================== */
 
-.proj-section{
-  padding: 110px 44px;
-}
+    /* =========================================
+       PROJECT TEMPLATE — SECTION 2
+       Introduction
+       ========================================= */
 
-.proj-section--intro{
-  padding-top: 120px;
-}
+    .proj-section{
+      padding: 110px 44px;
+    }
 
-.proj-intro{
-  max-width: 980px;
-}
+    .proj-section--intro{
+      padding-top: 120px;
+    }
 
-.proj-eyebrow{
-  font-size: 13px;
-  letter-spacing: .12em;
-  color: rgba(0,0,0,.55);
-  margin-bottom: 18px;
-}
+    .proj-intro{
+      max-width: 980px;
+    }
 
-.proj-intro__body{
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.55;
-  color: rgba(0,0,0,.9);
-  margin: 0;
-  max-width: 48ch;
-}
+    .proj-eyebrow{
+      font-size: 13px;
+      letter-spacing: .12em;
+      color: rgba(0,0,0,.55);
+      margin-bottom: 18px;
+    }
 
-/* Mobile tuning */
-@media (max-width: 760px){
-  .proj-section{
-    padding: 72px 18px;
-  }
+    .proj-intro__body{
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.55;
+      color: rgba(0,0,0,.9);
+      margin: 0;
+      max-width: 48ch;
+    }
 
-  .proj-section--intro{
-    padding-top: 80px;
-  }
+    @media (max-width: 760px){
+      .proj-section{
+        padding: 72px 18px;
+      }
+      .proj-section--intro{
+        padding-top: 80px;
+      }
+      .proj-intro__body{
+        font-size: 20px;
+        max-width: 100%;
+      }
+    }
 
-  .proj-intro__body{
-    font-size: 20px;
-    max-width: 100%;
-  }
-}
-/* ===============================
-   PROJECT TEMPLATE — SECTION 3
-   Image + Editorial Text
-   =============================== */
+    /* =========================================
+       PROJECT TEMPLATE — SECTION 3
+       Full image + 2-column editorial copy
+       (no fillet)
+       ========================================= */
 
-.proj-section--image-text{
-  padding-top: 0;
-}
+    .proj-section--image-text{
+      padding-top: 0;
+      padding-bottom: 72px; /* tightens before Vision */
+    }
 
-/* Full-width image, NO fillet */
-.proj-fig--full{
-  width: 100%;
-  margin: 0;
-}
+    .proj-fig--full{
+      width: 100%;
+      margin: 0;
+    }
 
-.proj-fig--full img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0; /* ❌ remove fillet */
-}
+    .proj-fig--full img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0; /* no fillet */
+    }
 
-/* Editorial text under image */
-.proj-editorial{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  max-width: 1100px;
-  margin: 48px auto 0;
-  padding: 0 44px;
-}
+    .proj-editorial{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 1100px;
+      margin: 48px auto 0;
+      padding: 0 44px;
+    }
 
-.proj-editorial p{
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgba(0,0,0,.75);
-}
+    .proj-editorial p{
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(0,0,0,.75);
+    }
 
-/* Right paragraph alignment */
-.proj-editorial__right{
-  max-width: 42ch;
-  margin-left: auto;
-}
+    .proj-editorial__right{
+      max-width: 42ch;
+      margin-left: auto;
+    }
 
-/* If LEFT paragraph is removed, keep layout clean */
-.proj-editorial:has(.proj-editorial__right):not(:has(.proj-editorial__left)){
-  grid-template-columns: 1fr;
-}
+    @media (max-width: 900px){
+      .proj-editorial{
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-top: 32px;
+        padding: 0 18px;
+      }
+      .proj-editorial__right{
+        margin-left: 0;
+        max-width: 100%;
+      }
+    }
 
-/* Mobile */
-@media (max-width: 900px){
-  .proj-editorial{
-    grid-template-columns: 1fr;
-    gap: 22px;
-    margin-top: 32px;
-    padding: 0 18px;
-  }
+    /* =========================================
+       PROJECT TEMPLATE — SECTION 4
+       Vision Statement (centered block)
+       ========================================= */
 
-  .proj-editorial__right{
-    margin-left: 0;
-    max-width: 100%;
-  }
-}
-    /* Tighten spacing before Vision section */
-.proj-section--image-text{
-  padding-bottom: 72px;
-}
+    .proj-section--vision{
+      padding: 96px 44px 120px;
+    }
 
-    /* ===============================
-   PROJECT TEMPLATE — SECTION 4
-   Vision Statement
-   =============================== */
+    .proj-vision{
+      max-width: 980px;
+      margin: 0 auto;
+    }
 
-.proj-section--vision{
-  padding: 96px 44px 120px; /* ⬅ reduced top spacing */
-}
+    .proj-vision__body{
+      margin: 0;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.15;
+      font-weight: 400;
+      color: rgba(0,0,0,.95);
+      max-width: 48ch;
+    }
 
-.proj-vision{
-  max-width: 980px;
-  margin: 0 auto;          /* ⬅ centers the block */
-}
+    @media (max-width: 760px){
+      .proj-section--vision{
+        padding: 88px 18px;
+      }
+      .proj-vision__body{
+        font-size: 30px;
+        max-width: 100%;
+      }
+    }
 
-.proj-vision__body{
-  margin: 0;
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.15;
-  font-weight: 400;
-  color: rgba(0,0,0,.95);
+    /* =========================================
+       PROJECT TEMPLATE — SECTION 5
+       Full-viewport canvas (matches reference)
+       ========================================= */
 
-  max-width: 48ch;         /* ⬅ slightly wider for balance */
-}
+    .proj-section--offset-canvas{
+      height: 100vh;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
 
+    .offset-canvas{
+      width: 100%;
+      height: 100%;
+      padding: 64px 44px;
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      column-gap: 64px;
+      align-items: start;
+    }
 
-/* Mobile */
-@media (max-width: 760px){
-  .proj-section--vision{
-    padding: 88px 18px;
-  }
+    .offset-left{
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      max-width: 520px;
+    }
 
-  .proj-vision__body{
-    font-size: 30px;
-    max-width: 100%;
-  }
-}
-/* ===============================
-   PROJECT TEMPLATE — SECTION 5
-   Full-viewport canvas layout
-   (matches your reference image)
-   =============================== */
+    .offset-right{
+      padding-top: 120px;
+    }
 
-.proj-section--offset-canvas{
-  /* full-window section */
-  height: 100vh;
-  padding: 0;
+    .offset-fig{
+      margin: 0;
+    }
 
-  /* prevents extra whitespace */
-  display: flex;
-  align-items: center;
-}
+    .offset-fig img{
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 0; /* no fillet */
+    }
 
-/* Main canvas */
-.offset-canvas{
-  width: 100%;
-  height: 100%;
-  padding: 64px 44px; /* page breathing room */
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  column-gap: 64px;
-  align-items: start;
-}
+    .offset-fig--square{
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
 
-/* LEFT column */
-.offset-left{
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  max-width: 520px; /* keeps it feeling like the reference */
-}
+    .offset-fig--rect{
+      width: 100%;
+      max-width: 920px;
+      aspect-ratio: 16 / 9;
+    }
 
-/* Right column (offset down) */
-.offset-right{
-  padding-top: 120px; /* this creates the “halfway down” feel */
-}
+    .offset-copy{
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(0,0,0,.75);
+      max-width: 42ch;
+    }
 
-/* Images */
-.offset-fig{
-  margin: 0;
-}
+    .offset-copy p{
+      margin: 0 0 18px;
+    }
+    .offset-copy p:last-child{
+      margin-bottom: 0;
+    }
 
-.offset-fig img{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 0; /* no fillet */
-}
+    @media (max-width: 1100px){
+      .offset-canvas{
+        grid-template-columns: 1fr 1.1fr;
+        padding: 56px 28px;
+        column-gap: 40px;
+      }
+      .offset-right{
+        padding-top: 84px;
+      }
+    }
 
-/* Square image sizing */
-.offset-fig--square{
-  width: 100%;
-  aspect-ratio: 1 / 1;
-}
-
-/* Rectangle image sizing */
-.offset-fig--rect{
-  width: 100%;
-  max-width: 920px;
-  aspect-ratio: 16 / 9;
-}
-
-/* Text under the left image */
-.offset-copy{
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgba(0,0,0,.75);
-  max-width: 42ch;
-}
-
-.offset-copy p{
-  margin: 0 0 18px;
-}
-.offset-copy p:last-child{
-  margin-bottom: 0;
-}
-
-/* ===============================
-   Responsive behavior
-   =============================== */
-
-/* Medium screens: reduce offset + tighten spacing */
-@media (max-width: 1100px){
-  .offset-canvas{
-    grid-template-columns: 1fr 1.1fr;
-    padding: 56px 28px;
-    column-gap: 40px;
-  }
-  .offset-right{
-    padding-top: 84px;
-  }
-}
-
-/* Mobile: stack, keep rhythm, remove offset */
-@media (max-width: 860px){
-  .proj-section--offset-canvas{
-    height: auto;          /* allow natural height */
-    padding: 72px 0;
-  }
-
-  .offset-canvas{
-    height: auto;
-    grid-template-columns: 1fr;
-    row-gap: 34px;
-    padding: 0 18px;
-  }
-
-  .offset-left{
-    max-width: 100%;
-  }
-
-  .offset-right{
-    padding-top: 0;
-  }
-
-  .offset-fig--rect{
-    aspect-ratio: 3 / 2;
-  }
-
-  .offset-copy{
-    max-width: 100%;
-  }
-}
-
-
+    @media (max-width: 860px){
+      .proj-section--offset-canvas{
+        height: auto;
+        padding: 72px 0;
+      }
+      .offset-canvas{
+        height: auto;
+        grid-template-columns: 1fr;
+        row-gap: 34px;
+        padding: 0 18px;
+      }
+      .offset-left{
+        max-width: 100%;
+      }
+      .offset-right{
+        padding-top: 0;
+      }
+      .offset-fig--rect{
+        aspect-ratio: 3 / 2;
+      }
+      .offset-copy{
+        max-width: 100%;
+      }
+    }
   </style>
-  
 </head>
 
 <body data-page="project">
 
-  <!-- ======================================
-       GLOBAL NAV (KEEP SAME AS OTHER PAGES)
-       ====================================== -->
+  <!-- NAV (same as other pages) -->
   <header class="nav nav--overlay" id="nav">
     <div class="nav__bar" id="navBar">
       <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
@@ -423,18 +367,13 @@
     </div>
   </header>
 
-  <!-- ======================================
-       SECTION 1 — HERO HEADER (TEMPLATE)
-       Copy/paste this section for other projects.
-       ====================================== -->
+  <!-- SECTION 1 — HERO -->
   <section class="proj-hero" aria-label="Project hero">
     <div class="proj-hero__scrim" aria-hidden="true"></div>
 
     <div class="proj-hero__inner">
-      <!-- ✅ CHANGE THIS title per project -->
       <h1 class="proj-title">Scrapper</h1>
 
-      <!-- ✅ CHANGE THESE 3 meta blocks per project -->
       <div class="proj-bar" role="group" aria-label="Project summary">
         <div class="proj-meta">
           <div class="proj-meta__label">Project Type</div>
@@ -454,126 +393,100 @@
     </div>
   </section>
 
-  <!-- ======================================
-     SECTION 2 — INTRODUCTION
-     Reusable project intro block
-     ====================================== -->
-<section class="proj-section proj-section--intro">
-  <div class="proj-intro">
-    <!-- Small eyebrow -->
-    <div class="proj-eyebrow">Introduction</div>
+  <!-- SECTION 2 — INTRO -->
+  <section class="proj-section proj-section--intro">
+    <div class="proj-intro">
+      <div class="proj-eyebrow">Introduction</div>
 
-    <!-- Main body text -->
-    <p class="proj-intro__body">
-      Scrapper is a droid with a frenzied attitude. His love of tinkering with
-      objects led him to scavenge for parts that he could then sell for a
-      profit after fixing them. He constantly finds himself in imperial
-      junkyards, abandoned shipwrecks, and landfills. Scrapper is a very
-      versatile droid that can give any piece of broken or used junk a new
-      purpose.
-    </p>
-  </div>
-</section>
+      <p class="proj-intro__body">
+        Scrapper is a droid with a frenzied attitude. His love of tinkering with
+        objects led him to scavenge for parts that he could then sell for a
+        profit after fixing them. He constantly finds himself in imperial
+        junkyards, abandoned shipwrecks, and landfills. Scrapper is a very
+        versatile droid that can give any piece of broken or used junk a new
+        purpose.
+      </p>
+    </div>
+  </section>
 
-<!-- ======================================
-     SECTION 3 — IMAGE + EDITORIAL TEXT
-     No fillet, right-weighted text
-     ====================================== -->
-<section class="proj-section proj-section--image-text">
+  <!-- SECTION 3 — IMAGE + EDITORIAL -->
+  <section class="proj-section proj-section--image-text">
+    <figure class="proj-fig--full">
+      <img
+        src="./assets/Star-wars-image-2.jpg"
+        alt="Scrapper scavenging environment"
+        loading="lazy"
+      >
+    </figure>
 
-  <!-- Full-width image (NO rounded corners) -->
-  <figure class="proj-fig proj-fig--full">
-    <img
-      src="./assets/Star-wars-image-2.jpg"
-      alt="Scrapper scavenging environment"
-      loading="lazy"
-    >
-  </figure>
+    <div class="proj-editorial">
+      <p class="proj-editorial__left">
+        One of my favorite things about the Star Wars Universe is its ability to
+        take a concept from our world and transform it into a beautiful piece of
+        design that fits right into the Star Wars saga. Before the competition,
+        I watched a video about one of the largest landfills in Indonesia.
+      </p>
 
-  <!-- Text block under image -->
-  <div class="proj-editorial">
+      <p class="proj-editorial__right">
+        It shared the stories of Pemulung; these are the people who scavenge
+        through trash to find things that still have value to them and can be
+        used or sold. This act of scavenging was my inspiration process.
+        Connecting all these real-world references led me to start sketching
+        what this droid might look like.
+      </p>
+    </div>
+  </section>
 
-    <!-- Left paragraph -->
-    <p class="proj-editorial__left">
-      One of my favorite things about the Star Wars Universe is its ability to
-      take a concept from our world and transform it into a beautiful piece of
-      design that fits right into the Star Wars saga. Before the competition,
-      I watched a video about one of the largest landfills in Indonesia.
-    </p>
+  <!-- SECTION 4 — VISION -->
+  <section class="proj-section proj-section--vision">
+    <div class="proj-vision">
+      <div class="proj-eyebrow">The Vision</div>
 
-    <!-- Right paragraph -->
-    <p class="proj-editorial__right">
-      It shared the stories of Pemulung; these are the people who scavenge
-      through trash to find things that still have value to them and can be
-      used or sold. This act of scavenging was my inspiration process.
-      Connecting all these real-world references led me to start sketching
-      what this droid might look like.
-    </p>
+      <p class="proj-vision__body">
+        Design a mechanically functional Star Wars Droid utilizing Autodesk Fusion.
+      </p>
+    </div>
+  </section>
 
-  </div>
-</section>
-<!-- ======================================
-     SECTION 4 — VISION STATEMENT
-     Small header + large body text
-     ====================================== -->
-<section class="proj-section proj-section--vision">
-  <div class="proj-vision">
-    <div class="proj-eyebrow">The Vision</div>
+  <!-- SECTION 5 — FULL-VIEW OFFSET CANVAS -->
+  <section class="proj-section--offset-canvas">
+    <div class="offset-canvas">
 
-    <p class="proj-vision__body">
-      Design a mechanically functional Star Wars Droid utilizing Autodesk Fusion.
-    </p>
-  </div>
-</section>
-<!-- ======================================
-     SECTION 5 — FULL-VIEW OFFSET CANVAS
-     Matches: square left + text under, rect right offset
-     ====================================== -->
-<section class="proj-section proj-section--offset-canvas">
-  <div class="offset-canvas">
+      <div class="offset-left">
+        <figure class="offset-fig offset-fig--square">
+          <img
+            src="./assets/Star-wars-image-3.jpg"
+            alt="Pemulung reference imagery"
+            loading="lazy"
+          >
+        </figure>
 
-    <!-- LEFT: square image + text -->
-    <div class="offset-left">
-      <figure class="offset-fig offset-fig--square">
-        <img
-          src="./assets/Star-wars-image-3.jpg"
-          alt="Pemulung reference imagery"
-          loading="lazy"
-        >
-      </figure>
-
-      <div class="offset-copy">
-        <p>
-          I used images of Pemulung workers as underlay sketches to pull form and poses
-          that the droid would mimic in the Star Wars Universe.
-        </p>
-        <p>
-          After an initial round of sketching, I found the solo wheel droid to be a good fit
-          because of the energy and action it held in its form and functionality.
-        </p>
+        <div class="offset-copy">
+          <p>
+            I used images of Pemulung workers as underlay sketches to pull form and poses
+            that the droid would mimic in the Star Wars Universe.
+          </p>
+          <p>
+            After an initial round of sketching, I found the solo wheel droid to be a good fit
+            because of the energy and action it held in its form and functionality.
+          </p>
+        </div>
       </div>
+
+      <div class="offset-right">
+        <figure class="offset-fig offset-fig--rect">
+          <img
+            src="./assets/Star-wars-image-4.jpg"
+            alt="Sketch exploration"
+            loading="lazy"
+          >
+        </figure>
+      </div>
+
     </div>
+  </section>
 
-    <!-- RIGHT: rectangle image, offset downward -->
-    <div class="offset-right">
-      <figure class="offset-fig offset-fig--rect">
-        <img
-          src="./assets/Star-wars-image-4.jpg"
-          alt="Sketch exploration"
-          loading="lazy"
-        >
-      </figure>
-    </div>
-
-  </div>
-</section>
-
-
-
-  <!-- ======================================
-       MENU OVERLAY (SAME AS OTHER PAGES)
-       IMPORTANT: keep ids/classes so script.js works
-       ====================================== -->
+  <!-- MENU OVERLAY (same as other pages) -->
   <section class="menu" id="menuOverlay" aria-hidden="true">
     <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="menu__left">
