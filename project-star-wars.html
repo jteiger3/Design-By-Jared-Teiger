@@ -114,7 +114,57 @@
         padding: 16px;
       }
     }
+    
+    /* ===============================
+   PROJECT TEMPLATE — SECTION 2
+   Introduction
+   =============================== */
+
+.proj-section{
+  padding: 110px 44px;
+}
+
+.proj-section--intro{
+  padding-top: 120px;
+}
+
+.proj-intro{
+  max-width: 980px;
+}
+
+.proj-eyebrow{
+  font-size: 13px;
+  letter-spacing: .12em;
+  color: rgba(0,0,0,.55);
+  margin-bottom: 18px;
+}
+
+.proj-intro__body{
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.55;
+  color: rgba(0,0,0,.9);
+  margin: 0;
+  max-width: 48ch;
+}
+
+/* Mobile tuning */
+@media (max-width: 760px){
+  .proj-section{
+    padding: 72px 18px;
+  }
+
+  .proj-section--intro{
+    padding-top: 80px;
+  }
+
+  .proj-intro__body{
+    font-size: 20px;
+    max-width: 100%;
+  }
+}
+
   </style>
+  
 </head>
 
 <body data-page="project">
@@ -170,6 +220,27 @@
       </div>
     </div>
   </section>
+
+  <!-- ======================================
+     SECTION 2 — INTRODUCTION
+     Reusable project intro block
+     ====================================== -->
+<section class="proj-section proj-section--intro">
+  <div class="proj-intro">
+    <!-- Small eyebrow -->
+    <div class="proj-eyebrow">Introduction</div>
+
+    <!-- Main body text -->
+    <p class="proj-intro__body">
+      Scrapper is a droid with a frenzied attitude. His love of tinkering with
+      objects led him to scavenge for parts that he could then sell for a
+      profit after fixing them. He constantly finds himself in imperial
+      junkyards, abandoned shipwrecks, and landfills. Scrapper is a very
+      versatile droid that can give any piece of broken or used junk a new
+      purpose.
+    </p>
+  </div>
+</section>
 
   <!-- ======================================
        MENU OVERLAY (SAME AS OTHER PAGES)
