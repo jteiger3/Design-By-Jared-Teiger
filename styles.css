@@ -277,7 +277,7 @@ body.menu-open .nav--overlay .icon-btn{
   background-position:center;
 }
 
-/* ================= ABOUT PAGE ================= */
+/* ================= ABOUT PAGE / GENERAL PAGES ================= */
 .page-hero{
   height:100vh;
   background-size:cover;
@@ -313,6 +313,23 @@ body.menu-open .nav--overlay .icon-btn{
   color: rgba(0,0,0,.72);
 }
 
+/* Education — add breathing room */
+.edu{
+  display:flex;
+  flex-direction:column;
+  gap: 18px;
+  padding-top: 10px;
+}
+.edu__school{
+  font-weight:700;
+  margin-bottom: 6px;
+}
+.edu__degree{
+  color: rgba(0,0,0,.72);
+  line-height: 1.6;
+}
+
+/* Experience */
 .xp{
   display:flex;
   flex-direction:column;
@@ -334,10 +351,69 @@ body.menu-open .nav--overlay .icon-btn{
   margin-top:40px;
 }
 
+/* ✅ CTA layout (shared across pages)
+   - Title left
+   - Links right
+   - Vertically centered to the phrase */
+.cta{
+  display:grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+  align-items:center;
+  padding: 28px 0;
+}
+
+.cta__title{
+  font-size: clamp(44px, 5vw, 72px);
+  line-height:1.02;
+  font-weight:400;
+  margin:0;
+}
+
+.cta__links{
+  display:flex;
+  flex-direction:column;
+  gap: 18px;
+}
+
+.cta__link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:22px;
+  padding: 8px 0 14px;
+  border-bottom: 1px solid rgba(0,0,0,.10);
+}
+
+.cta__arrow{
+  font-size:28px;
+  line-height:1;
+  transform: translateY(-1px);
+}
+
+/* ✅ Awards — no bullets, more breathing room */
+.awards{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+  margin-top: 14px;
+}
+.award-item{
+  font-size:18px;
+  line-height:1.7;
+  color: rgba(0,0,0,.72);
+}
+.award-item .strong{
+  font-weight:700;
+  color: rgba(0,0,0,.90);
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width:980px){
   .xp__row{ grid-template-columns:1fr; }
   .preview{ width:100%; }
+  .cta{ grid-template-columns: 1fr; gap: 22px; }
+  .cta__link{ font-size:20px; }
 }
 
 @media (max-width:760px){
