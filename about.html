@@ -42,7 +42,7 @@
   <main class="page">
     <!-- SECTION 1 -->
     <section class="section section--intro">
-      <h1 class="h1">Jared Teiger</h1>
+      <!-- ✅ removed the “Jared Teiger” heading above the intro paragraph -->
       <p class="lead">I build stories you can hold in your hands.</p>
       <p class="body">
         I’m fascinated by the process of turning imagination into something tangible; from sketch to prototype, from pixels to production.
@@ -71,7 +71,6 @@
     <section class="section">
       <h2 class="h2">Experience</h2>
 
-      <!-- Each row aligns role ↔ company -->
       <div class="xp">
         <div class="xp__row">
           <div class="xp__left">
@@ -143,26 +142,36 @@
     <!-- SECTION 4 -->
     <section class="section">
       <h2 class="h2">Awards and Recognition</h2>
-      <ul class="list">
-        <li><span class="strong">Undergraduate Leadership and Service Award</span> — Georgia Tech Faculty (2025)</li>
-        <li><span class="strong">Best Overall Project Industrial Design and Engineering</span> — Georgia Tech Capstone (2025)</li>
-        <li><span class="strong">Student Design Excellence Award</span> — HRI/ACM/IEEE Conference (2025)</li>
-        <li><span class="strong">Orange Sparkle Ball Honorable Mention</span> — Make 10 Market (2024)</li>
-        <li><span class="strong">Lucasfilm and Autodesk Droid Competition – Student Winner</span> (2024)</li>
-        <li><span class="strong">LIT Lighting Design Award</span> — Nightflare Design (2023)</li>
-        <li><span class="strong">SIT Furniture Design Award</span> — Sapele Serenade Design (2023)</li>
-        <li><span class="strong">ID Faculty Merit Award</span> — Georgia Tech (2022)</li>
-        <li><span class="strong">Scholastic Art and Writing – Industrial Design</span> — Gold Key + National Medal (2021)</li>
-      </ul>
+
+      <!-- ✅ no bullets + more spacing -->
+      <div class="awards">
+        <div class="award-item"><span class="strong">Undergraduate Leadership and Service Award</span> — Georgia Tech Faculty (2025)</div>
+        <div class="award-item"><span class="strong">Best Overall Project Industrial Design and Engineering</span> — Georgia Tech Capstone (2025)</div>
+        <div class="award-item"><span class="strong">Student Design Excellence Award</span> — HRI/ACM/IEEE Conference (2025)</div>
+        <div class="award-item"><span class="strong">Orange Sparkle Ball Honorable Mention</span> — Make 10 Market (2024)</div>
+        <div class="award-item"><span class="strong">Lucasfilm and Autodesk Droid Competition</span> — Student Winner (2024)</div>
+        <div class="award-item"><span class="strong">LIT Lighting Design Award</span> — Nightflare Design (2023)</div>
+        <div class="award-item"><span class="strong">SIT Furniture Design Award</span> — Sapele Serenade Design (2023)</div>
+        <div class="award-item"><span class="strong">ID Faculty Merit Award</span> — Georgia Tech (2022)</div>
+        <div class="award-item"><span class="strong">Scholastic Art and Writing</span> — Industrial Design — Gold Key + National Medal (2021)</div>
+      </div>
     </section>
 
     <!-- SECTION 5 -->
     <section class="section section--cta">
       <div class="cta">
-        <h2 class="h2">How can I help</h2>
+        <!-- ✅ uses shared CTA layout in styles.css -->
+        <h2 class="cta__title">How can I help</h2>
+
         <div class="cta__links">
-          <a class="cta__link" href="./contact.html">Work together <span aria-hidden="true">↗</span></a>
-          <a class="cta__link" href="./contact.html">Just say hello <span aria-hidden="true">↗</span></a>
+          <a class="cta__link" href="./contact.html">
+            <span>Work together</span>
+            <span class="cta__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="cta__link" href="./contact.html">
+            <span>Just say hello</span>
+            <span class="cta__arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </section>
@@ -187,32 +196,32 @@
           <div class="menu__section-title">CASE STUDIES</div>
 
           <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">
-  Star Wars
-</a>
+            Star Wars
+          </a>
 
-<a class="pill" href="./project-the-covenant.html" data-preview="./assets/the-covenant.jpg">
-  The Covenant
-</a>
+          <a class="pill" href="./project-the-covenant.html" data-preview="./assets/the-covenant.jpg">
+            The Covenant
+          </a>
 
-<a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">
-  Magimates
-</a>
+          <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">
+            Magimates
+          </a>
 
-<a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">
-  Helloreal
-</a>
+          <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">
+            Helloreal
+          </a>
 
-<a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">
-  Nightflare
-</a>
+          <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">
+            Nightflare
+          </a>
 
-<a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">
-  Sapele Serenade
-</a>
+          <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">
+            Sapele Serenade
+          </a>
 
-<a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">
-  Social Queue
-</a>
+          <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">
+            Social Queue
+          </a>
 
         </nav>
       </div>
