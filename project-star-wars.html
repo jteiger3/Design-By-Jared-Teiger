@@ -267,6 +267,83 @@
     max-width: 100%;
   }
 }
+/* ===============================
+   PROJECT TEMPLATE — SECTION 5
+   Offset Image Pair + Text
+   =============================== */
+
+.proj-section--offset-pair{
+  padding: 120px 44px;
+}
+
+.proj-offset-pair{
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* LEFT */
+.proj-offset-left{
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Square image */
+.proj-fig--square img{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 0; /* no fillet */
+}
+
+/* Text under left image */
+.proj-offset-text{
+  max-width: 42ch;
+}
+
+.proj-offset-text p{
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(0,0,0,.75);
+}
+
+/* RIGHT */
+.proj-offset-right{
+  margin-top: 120px; /* ⬅ vertical offset */
+}
+
+.proj-fig--rect img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0; /* no fillet */
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .proj-section--offset-pair{
+    padding: 88px 18px;
+  }
+
+  .proj-offset-pair{
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .proj-offset-right{
+    margin-top: 0;
+  }
+
+  .proj-offset-text{
+    max-width: 100%;
+  }
+}
 
   </style>
   
@@ -395,6 +472,53 @@
     <p class="proj-vision__body">
       Design a mechanically functional Star Wars Droid utilizing Autodesk Fusion.
     </p>
+  </div>
+</section>
+<!-- ======================================
+     SECTION 5 — OFFSET IMAGE PAIR + TEXT
+     Left: square image
+     Right: rectangle image (vertically offset)
+     Text: under left image only
+     ====================================== -->
+<section class="proj-section proj-section--offset-pair">
+
+  <div class="proj-offset-pair">
+
+    <!-- LEFT COLUMN -->
+    <div class="proj-offset-left">
+      <figure class="proj-fig proj-fig--square">
+        <img
+          src="./assets/Star-wars-image-3.jpg"
+          alt="Pemulung reference imagery"
+          loading="lazy"
+        >
+      </figure>
+
+      <div class="proj-offset-text">
+        <p>
+          I used images of Pemulung workers as underlay sketches to pull form and
+          poses that the droid would mimic in the Star Wars Universe.
+        </p>
+
+        <p>
+          After an initial round of sketching, I found the solo wheel droid to be
+          a good fit because of the energy and action it held in its form and
+          functionality.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="proj-offset-right">
+      <figure class="proj-fig proj-fig--rect">
+        <img
+          src="./assets/Star-wars-image-4.jpg"
+          alt="Early sketch exploration"
+          loading="lazy"
+        >
+      </figure>
+    </div>
+
   </div>
 </section>
 
