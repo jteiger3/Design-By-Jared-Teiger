@@ -238,138 +238,111 @@
       }
     }
 
- /* ===============================
-   PROJECT TEMPLATE — SECTION 5 (NEW)
-   Left = big square image
-   Right top = sketches image
-   Right bottom = text
+/* ===============================
+   PROJECT TEMPLATE — SECTION 5
+   Fluid two-column layout:
+   - Left: responsive “square” image (actually uses aspect-ratio)
+   - Right: responsive rectangle sketches + text under it
    =============================== */
 
-.proj-section--split-canvas{
-  height: 100vh;
+.proj-section--offset-canvas{
   padding: 0;
-  display: flex;
-  align-items: center;
 }
 
-/* Canvas container */
-.split-canvas{
-  --padX: 44px;
-  --padY: 64px;
-
-  width: 100%;
-  height: 100%;
-  padding: var(--padY) var(--padX);
+/* Center the whole layout and let it scale */
+.offset-canvas{
+  width: min(1320px, calc(100% - 88px));   /* responsive side gutters */
+  margin: 0 auto;
+  padding: 64px 0;                         /* vertical breathing room */
 
   display: grid;
-  grid-template-columns: auto 1fr; /* left is fixed square, right fills */
-  column-gap: 64px;
-  align-items: stretch;
+  grid-template-columns: minmax(320px, 1fr) minmax(360px, 1.25fr);
+  gap: 56px;
+  align-items: start;
 }
 
-/* LEFT: big square image (red box) */
-.split-left{
+/* LEFT column (square image) */
+.offset-left{
   display: flex;
-  align-items: stretch;
+  flex-direction: column;
 }
 
-.split-fig-square{
-  /* Square sized by viewport height (big like your red box) */
-  width: min(calc(100vh - (var(--padY) * 2)), 720px);
-  height: min(calc(100vh - (var(--padY) * 2)), 720px);
+/* RIGHT column (sketches + text) */
+.offset-right{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;          /* space between sketches and text */
+}
+
+/* Images */
+.offset-fig{
   margin: 0;
 }
 
-.split-fig-square img{
+.offset-fig img{
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
-  border-radius: 0; /* no fillet */
+  border-radius: 0;   /* no fillet */
 }
 
-/* RIGHT: top sketches (orange) + bottom text (green) */
-.split-right{
-  display: grid;
-  grid-template-rows: auto 1fr; /* top image, bottom area for text */
-  row-gap: 22px;
-  min-width: 0;
-}
-
-/* Orange box */
-.split-fig-wide{
-  margin: 0;
+/* Square (responsive) */
+.offset-fig--square{
   width: 100%;
-  /* keep it feeling like your orange box */
-  height: clamp(220px, 38vh, 420px);
+  aspect-ratio: 1 / 1;  /* keeps square but scales with column width */
 }
 
-.split-fig-wide img{
+/* Rectangle (responsive) */
+.offset-fig--rect{
   width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 0; /* no fillet */
+  aspect-ratio: 16 / 9;
 }
 
-/* Green box (text) */
-.split-copy{
-  align-self: end;          /* pushes text to bottom-right zone */
-  max-width: 46ch;
+/* Text under the sketches (right column) */
+.offset-copy{
   font-size: 16px;
   line-height: 1.7;
   color: rgba(0,0,0,.75);
+  max-width: 44ch;
+  margin: 0;          /* IMPORTANT: keeps it tucked under sketches */
 }
 
-.split-copy p{
+.offset-copy p{
   margin: 0 0 18px;
 }
-.split-copy p:last-child{
+.offset-copy p:last-child{
   margin-bottom: 0;
 }
 
 /* ===============================
-   Responsive (mobile)
+   Responsive
    =============================== */
-@media (max-width: 980px){
-  .split-canvas{
-    column-gap: 34px;
-  }
 
-  .split-fig-square{
-    width: min(calc(100vh - (var(--padY) * 2)), 560px);
-    height: min(calc(100vh - (var(--padY) * 2)), 560px);
+/* Tighten gutters on medium screens */
+@media (max-width: 1100px){
+  .offset-canvas{
+    width: min(1320px, calc(100% - 56px));
+    gap: 36px;
+    padding: 56px 0;
+    grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.15fr);
   }
 }
 
+/* Stack on mobile */
 @media (max-width: 860px){
-  .proj-section--split-canvas{
-    height: auto;
-    padding: 72px 0;
-  }
-
-  .split-canvas{
-    height: auto;
-    padding: 0 18px;
+  .offset-canvas{
+    width: calc(100% - 36px);
     grid-template-columns: 1fr;
-    row-gap: 28px;
+    gap: 28px;
+    padding: 48px 0;
   }
 
-  .split-left{
-    justify-content: center;
+  .offset-fig--rect{
+    aspect-ratio: 3 / 2;
   }
 
-  .split-fig-square{
-    width: min(92vw, 520px);
-    height: min(92vw, 520px);
-  }
-
-  .split-fig-wide{
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-
-  .split-copy{
+  .offset-copy{
     max-width: 100%;
   }
 }
@@ -485,35 +458,26 @@
      Right top: sketches image
      Right bottom: text
      ====================================== -->
-<section class="proj-section proj-section--split-canvas">
-  <div class="split-canvas">
+<section class="proj-section proj-section--offset-canvas">
+  <div class="offset-canvas">
 
-    <!-- LEFT (RED): Big square image -->
-    <div class="split-left">
-      <figure class="split-fig-square">
-        <img
-          src="./assets/Star-wars-image-3.jpg"
-          alt="Pemulung reference imagery"
-          loading="lazy"
-        >
+    <!-- LEFT: square image -->
+    <div class="offset-left">
+      <figure class="offset-fig offset-fig--square">
+        <img src="./assets/Star-wars-image-3.jpg" alt="Pemulung reference imagery" loading="lazy">
       </figure>
     </div>
 
-    <!-- RIGHT: Orange sketches (top) + Green text (bottom) -->
-    <div class="split-right">
-
-      <!-- ORANGE: sketches image -->
-      <figure class="split-fig-wide">
-        <img
-          src="./assets/Star-wars-image-4.jpg"
-          alt="Sketch exploration"
-          loading="lazy"
-        >
+    <!-- RIGHT: sketches + text under -->
+    <div class="offset-right">
+      <figure class="offset-fig offset-fig--rect">
+        <img src="./assets/Star-wars-image-4.jpg" alt="Sketch exploration" loading="lazy">
       </figure>
 
-      <!-- GREEN: text block -->
-      
-
+      <div class="offset-copy">
+        <p>I used images of Pemulung workers as underlay sketches to pull form and poses that the droid would mimic in the Star Wars Universe.</p>
+        <p>After an initial round of sketching, I found the solo wheel droid to be a good fit because of the energy and action it held in its form and functionality.</p>
+      </div>
     </div>
 
   </div>
