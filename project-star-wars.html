@@ -239,27 +239,27 @@
     }
 
 /* ===============================
-   PROJECT TEMPLATE — SECTION 5
-   Full-bleed section (like image-2),
-   with responsive inner grid.
+   SECTION 5 — FULL BLEED (works even inside a max-width main)
    =============================== */
 
 .proj-section--offset-canvas{
   padding: 0;
-  width: 100%;
 }
 
-/* FULL-BLEED background area (edge-to-edge like Section 3 image) */
-.offset-canvas{
+/* This breaks out of any parent max-width/padding */
+.proj-section--offset-canvas .bleed{
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   width: 100vw;
-  margin-left: calc(50% - 50vw);  /* true full-bleed */
-  margin-right: calc(50% - 50vw);
 
-  padding: 64px 0;               /* vertical spacing only */
+  padding: 64px 0; /* vertical spacing only */
 }
 
-/* INNER GRID: controls layout + responsive scaling */
-.offset-inner{
+/* Inner layout stays nicely constrained */
+.proj-section--offset-canvas .offset-inner{
   width: min(1320px, calc(100% - 88px));
   margin: 0 auto;
 
@@ -269,23 +269,20 @@
   align-items: start;
 }
 
-/* Left + right columns */
-.offset-left,
-.offset-right{
+.proj-section--offset-canvas .offset-left,
+.proj-section--offset-canvas .offset-right{
   display: flex;
   flex-direction: column;
 }
 
-.offset-right{
-  gap: 22px; /* space between sketches + text */
+.proj-section--offset-canvas .offset-right{
+  gap: 22px; /* keeps text directly under sketches */
 }
 
 /* Images */
-.offset-fig{
-  margin: 0;
-}
+.proj-section--offset-canvas .offset-fig{ margin: 0; }
 
-.offset-fig img{
+.proj-section--offset-canvas .offset-fig img{
   width: 100%;
   height: 100%;
   display: block;
@@ -293,65 +290,56 @@
   border-radius: 0;
 }
 
-/* Square scales with column */
-.offset-fig--square{
+/* Both scale responsively */
+.proj-section--offset-canvas .offset-fig--square{
   width: 100%;
   aspect-ratio: 1 / 1;
 }
 
-/* Rect scales with column */
-.offset-fig--rect{
+.proj-section--offset-canvas .offset-fig--rect{
   width: 100%;
   aspect-ratio: 16 / 9;
 }
 
-/* Text under sketches */
-.offset-copy{
+/* Text */
+.proj-section--offset-canvas .offset-copy{
   font-size: 16px;
   line-height: 1.7;
   color: rgba(0,0,0,.75);
   max-width: 44ch;
-  margin: 0;
 }
 
-.offset-copy p{
-  margin: 0 0 18px;
-}
-.offset-copy p:last-child{
-  margin-bottom: 0;
-}
+.proj-section--offset-canvas .offset-copy p{ margin: 0 0 18px; }
+.proj-section--offset-canvas .offset-copy p:last-child{ margin-bottom: 0; }
 
-/* ===============================
-   Responsive
-   =============================== */
+/* Responsive */
 @media (max-width: 1100px){
-  .offset-inner{
+  .proj-section--offset-canvas .offset-inner{
     width: min(1320px, calc(100% - 56px));
-    gap: 36px;
     grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.15fr);
+    gap: 36px;
   }
 }
 
 @media (max-width: 860px){
-  .offset-canvas{
+  .proj-section--offset-canvas .bleed{
     padding: 48px 0;
   }
 
-  .offset-inner{
+  .proj-section--offset-canvas .offset-inner{
     width: calc(100% - 36px);
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  .offset-fig--rect{
+  .proj-section--offset-canvas .offset-fig--rect{
     aspect-ratio: 3 / 2;
   }
 
-  .offset-copy{
+  .proj-section--offset-canvas .offset-copy{
     max-width: 100%;
   }
 }
-
 
   </style>
 </head>
@@ -465,17 +453,15 @@
      Right bottom: text
      ====================================== -->
 <section class="proj-section proj-section--offset-canvas">
-  <div class="offset-canvas">
+  <div class="bleed">
     <div class="offset-inner">
 
-      <!-- LEFT: square image -->
       <div class="offset-left">
         <figure class="offset-fig offset-fig--square">
           <img src="./assets/Star-wars-image-3.jpg" alt="Pemulung reference imagery" loading="lazy">
         </figure>
       </div>
 
-      <!-- RIGHT: sketches + text under -->
       <div class="offset-right">
         <figure class="offset-fig offset-fig--rect">
           <img src="./assets/Star-wars-image-4.jpg" alt="Sketch exploration" loading="lazy">
@@ -490,6 +476,7 @@
     </div>
   </div>
 </section>
+
 
 
   <!-- MENU OVERLAY (same as other pages) -->
