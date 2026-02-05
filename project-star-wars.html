@@ -240,20 +240,28 @@
 
 /* ===============================
    PROJECT TEMPLATE — SECTION 5
-   Fluid two-column layout:
-   - Left: responsive “square” image (actually uses aspect-ratio)
-   - Right: responsive rectangle sketches + text under it
+   Full-bleed section (like image-2),
+   with responsive inner grid.
    =============================== */
 
 .proj-section--offset-canvas{
   padding: 0;
+  width: 100%;
 }
 
-/* Center the whole layout and let it scale */
+/* FULL-BLEED background area (edge-to-edge like Section 3 image) */
 .offset-canvas{
-  width: min(1320px, calc(100% - 88px));   /* responsive side gutters */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);  /* true full-bleed */
+  margin-right: calc(50% - 50vw);
+
+  padding: 64px 0;               /* vertical spacing only */
+}
+
+/* INNER GRID: controls layout + responsive scaling */
+.offset-inner{
+  width: min(1320px, calc(100% - 88px));
   margin: 0 auto;
-  padding: 64px 0;                         /* vertical breathing room */
 
   display: grid;
   grid-template-columns: minmax(320px, 1fr) minmax(360px, 1.25fr);
@@ -261,17 +269,15 @@
   align-items: start;
 }
 
-/* LEFT column (square image) */
-.offset-left{
+/* Left + right columns */
+.offset-left,
+.offset-right{
   display: flex;
   flex-direction: column;
 }
 
-/* RIGHT column (sketches + text) */
 .offset-right{
-  display: flex;
-  flex-direction: column;
-  gap: 22px;          /* space between sketches and text */
+  gap: 22px; /* space between sketches + text */
 }
 
 /* Images */
@@ -284,28 +290,28 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  border-radius: 0;   /* no fillet */
+  border-radius: 0;
 }
 
-/* Square (responsive) */
+/* Square scales with column */
 .offset-fig--square{
   width: 100%;
-  aspect-ratio: 1 / 1;  /* keeps square but scales with column width */
+  aspect-ratio: 1 / 1;
 }
 
-/* Rectangle (responsive) */
+/* Rect scales with column */
 .offset-fig--rect{
   width: 100%;
   aspect-ratio: 16 / 9;
 }
 
-/* Text under the sketches (right column) */
+/* Text under sketches */
 .offset-copy{
   font-size: 16px;
   line-height: 1.7;
   color: rgba(0,0,0,.75);
   max-width: 44ch;
-  margin: 0;          /* IMPORTANT: keeps it tucked under sketches */
+  margin: 0;
 }
 
 .offset-copy p{
@@ -318,24 +324,23 @@
 /* ===============================
    Responsive
    =============================== */
-
-/* Tighten gutters on medium screens */
 @media (max-width: 1100px){
-  .offset-canvas{
+  .offset-inner{
     width: min(1320px, calc(100% - 56px));
     gap: 36px;
-    padding: 56px 0;
     grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.15fr);
   }
 }
 
-/* Stack on mobile */
 @media (max-width: 860px){
   .offset-canvas{
+    padding: 48px 0;
+  }
+
+  .offset-inner{
     width: calc(100% - 36px);
     grid-template-columns: 1fr;
     gap: 28px;
-    padding: 48px 0;
   }
 
   .offset-fig--rect{
@@ -346,6 +351,7 @@
     max-width: 100%;
   }
 }
+
 
   </style>
 </head>
@@ -460,28 +466,31 @@
      ====================================== -->
 <section class="proj-section proj-section--offset-canvas">
   <div class="offset-canvas">
+    <div class="offset-inner">
 
-    <!-- LEFT: square image -->
-    <div class="offset-left">
-      <figure class="offset-fig offset-fig--square">
-        <img src="./assets/Star-wars-image-3.jpg" alt="Pemulung reference imagery" loading="lazy">
-      </figure>
-    </div>
-
-    <!-- RIGHT: sketches + text under -->
-    <div class="offset-right">
-      <figure class="offset-fig offset-fig--rect">
-        <img src="./assets/Star-wars-image-4.jpg" alt="Sketch exploration" loading="lazy">
-      </figure>
-
-      <div class="offset-copy">
-        <p>I used images of Pemulung workers as underlay sketches to pull form and poses that the droid would mimic in the Star Wars Universe.</p>
-        <p>After an initial round of sketching, I found the solo wheel droid to be a good fit because of the energy and action it held in its form and functionality.</p>
+      <!-- LEFT: square image -->
+      <div class="offset-left">
+        <figure class="offset-fig offset-fig--square">
+          <img src="./assets/Star-wars-image-3.jpg" alt="Pemulung reference imagery" loading="lazy">
+        </figure>
       </div>
-    </div>
 
+      <!-- RIGHT: sketches + text under -->
+      <div class="offset-right">
+        <figure class="offset-fig offset-fig--rect">
+          <img src="./assets/Star-wars-image-4.jpg" alt="Sketch exploration" loading="lazy">
+        </figure>
+
+        <div class="offset-copy">
+          <p>I used images of Pemulung workers as underlay sketches to pull form and poses that the droid would mimic in the Star Wars Universe.</p>
+          <p>After an initial round of sketching, I found the solo wheel droid to be a good fit because of the energy and action it held in its form and functionality.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+
 
   <!-- MENU OVERLAY (same as other pages) -->
   <section class="menu" id="menuOverlay" aria-hidden="true">
