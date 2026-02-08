@@ -96,7 +96,7 @@ if (!isTouchDevice) {
     el.addEventListener("mouseenter", () => setPreview(el));
   });
 }
-<script src="./script.js?v=10" defer></script>
+
 
 
   // ---------- HOME CAROUSEL ----------
