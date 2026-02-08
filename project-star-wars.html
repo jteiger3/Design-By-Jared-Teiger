@@ -341,6 +341,79 @@
   }
 }
 
+    /* ===============================
+   SECTION 6 — 2x2 SQUARE GRID
+   =============================== */
+
+.proj-section--grid-2x2{
+  padding: 0;             /* match your image sections */
+  margin: 0;
+}
+
+/* Constrain width to match your other content blocks */
+.grid-2x2{
+  width: min(1320px, calc(100% - 88px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;                 /* no gutters like your reference */
+}
+
+/* Each tile is a perfect square */
+.grid-2x2__tile{
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Images fill the square */
+.grid-2x2__tile--img img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Q4 text tile */
+.grid-2x2__tile--text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;  /* stays top-left inside Q4 */
+  align-items: flex-start;
+  padding: 28px;
+  color: rgba(0,0,0,.75);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.grid-2x2__tile--text p{
+  margin: 0 0 16px;
+  max-width: 46ch;
+}
+
+.grid-2x2__tile--text p:last-child{
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .grid-2x2{
+    width: calc(100% - 36px);
+  }
+  .grid-2x2__tile--text{
+    padding: 18px;
+  }
+}
+
+@media (max-width: 720px){
+  /* stack on mobile, still square tiles */
+  .grid-2x2{
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
 
@@ -487,6 +560,40 @@
       </p>
     </div>
   </section>
+  
+<!-- ======================================
+     SECTION 6 — 2x2 SQUARE GRID (3 images + text in Q4)
+     ====================================== -->
+<section class="proj-section proj-section--grid-2x2">
+  <div class="grid-2x2">
+
+    <!-- Q1 -->
+    <figure class="grid-2x2__tile grid-2x2__tile--img">
+      <img src="./assets/Star-wars-image-5.jpg" alt="Star Wars process image 5" loading="lazy">
+    </figure>
+
+    <!-- Q2 -->
+    <figure class="grid-2x2__tile grid-2x2__tile--img">
+      <img src="./assets/Star-wars-image-6.jpg" alt="Star Wars process image 6" loading="lazy">
+    </figure>
+
+    <!-- Q3 -->
+    <figure class="grid-2x2__tile grid-2x2__tile--img">
+      <img src="./assets/Star-wars-image-7.jpg" alt="Star Wars process image 7" loading="lazy">
+    </figure>
+
+    <!-- Q4 (text) -->
+    <div class="grid-2x2__tile grid-2x2__tile--text">
+      <p>
+        From there I started to see the form evolve. Once I had a strong enough starting point, I brought the sketch into Fusion360 and started modeling. I love 3D Design and being able to make changes on the flow is an amazing feeling, especially when the history tree in Fusion360 makes updating components very easy.
+      </p>
+      <p>
+        The main method I used to model some of the components was sketching to extrusions, however, I played around with surfaces and had a fun time learning new things along the way.
+      </p>
+    </div>
+
+  </div>
+</section>
 
   <!-- MENU OVERLAY (same as other pages) -->
   <section class="menu" id="menuOverlay" aria-hidden="true">
