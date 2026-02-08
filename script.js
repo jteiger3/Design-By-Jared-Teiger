@@ -120,37 +120,62 @@
     );
   });
 
-  // ---------- HOME CAROUSEL ----------
-  initCarousel(page);
+// ---------- HOME CAROUSEL ----------
+initCarousel(page);
 
-  function initCarousel(pageName) {
-    if (pageName !== "home") return;
+function initCarousel(pageName) {
+  if (pageName !== "home") return;
 
-    const slides = Array.from(document.querySelectorAll(".carousel__slide"));
-    const dotsWrap = document.querySelector(".carousel__dots");
-if (dotsWrap) {
+  const slides = Array.from(document.querySelectorAll(".carousel__slide"));
+  const dotsWrap = document.querySelector(".carousel__dots");
+  if (!slides.length || !dotsWrap) return;
+
+  // Build dots dynamically
   dotsWrap.innerHTML = slides
-    .map((_, idx) => `<span class="dot ${idx === 0 ? "is-active" : ""}"></span>`)
+    .map(
+      (_, idx) =>
+        `<button class="dot ${idx === 0 ? "is-active" : ""}"
+                 type="button"
+                 aria-label="Go to slide ${idx + 1}"></button>`
+    )
     .join("");
-}
-const dots = Array.from(document.querySelectorAll(".dot"));
 
-    if (!slides.length) return;
+  const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
 
-    let i = 0;
+  let i = 0;
+  let timer = null;
 
-    const show = (idx) => {
-      slides.forEach((s) => s.classList.remove("is-active"));
-      dots.forEach((d) => d.classList.remove("is-active"));
-      slides[idx]?.classList.add("is-active");
-      dots[idx]?.classList.add("is-active");
-    };
+  const show = (idx) => {
+    i = idx;
+    slides.forEach((s) => s.classList.remove("is-active"));
+    dots.forEach((d) => d.classList.remove("is-active"));
 
-    show(0);
+    slides[i]?.classList.add("is-active");
+    dots[i]?.classList.add("is-active");
+  };
 
-    setInterval(() => {
-      i = (i + 1) % slides.length;
-      show(i);
+  const start = () => {
+    stop();
+    timer = setInterval(() => {
+      show((i + 1) % slides.length);
     }, 4500);
-  }
-})();
+  };
+
+  const stop = () => {
+    if (timer) clearInterval(timer);
+    timer = null;
+  };
+
+  // Dot click handlers
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", () => {
+      show(idx);
+      start(); // reset autoplay after interaction
+    });
+  });
+
+  // Initialize
+  show(0);
+  start();
+}
+
