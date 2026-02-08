@@ -121,57 +121,30 @@
   });
 
 // ---------- HOME CAROUSEL ----------
-initCarousel(page);
+  initCarousel(page);
 
-function initCarousel(pageName) {
-  if (pageName !== "home") return;
+  function initCarousel(pageName) {
+    if (pageName !== "home") return;
 
-  const carouselEl = document.getElementById("carousel");
-  const slides = Array.from(document.querySelectorAll(".carousel__slide"));
-  const dotsWrap = document.querySelector(".carousel__dots");
+    const slides = Array.from(document.querySelectorAll(".carousel__slide"));
+    const dots = Array.from(document.querySelectorAll(".dot"));
+    if (!slides.length) return;
 
-  if (!carouselEl || !slides.length || !dotsWrap) return;
+    let i = 0;
 
-  // Build dots dynamically as buttons
-  dotsWrap.innerHTML = slides
-    .map(
-      (_, idx) =>
-        `<button class="dot ${idx === 0 ? "is-active" : ""}"
-                 type="button"
-                 aria-label="Go to slide ${idx + 1}"></button>`
-    )
-    .join("");
+    const show = (idx) => {
+      slides.forEach((s) => s.classList.remove("is-active"));
+      dots.forEach((d) => d.classList.remove("is-active"));
 
-  const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+      slides[idx]?.classList.add("is-active");
+      dots[idx]?.classList.add("is-active");
+    };
 
-  let i = 0;
+    show(0);
 
-  const show = (idx) => {
-    i = idx;
-    slides.forEach((s) => s.classList.remove("is-active"));
-    dots.forEach((d) => d.classList.remove("is-active"));
-    slides[i].classList.add("is-active");
-    dots[i].classList.add("is-active");
-  };
-
-  // Make dots clickable
-  dots.forEach((dot, idx) => {
-    dot.addEventListener("click", () => {
-      show(idx);
-      restart();
-    });
-  });
-
-  // Prevent multiple timers if initCarousel ever runs twice
-  let timer = null;
-  const restart = () => {
-    if (timer) clearInterval(timer);
-    timer = setInterval(() => {
-      show((i + 1) % slides.length);
+    setInterval(() => {
+      i = (i + 1) % slides.length;
+      show(i);
     }, 4500);
-  };
-
-  show(0);
-  restart();
-}
-
+  }
+})();
