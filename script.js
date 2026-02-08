@@ -1,4 +1,6 @@
 // script.js
+console.log("script.js loaded");
+
 (() => {
   // ---------- DOM ----------
   const body = document.body;
