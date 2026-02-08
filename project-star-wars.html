@@ -148,62 +148,82 @@
       }
     }
 
-    /* =========================================
-       PROJECT TEMPLATE — SECTION 3
-       Full image + 2-column editorial copy
-       (no fillet)
-       ========================================= */
+  /* ===============================
+   PROJECT — SECTION 3
+   Image (80vh) + Text (20vh)
+   =============================== */
 
-    .proj-section--image-text{
-      padding-top: 0;
-      padding-bottom: 72px; /* tightens before Vision */
-    }
+.proj-section--vertical-split {
+  width: 100%;
+}
 
-    .proj-fig--full{
-      width: 100%;
-      margin: 0;
-    }
+/* Image block */
+.section3-image {
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
 
-    .proj-fig--full img{
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 0; /* no fillet */
-    }
+.section3-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    .proj-editorial{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      max-width: 1100px;
-      margin: 48px auto 0;
-      padding: 0 44px;
-    }
+/* Text block */
+.section3-text {
+  height: 20vh;
+  padding: clamp(18px, 3vw, 40px);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
-    .proj-editorial p{
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.7;
-      color: rgba(0,0,0,.75);
-    }
+/* Two-column text container */
+.section3-text-inner {
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px; /* ← horizontal gutter */
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(0,0,0,0.75);
+}
 
-    .proj-editorial__right{
-      max-width: 42ch;
-      margin-left: auto;
-    }
+/* Remove vertical paragraph spacing */
+.section3-text-inner p {
+  margin: 0;
+}
 
-    @media (max-width: 900px){
-      .proj-editorial{
-        grid-template-columns: 1fr;
-        gap: 22px;
-        margin-top: 32px;
-        padding: 0 18px;
-      }
-      .proj-editorial__right{
-        margin-left: 0;
-        max-width: 100%;
-      }
-    }
+
+/* Mobile adjustment */
+@media (max-width: 900px) {
+ .section3 {
+    min-height: auto;
+  }
+ .section3-image {
+    height: auto;          /* ← don’t delete, just release height */
+    min-height: 50vh;      /* keeps presence */
+  }
+  .section3-image img {
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+  }
+  .section3-text {
+    height: auto;
+  }
+
+  .section3-text-inner {
+    grid-template-columns: 1fr;
+    row-gap: 20px; /* vertical spacing only on mobile */
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
 
     /* =========================================
        PROJECT TEMPLATE — SECTION 4
@@ -553,25 +573,32 @@
     </div>
   </section>
 
-  <!-- SECTION 3 — IMAGE + EDITORIAL -->
-  <section class="proj-section proj-section--image-text">
-    <figure class="proj-fig--full">
-      <img
-        src="./assets/Star-wars-image-2.jpg"
-        alt="Scrapper scavenging environment"
-        loading="lazy"
-      >
-    </figure>
+ <!-- ======================================
+     SECTION 3 — IMAGE / TEXT (80 / 20)
+     ====================================== -->
+<section class="proj-section proj-section--vertical-split">
 
-    <div class="proj-editorial">
-      <p class="proj-editorial__left">
-        One of my favorite things about the Star Wars Universe is its ability to
-        take a concept from our world and transform it into a beautiful piece of
-        design that fits right into the Star Wars saga. Before the competition,
-        I watched a video about one of the largest landfills in Indonesia.
+  <!-- Image block (80%) -->
+  <div class="section3-image">
+    <img
+      src="./assets/Star-wars-image-2.jpg"
+      alt="Scrapper environment reference"
+      loading="lazy"
+    >
+  </div>
+
+  <!-- Text block (20%) -->
+  <div class="section3-text">
+    <div class="section3-text-inner">
+      <p>
+        One of my favorite things about the Star Wars Universe is its ability
+        to take a concept from our world and transform it into a beautiful
+        piece of design that fits right into the Star Wars saga. Before the
+        competition, I watched a video about one of the largest landfills in
+        Indonesia.
       </p>
 
-      <p class="proj-editorial__right">
+      <p>
         It shared the stories of Pemulung; these are the people who scavenge
         through trash to find things that still have value to them and can be
         used or sold. This act of scavenging was my inspiration process.
@@ -579,7 +606,10 @@
         what this droid might look like.
       </p>
     </div>
-  </section>
+  </div>
+
+</section>
+
 
   <!-- SECTION 4 — VISION -->
   <section class="proj-section proj-section--vision">
