@@ -165,7 +165,6 @@ body.menu-open .nav--overlay .icon-btn{
   transform:translateX(-50%);
   display:flex;
   gap:10px;
-  z-index: 10;
 }
 
 .dot{
