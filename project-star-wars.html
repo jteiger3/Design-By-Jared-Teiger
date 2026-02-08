@@ -427,6 +427,66 @@
     aspect-ratio: 1 / 1;
   }
 }
+
+    /* ===============================
+   PROJECT TEMPLATE — SECTION 7
+   70% image / 30% text (responsive)
+   =============================== */
+
+.proj-section--split-70 {
+  /* consistent “canvas” feel like prior sections */
+  padding: 0;
+}
+
+.split-70 {
+  width: 100%;
+  padding: clamp(18px, 3vw, 44px);
+  display: grid;
+  grid-template-columns: 7fr 3fr; /* 70/30 */
+  gap: clamp(14px, 2vw, 26px);
+  align-items: start;
+}
+
+/* Image block */
+.split-70__media {
+  margin: 0;
+}
+
+.split-70__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 0; /* no fillet */
+}
+
+/* Text block */
+.split-70__text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(0,0,0,.72);
+  max-width: 52ch;
+}
+
+.split-70__text p {
+  margin: 0;
+}
+
+.split-70__text p + p {
+  margin-top: 14px;
+}
+
+/* Responsive: stack */
+@media (max-width: 900px) {
+  .split-70 {
+    grid-template-columns: 1fr;
+  }
+
+  .split-70__text {
+    max-width: 100%;
+  }
+}
+
   </style>
 </head>
 
@@ -625,6 +685,39 @@
       </p>
     </div>
   </section>
+  <!-- ======================================
+     SECTION 7 — 70% IMAGE / 30% TEXT
+     ====================================== -->
+<section class="proj-section proj-section--split-70">
+  <div class="split-70">
+
+    <!-- 70% image -->
+    <figure class="split-70__media">
+      <img
+        src="./assets/Star-wars-image-8.jpg"
+        alt="Scrapper final 3D printed character"
+        loading="lazy"
+      >
+    </figure>
+
+    <!-- 30% text -->
+    <div class="split-70__text">
+      <p>
+        This was my first time making any character in Fusion360. Since there was a mechanical component to be
+        considered, I struggled to wrap my head around making some of the joints. I did research into 3D printing
+        joints, and I was slowly able to learn how to design various joints.
+      </p>
+
+      <p>
+        There are 2 ball and socket joints, one in the neck, and one in the torso. Pivot joints are in his shoulder,
+        elbow and wrists. The wheel tire flows freely on the inner rim while the suspension in the legs allows for
+        Scrapper to traverse rough terrain.
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- MENU OVERLAY (same as other pages) -->
   <section class="menu" id="menuOverlay" aria-hidden="true">
