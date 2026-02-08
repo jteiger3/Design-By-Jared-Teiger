@@ -1,6 +1,3 @@
-// script.js
-console.log("script.js loaded");
-
 (() => {
   // ---------- DOM ----------
   const body = document.body;
@@ -18,7 +15,7 @@ console.log("script.js loaded");
     return;
   }
 
-  // ---------- BACKGROUND SCROLL LOCK (mobile-safe) ----------
+  // ---------- BACKGROUND SCROLL LOCK ----------
   let scrollY = 0;
 
   const lockBodyScroll = () => {
@@ -39,20 +36,17 @@ console.log("script.js loaded");
     window.scrollTo(0, scrollY);
   };
 
-  // ---------- MENU OPEN/CLOSE ----------
+  // ---------- MENU OPEN / CLOSE ----------
   const openMenu = () => {
     menuOverlay.classList.add("is-open");
     menuOverlay.setAttribute("aria-hidden", "false");
     menuBtn.setAttribute("aria-expanded", "true");
 
-    // lock background + flip nav colors + burger->X
     lockBodyScroll();
     body.classList.add("menu-open");
 
-    // ensure menu scroll starts at top
     menuOverlay.scrollTop = 0;
 
-    // default preview
     if (previewEl) {
       previewEl.style.backgroundImage = "url('./assets/about.jpg')";
     }
@@ -68,25 +62,20 @@ console.log("script.js loaded");
   };
 
   const toggleMenu = () => {
-    const isOpen = menuOverlay.classList.contains("is-open");
-    isOpen ? closeMenu() : openMenu();
+    menuOverlay.classList.contains("is-open") ? closeMenu() : openMenu();
   };
 
-  // Button click
   menuBtn.addEventListener("click", toggleMenu);
-
-  // Close button / backdrop
   if (closeBtn) closeBtn.addEventListener("click", closeMenu);
   if (backdropBtn) backdropBtn.addEventListener("click", closeMenu);
 
-  // Escape closes
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && menuOverlay.classList.contains("is-open")) {
       closeMenu();
     }
   });
 
-  // ---------- PREVIEW HOVER / FOCUS ----------
+  // ---------- PREVIEW ----------
   const previewLinks = document.querySelectorAll("[data-preview]");
 
   const setPreview = (el) => {
@@ -99,7 +88,6 @@ console.log("script.js loaded");
     el.addEventListener("focus", () => setPreview(el));
   });
 
-  // Mobile: first tap updates preview, second tap navigates
   let lastTapped = null;
   previewLinks.forEach((el) => {
     el.addEventListener(
@@ -112,7 +100,7 @@ console.log("script.js loaded");
         if (!src) return;
 
         if (lastTapped !== el) {
-          ev.preventDefault(); // only blocks the first tap to allow preview swap
+          ev.preventDefault();
           setPreview(el);
           lastTapped = el;
           setTimeout(() => (lastTapped = null), 1200);
@@ -122,7 +110,7 @@ console.log("script.js loaded");
     );
   });
 
-// ---------- HOME CAROUSEL ----------
+  // ---------- HOME CAROUSEL ----------
   initCarousel(page);
 
   function initCarousel(pageName) {
@@ -137,7 +125,6 @@ console.log("script.js loaded");
     const show = (idx) => {
       slides.forEach((s) => s.classList.remove("is-active"));
       dots.forEach((d) => d.classList.remove("is-active"));
-
       slides[idx]?.classList.add("is-active");
       dots[idx]?.classList.add("is-active");
     };
