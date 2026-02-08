@@ -149,81 +149,68 @@
     }
 
 /* ===============================
-   PROJECT TEMPLATE — SECTION 3
-   Image + Right-aligned text block (columns)
+   PROJECT — SECTION 3
+   Image (80vh) + Text (20vh)
    =============================== */
 
-.proj-section--image-text{
-  padding: 0;                 /* section controls spacing */
-  padding-bottom: 72px;       /* your desired gap to next section */
-}
-
-/* Shared rails: image + text align perfectly */
-.s3-wrap{
-  max-width: 1280px;          /* adjust if you want wider/narrower */
-  margin: 0 auto;
-  padding: 0 44px;            /* MUST match your site rail */
-}
-
-/* Image */
-.proj-fig--full{
-  margin: 0;
-}
-
-.proj-fig--full img{
+.proj-section--vertical-split {
   width: 100%;
-  height: auto;
+}
+
+/* Image block */
+.section3-image {
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.section3-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  border-radius: 0;
 }
 
-/* Text block sits under image */
-.proj-editorial{
-  margin-top: 28px;
-
-  /* right-align the FRAME */
+/* Text block */
+.section3-text {
+  height: 20vh;
+  padding: clamp(18px, 3vw, 40px);
   display: flex;
-  justify-content: flex-end;
-
-  /* IMPORTANT: match image side rails */
-  padding-left: 44px;
-  padding-right: 44px;
-  box-sizing: border-box;
+  justify-content: flex-end; /* push text to the right */
+  align-items: center;
 }
 
-/* The two-column FRAME */
-.proj-editorial__cols{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
-
-  width: 980px;          /* size of the frame */
-  max-width: 100%;
+/* Text container */
+.section3-text-inner {
+  max-width: 640px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(0,0,0,0.75);
 }
 
-/* Text itself: left-aligned */
-.proj-editorial__cols p{
+/* Paragraph spacing */
+.section3-text-inner p {
   margin: 0;
-  text-align: left;      /* ✅ text left-aligned */
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgba(0,0,0,.75);
 }
 
-/* Mobile */
-@media (max-width: 900px){
-  .s3-wrap{
-    padding: 0 18px;
+.section3-text-inner p + p {
+  margin-top: 20px;
+}
+
+/* Mobile adjustment */
+@media (max-width: 900px) {
+  .section3-image {
+    height: 60vh;
   }
 
-  .proj-editorial{
-    justify-content: flex-start;  /* stack naturally */
+  .section3-text {
+    height: auto;
   }
 
-  .proj-editorial__cols{
-    grid-template-columns: 1fr;
-    row-gap: 18px;
-    width: 100%;
+  .section3-text-inner {
+    text-align: left;
+    max-width: 100%;
   }
 }
 
@@ -577,7 +564,7 @@
     </div>
   </section>
 
- <!-- ======================================
+<!-- ======================================
      SECTION 3 — IMAGE / TEXT (80 / 20)
      ====================================== -->
 <section class="proj-section proj-section--vertical-split">
@@ -613,6 +600,7 @@
   </div>
 
 </section>
+
 
 
   <!-- SECTION 4 — VISION -->
