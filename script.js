@@ -88,27 +88,29 @@
     el.addEventListener("focus", () => setPreview(el));
   });
 
-  let lastTapped = null;
-  previewLinks.forEach((el) => {
-    el.addEventListener(
-      "touchstart",
-      (ev) => {
-        if (!menuOverlay.classList.contains("is-open")) return;
-        if (!previewEl) return;
+  // Mobile: first tap updates preview, second tap navigates
+let lastTapped = null;
+previewLinks.forEach((el) => {
+  el.addEventListener(
+    "touchstart",
+    (ev) => {
+      if (!menuOverlay.classList.contains("is-open")) return;
+      if (!previewEl) return;
 
-        const src = el.getAttribute("data-preview");
-        if (!src) return;
+      const src = el.getAttribute("data-preview");
+      if (!src) return;
 
-        if (lastTapped !== el) {
-          ev.preventDefault();
-          setPreview(el);
-          lastTapped = el;
-          setTimeout(() => (lastTapped = null), 1200);
-        }
-      },
-      { passive: false }
-    );
-  });
+      if (lastTapped !== el) {
+        ev.preventDefault();
+        setPreview(el);
+        lastTapped = el;
+        setTimeout(() => (lastTapped = null), 1200);
+      }
+    },
+    { passive: false }
+  );
+});
+
 
   // ---------- HOME CAROUSEL ----------
   initCarousel(page);
