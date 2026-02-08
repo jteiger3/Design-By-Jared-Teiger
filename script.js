@@ -9,13 +9,13 @@
   const backdropBtn = document.getElementById("backdropBtn");
   const previewEl = document.getElementById("menuPreview");
 
-  // Safety: if someone loads a page without the overlay markup
+  // If a page is missing the menu overlay markup, still allow carousel to run
   if (!menuBtn || !menuOverlay) {
     initCarousel(page);
     return;
   }
 
-  // ---------- BACKGROUND SCROLL LOCK ----------
+  // ---------- BACKGROUND SCROLL LOCK (mobile-safe) ----------
   let scrollY = 0;
 
   const lockBodyScroll = () => {
@@ -47,6 +47,7 @@
 
     menuOverlay.scrollTop = 0;
 
+    // default preview (desktop only / if preview exists)
     if (previewEl) {
       previewEl.style.backgroundImage = "url('./assets/about.jpg')";
     }
@@ -65,39 +66,39 @@
     menuOverlay.classList.contains("is-open") ? closeMenu() : openMenu();
   };
 
+  // Bind menu controls
   menuBtn.addEventListener("click", toggleMenu);
   if (closeBtn) closeBtn.addEventListener("click", closeMenu);
   if (backdropBtn) backdropBtn.addEventListener("click", closeMenu);
 
+  // Escape closes
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && menuOverlay.classList.contains("is-open")) {
       closeMenu();
     }
   });
 
-  // ---------- PREVIEW ----------
+  // ---------- PREVIEW (desktop-only; mobile should be 1-tap navigate) ----------
   const previewLinks = document.querySelectorAll("[data-preview]");
 
   const setPreview = (el) => {
     const src = el.getAttribute("data-preview");
-    if (src && previewEl) previewEl.style.backgroundImage = `url('${src}')`;
+    if (src && previewEl) {
+      previewEl.style.backgroundImage = `url('${src}')`;
+    }
   };
 
-  previewLinks.forEach((el) => {
-    el.addEventListener("mouseenter", () => setPreview(el));
-    el.addEventListener("focus", () => setPreview(el));
-  });
+  const isTouchDevice =
+    "ontouchstart" in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
 
- const isTouchDevice =
-  "ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-if (!isTouchDevice) {
-  previewLinks.forEach((el) => {
-    el.addEventListener("mouseenter", () => setPreview(el));
-  });
-}
-
-
+  // Only attach hover/focus preview behaviors on non-touch devices.
+  // On touch devices we do NOTHING so links behave like normal (single tap navigates).
+  if (!isTouchDevice) {
+    previewLinks.forEach((el) => {
+      el.addEventListener("mouseenter", () => setPreview(el));
+      el.addEventListener("focus", () => setPreview(el));
+    });
+  }
 
   // ---------- HOME CAROUSEL ----------
   initCarousel(page);
