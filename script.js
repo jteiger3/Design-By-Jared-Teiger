@@ -88,28 +88,15 @@
     el.addEventListener("focus", () => setPreview(el));
   });
 
-  // Mobile: first tap updates preview, second tap navigates
-let lastTapped = null;
-previewLinks.forEach((el) => {
-  el.addEventListener(
-    "touchstart",
-    (ev) => {
-      if (!menuOverlay.classList.contains("is-open")) return;
-      if (!previewEl) return;
+ const isTouchDevice =
+  "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-      const src = el.getAttribute("data-preview");
-      if (!src) return;
-
-      if (lastTapped !== el) {
-        ev.preventDefault();
-        setPreview(el);
-        lastTapped = el;
-        setTimeout(() => (lastTapped = null), 1200);
-      }
-    },
-    { passive: false }
-  );
-});
+if (!isTouchDevice) {
+  previewLinks.forEach((el) => {
+    el.addEventListener("mouseenter", () => setPreview(el));
+  });
+}
+<script src="./script.js?v=10" defer></script>
 
 
   // ---------- HOME CAROUSEL ----------
