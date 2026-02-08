@@ -340,80 +340,93 @@
     max-width: 100%;
   }
 }
-
-    /* ===============================
-   SECTION 6 — 2x2 SQUARE GRID
+/* ===============================
+   PROJECT TEMPLATE — SECTION 6
+   Responsive 2x2 square grid (images + text)
    =============================== */
 
-.proj-section--grid-2x2{
-  padding: 0;             /* match your image sections */
-  margin: 0;
+.proj-section--grid-2x2 {
+  /* Make it feel like Section 5 */
+  min-height: 100vh;
+  padding: 0;              /* section itself has no padding */
+  display: flex;
+  align-items: stretch;
 }
 
-/* Constrain width to match your other content blocks */
-.grid-2x2{
-  width: min(1320px, calc(100% - 88px));
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;                 /* no gutters like your reference */
-}
-
-/* Each tile is a perfect square */
-.grid-2x2__tile{
-  aspect-ratio: 1 / 1;
+/* Full-bleed canvas with consistent gutters */
+.grid2x2 {
   width: 100%;
-  margin: 0;
+  min-height: 100vh;
+
+  /* "Gutter" around the whole section */
+  padding: clamp(18px, 3vw, 44px);
+
+  /* Space between the 4 quadrants */
+  gap: clamp(14px, 2vw, 26px);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr;    /* 2 rows */
+  align-items: stretch;
+}
+
+/* Each quadrant is a square */
+.grid2x2__cell {
+  position: relative;
   overflow: hidden;
   background: #fff;
+  aspect-ratio: 1 / 1; /* keeps each cell square */
 }
 
-/* Images fill the square */
-.grid-2x2__tile--img img{
+/* Images fill their square */
+.grid2x2__cell img {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
+  display: block;
+  border-radius: 0; /* no fillet */
 }
 
-/* Q4 text tile */
-.grid-2x2__tile--text{
+/* Text quadrant: bottom constrained */
+.grid2x2__text {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;  /* stays top-left inside Q4 */
-  align-items: flex-start;
-  padding: 28px;
-  color: rgba(0,0,0,.75);
+  align-items: flex-end;     /* bottom constrained */
+  justify-content: flex-start;
+  padding: clamp(14px, 2vw, 22px);
+}
+
+.grid2x2__text p {
+  margin: 0;
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.65;
+  color: rgba(0,0,0,.72);
+  max-width: 52ch;
 }
 
-.grid-2x2__tile--text p{
-  margin: 0 0 16px;
-  max-width: 46ch;
+/* Keep paragraphs separated */
+.grid2x2__text p + p {
+  margin-top: 14px;
 }
 
-.grid-2x2__tile--text p:last-child{
-  margin-bottom: 0;
-}
-
-/* Responsive */
-@media (max-width: 900px){
-  .grid-2x2{
-    width: calc(100% - 36px);
+/* ===============================
+   Responsive: stack on smaller screens
+   =============================== */
+@media (max-width: 900px) {
+  .proj-section--grid-2x2 {
+    min-height: auto;
   }
-  .grid-2x2__tile--text{
-    padding: 18px;
-  }
-}
 
-@media (max-width: 720px){
-  /* stack on mobile, still square tiles */
-  .grid-2x2{
+  .grid2x2 {
+    min-height: auto;
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  /* Still keep squares on mobile */
+  .grid2x2__cell {
+    aspect-ratio: 1 / 1;
   }
 }
-
   </style>
 </head>
 
@@ -562,38 +575,56 @@
   </section>
   
 <!-- ======================================
-     SECTION 6 — 2x2 SQUARE GRID (3 images + text in Q4)
+     SECTION 6 — 2x2 RESPONSIVE GRID (SQUARES)
+     Images: 5,6,7 + text in bottom-right
      ====================================== -->
 <section class="proj-section proj-section--grid-2x2">
-  <div class="grid-2x2">
+  <div class="grid2x2">
 
-    <!-- Q1 -->
-    <figure class="grid-2x2__tile grid-2x2__tile--img">
-      <img src="./assets/Star-wars-image-5.jpg" alt="Star Wars process image 5" loading="lazy">
-    </figure>
+    <!-- Q1 (top-left) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/Star-wars-image-5.jpg" alt="Sketch exploration 1" loading="lazy">
+    </div>
 
-    <!-- Q2 -->
-    <figure class="grid-2x2__tile grid-2x2__tile--img">
-      <img src="./assets/Star-wars-image-6.jpg" alt="Star Wars process image 6" loading="lazy">
-    </figure>
+    <!-- Q2 (top-right) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/Star-wars-image-6.jpg" alt="Sketch exploration 2" loading="lazy">
+    </div>
 
-    <!-- Q3 -->
-    <figure class="grid-2x2__tile grid-2x2__tile--img">
-      <img src="./assets/Star-wars-image-7.jpg" alt="Star Wars process image 7" loading="lazy">
-    </figure>
+    <!-- Q3 (bottom-left) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/Star-wars-image-7.jpg" alt="3D model evolution" loading="lazy">
+    </div>
 
-    <!-- Q4 (text) -->
-    <div class="grid-2x2__tile grid-2x2__tile--text">
-      <p>
-        From there I started to see the form evolve. Once I had a strong enough starting point, I brought the sketch into Fusion360 and started modeling. I love 3D Design and being able to make changes on the flow is an amazing feeling, especially when the history tree in Fusion360 makes updating components very easy.
-      </p>
-      <p>
-        The main method I used to model some of the components was sketching to extrusions, however, I played around with surfaces and had a fun time learning new things along the way.
-      </p>
+    <!-- Q4 (bottom-right) -->
+    <div class="grid2x2__cell grid2x2__text">
+      <div>
+        <p>
+          From there I started to see the form evolve. Once I had a strong enough starting point,
+          I brought the sketch into Fusion360 and started modeling. I love 3D Design and being able to
+          make changes on the flow is an amazing feeling, especially when the history tree in Fusion360
+          makes updating components very easy.
+        </p>
+        <p>
+          The main method I used to model some of the components was sketching to extrusions, however,
+          I played around with surfaces and had a fun time learning new things along the way.
+        </p>
+      </div>
     </div>
 
   </div>
 </section>
+  
+ <!-- SECTION 4 — Fabrication -->
+  <section class="proj-section proj-section--vision">
+    <div class="proj-vision">
+      <div class="proj-eyebrow">Fabrication</div>
+
+      <p class="proj-vision__body">
+       Bringing back my passion for physical model making, I used airbrush techniques, as well as hand painting and weathering to give a life and story to this character.
+      </p>
+    </div>
+  </section>
 
   <!-- MENU OVERLAY (same as other pages) -->
   <section class="menu" id="menuOverlay" aria-hidden="true">
