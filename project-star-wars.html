@@ -150,72 +150,83 @@
 
 /* ===============================
    PROJECT TEMPLATE — SECTION 3
-   Image (80%) + Text (20%)
+   Image + Right-aligned text block (columns)
    =============================== */
 
 .proj-section--image-text{
-  padding: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 0;                 /* section controls spacing */
+  padding-bottom: 72px;       /* your desired gap to next section */
 }
 
-/* ---------- IMAGE BLOCK ---------- */
+/* Shared rails: image + text align perfectly */
+.s3-wrap{
+  max-width: 1280px;          /* adjust if you want wider/narrower */
+  margin: 0 auto;
+  padding: 0 44px;            /* MUST match your site rail */
+}
+
+/* Image */
 .proj-fig--full{
   margin: 0;
-  height: 80vh; /* controls the 80% visual weight */
 }
 
 .proj-fig--full img{
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
+  border-radius: 0;
 }
 
-/* ---------- TEXT BLOCK ---------- */
+/* Text block sits under image */
 .proj-editorial{
-  height: 20vh;
+  margin-top: 28px;
+
+  /* right-align the FRAME */
   display: flex;
-  justify-content: flex-end; /* push text block to the right */
-  align-items: center;
-  padding: 0 44px;
+  justify-content: flex-end;
+
+  /* IMPORTANT: match image side rails */
+  padding-left: 44px;
+  padding-right: 44px;
+  box-sizing: border-box;
 }
 
-/* Inner text container */
-.proj-editorial__inner{
+/* The two-column FRAME */
+.proj-editorial__cols{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 20px; /* ← horizontal gutter between paragraphs */
-  max-width: 900px;
-  width: 100%;
+  column-gap: 20px;
+
+  width: 980px;          /* size of the frame */
+  max-width: 100%;
 }
 
-/* Paragraph styling */
-.proj-editorial__inner p{
+/* Text itself: left-aligned */
+.proj-editorial__cols p{
   margin: 0;
+  text-align: left;      /* ✅ text left-aligned */
   font-size: 16px;
   line-height: 1.7;
   color: rgba(0,0,0,.75);
-  text-align: left; /* text itself is left-aligned */
 }
 
-/* ---------- MOBILE ---------- */
+/* Mobile */
 @media (max-width: 900px){
-  .proj-fig--full{
-    height: 60vh;
+  .s3-wrap{
+    padding: 0 18px;
   }
 
   .proj-editorial{
-    height: auto;
-    padding: 32px 18px;
+    justify-content: flex-start;  /* stack naturally */
   }
 
-  .proj-editorial__inner{
+  .proj-editorial__cols{
     grid-template-columns: 1fr;
     row-gap: 18px;
-    max-width: 100%;
+    width: 100%;
   }
 }
+
 
 
     /* =========================================
