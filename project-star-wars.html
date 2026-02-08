@@ -174,15 +174,17 @@
 /* Text block */
 .section3-text {
   height: 20vh;
-  padding: clamp(18px, 3vw, 40px);
+  padding: clamp(0px, 3vw, 40px);
   display: flex;
-  justify-content: flex-end; /* push text to the right */
+  justify-content: flex-end;
   align-items: center;
 }
-
-/* Text container */
+/* Two-column text container */
 .section3-text-inner {
-  max-width: 640px;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px; /* ← horizontal gutter */
   text-align: left;
   font-size: 14px;
   line-height: 1.65;
@@ -194,21 +196,31 @@
   margin: 0;
 }
 
-.section3-text-inner p + p {
-  margin-top: 20px;
-}
 
 /* Mobile adjustment */
 @media (max-width: 900px) {
-  .section3-image {
-    height: 60vh;
+  .section3 {
+    min-height: auto;
   }
 
-  .section3-text {
+  .section3-image {
+    height: auto;          /* ← don’t delete, just release height */
+    min-height: 50vh;      /* keeps presence */
+  }
+
+  .section3-image img {
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+  }
+
+.section3-text {
     height: auto;
   }
 
   .section3-text-inner {
+    grid-template-columns: 1fr;
+    row-gap: 20px; /* vertical spacing only on mobile */
     text-align: left;
     max-width: 100%;
   }
