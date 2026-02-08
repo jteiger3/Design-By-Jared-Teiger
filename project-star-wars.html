@@ -174,14 +174,14 @@
 /* Text block */
 .section3-text {
   height: 20vh;
-  padding: clamp(0px, 3vw, 40px);
+  padding: 0 44px;    
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 /* Two-column text container */
 .section3-text-inner {
-  max-width: 900px;
+  width: min(1100px, 100%);   
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 20px; /* ← horizontal gutter */
@@ -216,8 +216,8 @@
 
 .section3-text {
     height: auto;
-  }
-
+    padding: 24px 18px;  
+}
   .section3-text-inner {
     grid-template-columns: 1fr;
     row-gap: 20px; /* vertical spacing only on mobile */
