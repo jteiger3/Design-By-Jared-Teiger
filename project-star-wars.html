@@ -510,6 +510,76 @@
     max-width: 100%;
   }
 }
+    
+/* ===============================
+   GLOBAL CTA FOOTER
+   =============================== */
+
+.site-cta{
+  padding: 120px 44px;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.site-cta__inner{
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.site-cta__title{
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  color: rgba(0,0,0,.95);
+}
+
+/* Right-side links */
+.site-cta__links{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.site-cta__link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 16px;
+  color: rgba(0,0,0,.85);
+  text-decoration: none;
+
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+
+  transition: border-color .25s ease, color .25s ease;
+}
+
+.site-cta__link:hover{
+  border-bottom-color: rgba(0,0,0,.85);
+  color: rgba(0,0,0,1);
+}
+
+.site-cta__arrow{
+  font-size: 16px;
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+@media (max-width: 760px){
+  .site-cta{
+    padding: 80px 18px;
+  }
+
+  .site-cta__inner{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
 
   </style>
 </head>
@@ -820,5 +890,29 @@
   </section>
 
   <script src="./script.js" defer></script>
+
+  <!-- ======================================
+     GLOBAL CTA — HOW CAN I HELP
+     ====================================== -->
+<section class="site-cta">
+  <div class="site-cta__inner">
+
+    <h2 class="site-cta__title">How can I help</h2>
+
+    <div class="site-cta__links">
+      <a href="./contact.html" class="site-cta__link">
+        <span>Work together</span>
+        <span class="site-cta__arrow">↗</span>
+      </a>
+
+      <a href="./contact.html" class="site-cta__link">
+        <span>Just say hello</span>
+        <span class="site-cta__arrow">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
 </body>
 </html>
