@@ -127,7 +127,14 @@
     if (pageName !== "home") return;
 
     const slides = Array.from(document.querySelectorAll(".carousel__slide"));
-    const dots = Array.from(document.querySelectorAll(".dot"));
+    const dotsWrap = document.querySelector(".carousel__dots");
+if (dotsWrap) {
+  dotsWrap.innerHTML = slides
+    .map((_, idx) => `<span class="dot ${idx === 0 ? "is-active" : ""}"></span>`)
+    .join("");
+}
+const dots = Array.from(document.querySelectorAll(".dot"));
+
     if (!slides.length) return;
 
     let i = 0;
