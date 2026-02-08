@@ -148,78 +148,71 @@
       }
     }
 
-  /* ===============================
-   PROJECT — SECTION 3
-   Image (80vh) + Text (20vh)
+/* ===============================
+   PROJECT TEMPLATE — SECTION 3
+   Image (80%) + Text (20%)
    =============================== */
 
-.proj-section--vertical-split {
-  width: 100%;
+.proj-section--image-text{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Image block */
-.section3-image {
-  height: 80vh;
-  width: 100%;
-  overflow: hidden;
+/* ---------- IMAGE BLOCK ---------- */
+.proj-fig--full{
+  margin: 0;
+  height: 80vh; /* controls the 80% visual weight */
 }
 
-.section3-image img {
+.proj-fig--full img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Text block */
-.section3-text {
+/* ---------- TEXT BLOCK ---------- */
+.proj-editorial{
   height: 20vh;
-  padding: clamp(18px, 3vw, 40px);
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* push text block to the right */
   align-items: center;
+  padding: 0 44px;
 }
 
-/* Two-column text container */
-.section3-text-inner {
-  max-width: 900px;
+/* Inner text container */
+.proj-editorial__inner{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 20px; /* ← horizontal gutter */
-  text-align: right;
-  font-size: 14px;
-  line-height: 1.65;
-  color: rgba(0,0,0,0.75);
+  column-gap: 20px; /* ← horizontal gutter between paragraphs */
+  max-width: 900px;
+  width: 100%;
 }
 
-/* Remove vertical paragraph spacing */
-.section3-text-inner p {
+/* Paragraph styling */
+.proj-editorial__inner p{
   margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(0,0,0,.75);
+  text-align: left; /* text itself is left-aligned */
 }
 
-
-/* Mobile adjustment */
-@media (max-width: 900px) {
- .section3 {
-    min-height: auto;
-  }
- .section3-image {
-    height: auto;          /* ← don’t delete, just release height */
-    min-height: 50vh;      /* keeps presence */
-  }
-  .section3-image img {
-    height: auto;
-    max-height: 70vh;
-    object-fit: cover;
-  }
-  .section3-text {
-    height: auto;
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px){
+  .proj-fig--full{
+    height: 60vh;
   }
 
-  .section3-text-inner {
+  .proj-editorial{
+    height: auto;
+    padding: 32px 18px;
+  }
+
+  .proj-editorial__inner{
     grid-template-columns: 1fr;
-    row-gap: 20px; /* vertical spacing only on mobile */
-    text-align: left;
+    row-gap: 18px;
     max-width: 100%;
   }
 }
