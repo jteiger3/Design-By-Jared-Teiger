@@ -126,11 +126,13 @@ initCarousel(page);
 function initCarousel(pageName) {
   if (pageName !== "home") return;
 
+  const carouselEl = document.getElementById("carousel");
   const slides = Array.from(document.querySelectorAll(".carousel__slide"));
   const dotsWrap = document.querySelector(".carousel__dots");
-  if (!slides.length || !dotsWrap) return;
 
-  // Build dots dynamically
+  if (!carouselEl || !slides.length || !dotsWrap) return;
+
+  // Build dots dynamically as buttons
   dotsWrap.innerHTML = slides
     .map(
       (_, idx) =>
@@ -143,39 +145,33 @@ function initCarousel(pageName) {
   const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
 
   let i = 0;
-  let timer = null;
 
   const show = (idx) => {
     i = idx;
     slides.forEach((s) => s.classList.remove("is-active"));
     dots.forEach((d) => d.classList.remove("is-active"));
-
-    slides[i]?.classList.add("is-active");
-    dots[i]?.classList.add("is-active");
+    slides[i].classList.add("is-active");
+    dots[i].classList.add("is-active");
   };
 
-  const start = () => {
-    stop();
+  // Make dots clickable
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", () => {
+      show(idx);
+      restart();
+    });
+  });
+
+  // Prevent multiple timers if initCarousel ever runs twice
+  let timer = null;
+  const restart = () => {
+    if (timer) clearInterval(timer);
     timer = setInterval(() => {
       show((i + 1) % slides.length);
     }, 4500);
   };
 
-  const stop = () => {
-    if (timer) clearInterval(timer);
-    timer = null;
-  };
-
-  // Dot click handlers
-  dots.forEach((dot, idx) => {
-    dot.addEventListener("click", () => {
-      show(idx);
-      start(); // reset autoplay after interaction
-    });
-  });
-
-  // Initialize
   show(0);
-  start();
+  restart();
 }
 
