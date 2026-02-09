@@ -3,19 +3,608 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project — Template</title>
+  <title>Helloreal — YES AND DESIGN STUDIO</title>
+  <!-- SEO -->
+<meta name="description" content="Helloreal reimagines the VR gaming experience, elevating PSVR2 controllers and headsets with innovative, hot-swappable accessories.">
+<meta name="author" content="YES AND DESIGN STUDIO">
+<link rel="canonical" href="https://www.yesanddesign.studio/project-helloreal.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="PSVR2 Controller Adapter | YES AND DESIGN STUDIO">
+<meta property="og:description" content="Helloreal explored how the VR gaming experience could be elevated through hot-swappable accessories designed for PSVR2 controllers and headsets.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.yesanddesign.studio/project-helloreal.html">
+<meta property="og:image" content="https://www.yesanddesign.studio/assets/helloreal_image_01.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Helloreal PSVR2 Controller Adapter Design">
+<meta name="twitter:description" content="Helloreal explored how the VR gaming experience could be elevated through hot-swappable accessories designed for PSVR2 controllers and headsets.">
+<meta name="twitter:image" content="https://www.yesanddesign.studio/assets/helloreal_image_01.jpg">
+
 
   <!-- Roboto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Global site styles -->
   <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Project page styles (scoped to this file) -->
+  <style>
+    /* =========================================
+       PROJECT TEMPLATE — SECTION 1
+       Hero + Title + Meta Bar
+       ========================================= */
+
+    .proj-hero{
+      height: 100vh;
+      position: relative;
+      background-image: url("./assets/helloreal_image_01.jpg"); /* ✅ CHANGE PER PROJECT */
+      background-size: cover;
+      background-position: 40% center;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .proj-hero__scrim{
+      position:absolute;
+      inset:0;
+      background: radial-gradient(
+        circle at 50% 35%,
+        rgba(0,0,0,.12) 0%,
+        rgba(0,0,0,.55) 55%,
+        rgba(0,0,0,.78) 100%
+      );
+      pointer-events:none;
+    }
+
+    .proj-hero__inner{
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: calc(var(--nav-h) + 52px) 44px 44px;
+      gap: 22px;
+    }
+
+    .proj-title{
+      margin: 0;
+      font-size: clamp(48px, 7vw, 98px);
+      line-height: 1.02;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #fff;
+      max-width: 14ch;
+    }
+
+    .proj-bar{
+      width: 100%;
+      padding: 18px 18px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.58);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .proj-meta__label{
+      font-size: 12px;
+      letter-spacing: .12em;
+      color: rgba(255,255,255,.70);
+      margin-bottom: 6px;
+    }
+
+    .proj-meta__value{
+      font-size: 14px;
+      color: rgba(255,255,255,.92);
+      line-height: 1.35;
+    }
+
+    @media (max-width: 760px){
+      .proj-hero__inner{
+        padding: calc(var(--nav-h) + 34px) 18px 18px;
+      }
+      .proj-title{
+        font-size: clamp(40px, 12vw, 64px);
+        max-width: 18ch;
+      }
+      .proj-bar{
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+      }
+    }
+
+    /* =========================================
+       PROJECT TEMPLATE — SECTION 2
+       Introduction
+       ========================================= */
+
+    .proj-section{
+      padding: 110px 44px;
+    }
+
+    .proj-section--intro{
+      padding-top: 120px;
+    }
+
+    .proj-intro{
+      max-width: 980px;
+    }
+
+    .proj-eyebrow{
+      font-size: 13px;
+      letter-spacing: .12em;
+      color: rgba(0,0,0,.55);
+      margin-bottom: 18px;
+    }
+
+    .proj-intro__body{
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.55;
+      color: rgba(0,0,0,.9);
+      margin: 0;
+      max-width: 48ch;
+    }
+
+    @media (max-width: 760px){
+      .proj-section{
+        padding: 72px 18px;
+      }
+      .proj-section--intro{
+        padding-top: 80px;
+      }
+      .proj-intro__body{
+        font-size: 20px;
+        max-width: 100%;
+      }
+    }
+
+/* ===============================
+   PROJECT — SECTION 3
+   Image (80vh) + Text (20vh)
+   =============================== */
+
+.proj-section--vertical-split {
+  width: 100%;
+}
+
+/* Image block */
+.section3-image {
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.section3-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text block */
+.section3-text {
+  height: 20vh;
+  padding: 20 0px;    
+  display: flex;
+  justify-content: end;
+  align-items: right;
+}
+/* Two-column text container */
+.section3-text-inner {
+  width: min(600px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px; /* ← horizontal gutter */
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(0,0,0,0.75);
+}
+
+/* Paragraph spacing */
+.section3-text-inner p {
+  margin-left: auto;
+}
+
+
+/* Mobile adjustment */
+@media (max-width: 900px) {
+  .section3 {
+    min-height: auto;
+  }
+
+  .section3-image {
+    height: auto;          /* ← don’t delete, just release height */
+    min-height: 50vh;      /* keeps presence */
+  }
+
+  .section3-image img {
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+  }
+
+.section3-text {
+    height: auto;
+    padding: 24px 18px;  
+}
+  .section3-text-inner {
+    grid-template-columns: 1fr;
+    row-gap: 20px; /* vertical spacing only on mobile */
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+
+
+    /* =========================================
+       PROJECT TEMPLATE — SECTION 4
+       Vision Statement (centered block)
+       ========================================= */
+
+    .proj-section--vision{
+      padding: 96px 44px 120px;
+    }
+
+    .proj-vision{
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .proj-vision__body{
+      margin: 0;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.15;
+      font-weight: 400;
+      color: rgba(0,0,0,.95);
+      max-width: 48ch;
+    }
+
+    @media (max-width: 760px){
+      .proj-section--vision{
+        padding: 88px 18px;
+      }
+      .proj-vision__body{
+        font-size: 30px;
+        max-width: 100%;
+      }
+    }
+
+/* ===============================
+   SECTION 5 — FULL BLEED (works even inside a max-width main)
+   =============================== */
+
+.proj-section--offset-canvas{
+  padding: 0;
+}
+
+/* This breaks out of any parent max-width/padding */
+.proj-section--offset-canvas .bleed{
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+
+  padding: 64px 0; /* vertical spacing only */
+}
+
+/* Inner layout stays nicely constrained */
+.proj-section--offset-canvas .offset-inner{
+  width: min(3000px, calc(100% - 88px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(360px, 1.25fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.proj-section--offset-canvas .offset-left,
+.proj-section--offset-canvas .offset-right{
+  display: flex;
+  flex-direction: column;
+}
+
+.proj-section--offset-canvas .offset-right{
+  gap: 22px; /* keeps text directly under sketches */
+}
+
+/* Images */
+.proj-section--offset-canvas .offset-fig{ margin: 0; }
+
+.proj-section--offset-canvas .offset-fig img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Both scale responsively */
+.proj-section--offset-canvas .offset-fig--square{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.proj-section--offset-canvas .offset-fig--rect{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Text */
+.proj-section--offset-canvas .offset-copy{
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(0,0,0,.75);
+  max-width: 44ch;
+}
+
+.proj-section--offset-canvas .offset-copy p{ margin: 0 0 18px; }
+.proj-section--offset-canvas .offset-copy p:last-child{ margin-bottom: 0; }
+
+/* Responsive */
+@media (max-width: 1100px){
+  .proj-section--offset-canvas .offset-inner{
+    width: min(1320px, calc(100% - 56px));
+    grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.15fr);
+    gap: 36px;
+  }
+}
+
+@media (max-width: 860px){
+  .proj-section--offset-canvas .bleed{
+    padding: 48px 0;
+  }
+
+  .proj-section--offset-canvas .offset-inner{
+    width: calc(100% - 36px);
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .proj-section--offset-canvas .offset-fig--rect{
+    aspect-ratio: 3 / 2;
+  }
+
+  .proj-section--offset-canvas .offset-copy{
+    max-width: 100%;
+  }
+}
+/* ===============================
+   PROJECT TEMPLATE — SECTION 6
+   Responsive 2x2 square grid (images + text)
+   =============================== */
+
+.proj-section--grid-2x2 {
+  /* Make it feel like Section 5 */
+  min-height: 100vh;
+  padding: 0;              /* section itself has no padding */
+  display: flex;
+  align-items: stretch;
+}
+
+/* Full-bleed canvas with consistent gutters */
+.grid2x2 {
+  width: 100%;
+  min-height: 100vh;
+
+  /* "Gutter" around the whole section */
+  padding: clamp(18px, 3vw, 44px);
+
+  /* Space between the 4 quadrants */
+  gap: clamp(14px, 2vw, 26px);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr;    /* 2 rows */
+  align-items: stretch;
+}
+
+/* Each quadrant is a square */
+.grid2x2__cell {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  aspect-ratio: 1 / 1; /* keeps each cell square */
+}
+
+/* Images fill their square */
+.grid2x2__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0; /* no fillet */
+}
+
+/* Text quadrant: bottom constrained */
+.grid2x2__text {
+  display: flex;
+  align-items: flex-end;     /* bottom constrained */
+  justify-content: flex-start;
+  padding: clamp(14px, 2vw, 22px);
+}
+
+.grid2x2__text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(0,0,0,.72);
+  max-width: 52ch;
+}
+
+/* Keep paragraphs separated */
+.grid2x2__text p + p {
+  margin-top: 14px;
+}
+
+/* ===============================
+   Responsive: stack on smaller screens
+   =============================== */
+@media (max-width: 900px) {
+  .proj-section--grid-2x2 {
+    min-height: auto;
+  }
+
+  .grid2x2 {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  /* Still keep squares on mobile */
+  .grid2x2__cell {
+    aspect-ratio: 1 / 1;
+  }
+}
+    
+
+    /* ===============================
+   PROJECT TEMPLATE — SECTION 7
+   70% image / 30% text (responsive)
+   =============================== */
+
+.proj-section--split-70 {
+  /* consistent “canvas” feel like prior sections */
+  padding: 0;
+}
+
+.split-70 {
+  width: 100%;
+  padding: clamp(18px, 3vw, 44px);
+  display: grid;
+  grid-template-columns: 8fr 2fr; /* 70/30 */
+  gap: clamp(14px, 2vw, 26px);
+  align-items: start;
+}
+
+/* Image block */
+.split-70__media {
+  margin: 0;
+}
+
+.split-70__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 0; /* no fillet */
+}
+
+/* Text block */
+.split-70__text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(0,0,0,.72);
+  max-width: 52ch;
+}
+
+.split-70__text p {
+  margin: 0;
+}
+
+.split-70__text p + p {
+  margin-top: 14px;
+}
+
+/* Responsive: stack */
+@media (max-width: 900px) {
+  .split-70 {
+    grid-template-columns: 1fr;
+  }
+
+  .split-70__text {
+    max-width: 100%;
+  }
+}
+    
+/* ===============================
+   GLOBAL CTA FOOTER
+   =============================== */
+
+.site-cta{
+  padding: 120px 44px;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.site-cta__inner{
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.site-cta__title{
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  color: rgba(0,0,0,.95);
+}
+
+/* Right-side links */
+.site-cta__links{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.site-cta__link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 16px;
+  color: rgba(0,0,0,.85);
+  text-decoration: none;
+
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+
+  transition: border-color .25s ease, color .25s ease;
+}
+
+.site-cta__link:hover{
+  border-bottom-color: rgba(0,0,0,.85);
+  color: rgba(0,0,0,1);
+}
+
+.site-cta__arrow{
+  font-size: 16px;
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+@media (max-width: 760px){
+  .site-cta{
+    padding: 80px 18px;
+  }
+
+  .site-cta__inner{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+  </style>
 </head>
 
 <body data-page="project">
 
-  <!-- NAV (over hero image) -->
+  <!-- NAV (same as other pages) -->
   <header class="nav nav--overlay" id="nav">
     <div class="nav__bar" id="navBar">
       <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
@@ -24,9 +613,9 @@
         <span class="burger__line"></span>
       </button>
 
-      <a class="brand" href="./index.html" aria-label="Go to home">
-        <span class="brand__first">JARED</span><span class="brand__last">TEIGER</span>
-      </a>
+     <a class="brand" href="./index.html" aria-label="Go to home">
+  <span class="brand__first">YES</span><span class="brand__last">AND</span>
+</a>
 
       <a class="icon-btn linkedin" href="https://www.linkedin.com/in/jared-teiger/" target="_blank" rel="noopener" aria-label="LinkedIn">
         in
@@ -34,14 +623,14 @@
     </div>
   </header>
 
-  <!-- SECTION 1 — HERO + BLACK INFO BAR -->
-  <section class="proj-hero" style="background-image:url('./assets/Section_01.jpg')">
+  <!-- SECTION 1 — HERO -->
+  <section class="proj-hero" aria-label="Project hero">
     <div class="proj-hero__scrim" aria-hidden="true"></div>
 
-    <div class="proj-bar" role="group" aria-label="Project summary">
-      <div class="proj-bar__title">Helloreal</div>
+    <div class="proj-hero__inner">
+      <h1 class="proj-title">Helloreal</h1>
 
-      <div class="proj-bar__meta">
+      <div class="proj-bar" role="group" aria-label="Project summary">
         <div class="proj-meta">
           <div class="proj-meta__label">Project Type</div>
           <div class="proj-meta__value">Industrial Design</div>
@@ -60,107 +649,353 @@
     </div>
   </section>
 
-  <main class="proj">
+  <!-- SECTION 2 — INTRO -->
+  <section class="proj-section proj-section--intro">
+    <div class="proj-intro">
+      <div class="proj-eyebrow">Introduction</div>
 
-    <!-- SECTION 2 — INTRO TEXT (small title + large body, left aligned) -->
-    <section class="proj-section">
-      <div class="proj-text">
-        <div class="proj-eyebrow">Introduction</div>
-        <div class="proj-body">
-          Helloreal was expanding its ecosystem from its success on the Quest 2 into the Playstation VR market.
-          For that they needed a new adapter to go around the PSVR2 Controller and fit into their hot swappable
-          ecosystem of accessories.
-        </div>
+      <p class="proj-intro__body">
+        Helloreal was expanding its ecosystem from its success on the Quest 2 into the Playstation VR market. 
+        For that they needed a new adapter to go around the PSVR2 Controller and fit into their hot swappable 
+        ecosystem of accessories.
+      </p>
+    </div>
+  </section>
+
+<!-- ======================================
+     SECTION 3 — IMAGE / TEXT (80 / 20)
+     ====================================== -->
+<section class="proj-section proj-section--vertical-split">
+
+  <!-- Image block (80%) -->
+  <div class="section3-image">
+    <img
+      src="./assets/helloreal_image_02.jpg"
+      alt="Product Line Up"
+      loading="lazy"
+    >
+  </div>
+
+  <!-- Text block (20%) -->
+  <div class="section3-text">
+    <div class="section3-text-inner">
+      <p>
+       
+      </p>
+
+      <p>
+        After several iterations I got the function and form down. 
+        After this I handed it off to my boss for him to finish the final cad details, 
+        we also wanted the product to connect to the brand of Playstation and this is where 
+        we focused on creating a brand design within the product that follows the Playstation 5 
+        console. This is the final product we produced that we launched on to the market with success.
+      </p>
+    </div>
+  </div>
+
+</section>
+    <!-- SECTION 4 — VISION -->
+  <section class="proj-section proj-section--vision">
+    <div class="proj-vision">
+      <div class="proj-eyebrow">The Vision</div>
+
+      <p class="proj-vision__body">
+        Design an adapter with as minimal hardware and print support as possible.
+      </p>
+    </div>
+  </section>
+ <!-- ======================================
+     SECTION 7 — 70% IMAGE / 30% TEXT
+     ====================================== -->
+<section class="proj-section proj-section--split-70">
+  <div class="split-70">
+
+    <!-- 70% image -->
+    <figure class="split-70__media">
+      <img
+        src="./assets/helloreal_image_17.jpg"
+        alt="Product Brief"
+        loading="lazy"
+      >
+    </figure>
+
+    <!-- 30% text -->
+    <div class="split-70__text">
+      <p>
+        After several iterations I got the function and form down. After this I handed it off to my boss for
+        him to finish the final cad details, we also wanted the product to connect to the brand of Playstation 
+        and this is where we focused on creating a brand design within the product that follows the Playstation0 
+        5 console. This is the final product we produced that we launched on to the market with success.
+      </p>
+
+      <p>
+        
+      </p>
+    </div>
+
+  </div>
+</section>
+  
+  <!-- ======================================
+     SECTION 6 — 2x2 RESPONSIVE GRID (SQUARES)
+     Images: 5,6,7 + text in bottom-right
+     ====================================== -->
+<section class="proj-section proj-section--grid-2x2">
+  <div class="grid2x2">
+
+    <!-- Q1 (top-left) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_03.jpg" alt="Sketch exploration 1" loading="lazy">
+    </div>
+
+    <!-- Q2 (top-right) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_04.jpg" alt="Sketch exploration 2" loading="lazy">
+    </div>
+
+    <!-- Q3 (bottom-left) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_05.jpg" alt="3D model evolution" loading="lazy">
+    </div>
+
+    <!-- Q4 (bottom-right) -->
+    <div class="grid2x2__cell grid2x2__text">
+      <div>
+        <p>
+          During the briefing, the constraints that were given were to have minimum to no support material to be needed for FDM manufacturing. Secondly, not requiring any hardware to build this product. 
+        </p>
+        <p>
+          Do to the complex and organic shape of the PSVR2 controller, I jumped into 3D thumbnailing to land on concepts that followed the constraints and relied on function rather then form.
+        </p>
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION 3 — 2x2 GRID (3 images + text in bottom-right aligned to bottom-left of tile) -->
-    <section class="proj-section">
-      <div class="proj-grid-2x2">
-        <figure class="proj-fig">
-          <img src="./assets/Section_03_a.jpg" alt="Concept sketches" loading="lazy">
+  </div>
+</section>
+  
+<!-- ======================================
+     SECTION 3 — IMAGE / TEXT (80 / 20)
+     ====================================== -->
+<section class="proj-section proj-section--vertical-split">
+
+  <!-- Image block (80%) -->
+  <div class="section3-image">
+    <img
+      src="./assets/helloreal_image_06.jpg"
+      alt="Product Line Up"
+      loading="lazy"
+    >
+  </div>
+
+  <!-- Text block (20%) -->
+  <div class="section3-text">
+    <div class="section3-text-inner">
+      <p>
+       
+      </p>
+
+      <p>
+       I started rapid prototyping with the 3D print farm I had available.
+        I learned more about FDM manufacturing, which led to more efficient prototypes for testing.
+      </p>
+    </div>
+  </div>
+
+</section>
+    <!-- SECTION 4 — VISION -->
+  <section class="proj-section proj-section--vision">
+    <div class="proj-vision">
+      <div class="proj-eyebrow">The Constraints</div>
+
+      <p class="proj-vision__body">
+        Minimal to no support material and hardware.
+      </p>
+    </div>
+  </section>
+  
+<!-- ======================================
+     SECTION 5 — SPLIT CANVAS (NEW)
+     Left: big square image
+     Right top: sketches image
+     Right bottom: text
+     ====================================== -->
+<section class="proj-section proj-section--offset-canvas">
+  <div class="bleed">
+    <div class="offset-inner">
+
+      <div class="offset-left">
+        <figure class="offset-fig offset-fig--square">
+          <img src="./assets/helloreal_image_07.jpg" alt="Pemulung reference imagery" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="offset-right">
+        <figure class="offset-fig offset-fig--rect">
+          <img src="./assets/helloreal_image_08.jpg" alt="Sketch exploration" loading="lazy">
         </figure>
 
-        <figure class="proj-fig">
-          <img src="./assets/Section_03_b.jpg" alt="Fusion sketch" loading="lazy">
-        </figure>
-
-        <figure class="proj-fig">
-          <img src="./assets/Section_03_c.jpg" alt="Prototype cutaway" loading="lazy">
-        </figure>
-
-        <div class="proj-tile-text">
-          <div class="proj-tile-text__inner">
-            During the briefing, the constraints were to have minimum to no support material needed for FDM manufacturing.
-            Secondly, not requiring any hardware to build this product.
-            <br><br>
-            I jumped into 3D thumbnailing to land on concepts that followed the constraints and relied on function rather than form.
-          </div>
+        <div class="offset-copy">
+          <p>The final mechanism was inspired by the clip used in connecting the trigger to the VR adapters for the Quest controllers. I took this function and ran with it to create the first iteration.   </p>
+          <p>The functionality shows through here, but the form was awful.</p>
         </div>
       </div>
-    </section>
 
-    <!-- SECTION 4 — “CENTER-ISH” TEXT (not fully centered, but more centered than Section 2) -->
-    <section class="proj-section">
-      <div class="proj-text proj-text--centerish">
-        <div class="proj-eyebrow">The Vision</div>
-        <div class="proj-body">
-          Design an adapter with as minimal hardware and print support as possible.
-        </div>
+    </div>
+  </div>
+</section>
+
+ <!-- ======================================
+     SECTION 6 — 2x2 RESPONSIVE GRID (SQUARES)
+     Images: 5,6,7 + text in bottom-right
+     ====================================== -->
+<section class="proj-section proj-section--grid-2x2">
+  <div class="grid2x2">
+
+    <!-- Q1 (top-left) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_09.jpg" alt="Sketch exploration 1" loading="lazy">
+    </div>
+
+    <!-- Q2 (top-right) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_10.jpg" alt="Sketch exploration 2" loading="lazy">
+    </div>
+
+    <!-- Q3 (bottom-left) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_11.jpg" alt="3D model evolution" loading="lazy">
+    </div>
+
+    <!-- Q4 (bottom-right) -->
+    <div class="grid2x2__cell grid2x2__text">
+      <div>
+        <p>
+          Adjust the form of the mechanism utilizing surface modeling with more finer control allowed for a more slim design of both function of the clasp and form of the adapter. 
+        </p>
+        <p>
+          
+        </p>
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION 5 — LARGE HORIZONTAL IMAGE + caption bottom-right (wraps left if long) -->
-    <section class="proj-section">
-      <figure class="proj-fig proj-fig--wide">
-        <img src="./assets/Section_05.jpg" alt="Prototype in environment" loading="lazy">
-        <figcaption class="proj-caption">
-          I started rapid prototyping with the 3D print farm I had available. I learned more about FDM manufacturing,
-          which led to more efficient prototypes for testing.
-        </figcaption>
-      </figure>
-    </section>
+  </div>
+</section>
 
-    <!-- SECTION 6 — LEFT SQUARE IMAGE + RIGHT: horizontal image above text -->
-    <section class="proj-section">
-      <div class="proj-split-6">
-        <figure class="proj-fig proj-fig--square">
-          <img src="./assets/Section_06_left.jpg" alt="Reference photo" loading="lazy">
-        </figure>
 
-        <div class="proj-right-stack">
-          <figure class="proj-fig proj-fig--wide">
-            <img src="./assets/Section_06_top.jpg" alt="Iteration sketches" loading="lazy">
-          </figure>
 
-          <div class="proj-right-text">
-            The final mechanism was inspired by the clip used in connecting the trigger to the VR adapters for the Quest controllers.
-            I took this function and ran with it to create the first iteration.
-            <br><br>
-            The functionality shows through here, but the form was awful.
-          </div>
-        </div>
+ <!-- SECTION 4 — Concept Development -->
+  <section class="proj-section proj-section--vision">
+    <div class="proj-vision">
+      <div class="proj-eyebrow">Concept Development</div>
+
+      <p class="proj-vision__body">
+        Once I found the initial design, I did a rough model in Fusion360 which I used as an underlay to sketch on top of.
+      </p>
+    </div>
+  </section>
+  
+
+   <!-- ======================================
+     SECTION 7 — 70% IMAGE / 30% TEXT
+     ====================================== -->
+<section class="proj-section proj-section--split-70">
+  <div class="split-70">
+
+    <!-- 70% image -->
+    <figure class="split-70__media">
+      <img
+        src="./assets/helloreal_image_12.jpg"
+        alt="Product Brief"
+        loading="lazy"
+      >
+    </figure>
+
+    <!-- 30% text -->
+    <div class="split-70__text">
+      <p>
+      After several iterations I got the function and form down. 
+        After this I handed it off to my boss for him to finish the final cad details, 
+        we also wanted the product to connect to the brand of Playstation and this is where
+        we focused on creating a brand design within the product that follows the Playstation 5 console.
+        This is the final product we produced that we launched on to the market with success.
+      </p>
+
+      <p>
+        
+      </p>
+    </div>
+
+  </div>
+</section>
+  
+  <!-- ======================================
+     SECTION 3 — IMAGE / TEXT (80 / 20)
+     ====================================== -->
+<section class="proj-section proj-section--vertical-split">
+
+  <!-- Image block (80%) -->
+  <div class="section3-image">
+    <img
+      src="./assets/helloreal_image_13.jpg"
+      alt="Scrapper environment reference"
+      loading="lazy"
+    >
+  </div>
+
+  <!-- Text block (20%) -->
+  <div class="section3-text">
+    <div class="section3-text-inner">
+      <p>
+                  
+      </p>
+            <p>
+       I started rapid prototyping with the 3D print farm I had available. I learned more about FDM manufacturing, which led to more efficient prototypes for testing.
+      </p>
+       
+    </div>
+  </div>
+
+</section>
+   <!-- ======================================
+     SECTION 6 — 2x2 RESPONSIVE GRID (SQUARES)
+     Images: 5,6,7 + text in bottom-right
+     ====================================== -->
+<section class="proj-section proj-section--grid-2x2">
+  <div class="grid2x2">
+
+    <!-- Q1 (top-left) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_14.jpg" alt="Sketch exploration 1" loading="lazy">
+    </div>
+
+    <!-- Q2 (top-right) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_15.jpg" alt="Sketch exploration 2" loading="lazy">
+    </div>
+
+    <!-- Q3 (bottom-left) -->
+    <div class="grid2x2__cell">
+      <img src="./assets/helloreal_image_16.jpg" alt="3D model evolution" loading="lazy">
+    </div>
+
+    <!-- Q4 (bottom-right) -->
+    <div class="grid2x2__cell grid2x2__text">
+      <div>
+        <p>
+          Final Marketing to display the adapter with the golf putter accessory attached to the PSVR2 Controller.
+        </p>
+        <p>
+          
+        </p>
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION 7 — 20% text left, 80% image right -->
-    <section class="proj-section">
-      <div class="proj-split-7">
-        <div class="proj-side-text">
-          After several iterations I got the function and form down. After this I handed it off to my boss for him to finish the final CAD details.
-          We also wanted the product to connect to the brand of Playstation and this is where we focused on creating a brand design within the product
-          that follows the Playstation 5 console. This is the final product we produced that we launched onto the market with success.
-        </div>
+  </div>
+</section>
 
-        <figure class="proj-fig proj-fig--wide">
-          <img src="./assets/Section_07.jpg" alt="Final product lineup" loading="lazy">
-        </figure>
-      </div>
-    </section>
 
-  </main>
 
-  <!-- MENU OVERLAY (same as your other pages) -->
+  <!-- MENU OVERLAY (same as other pages) -->
   <section class="menu" id="menuOverlay" aria-hidden="true">
     <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="menu__left">
@@ -174,38 +1009,17 @@
         <nav class="menu__nav" aria-label="Primary">
           <a class="menu__link" href="./about.html" data-preview="./assets/about.jpg">About Me</a>
           <a class="menu__link" href="./what-i-do.html" data-preview="./assets/process.jpg">What I Do</a>
-          <a class="menu__link" href="mailto:jteiger3@gmail.com" data-preview="./assets/get-in-touch.jpg">Get in Touch</a>
+          <a class="menu__link" href="./contact.html" data-preview="./assets/get-in-touch.jpg">Get in Touch</a>
 
           <div class="menu__section-title">CASE STUDIES</div>
 
-          <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">
-  Star Wars
-</a>
-
-<a class="pill" href="./project-the-covenant.html" data-preview="./assets/the-covenant.jpg">
-  The Covenant
-</a>
-
-<a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">
-  Magimates
-</a>
-
-<a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">
-  Helloreal
-</a>
-
-<a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">
-  Nightflare
-</a>
-
-<a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">
-  Sapele Serenade
-</a>
-
-<a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">
-  Social Queue
-</a>
-
+          <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
+          <a class="pill" href="./project-fellow.html" data-preview="./assets/fellow.jpg">  Fellow</a>
+          <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">Magimates</a>
+          <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
+          <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
+          <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
+          <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">Social Queue</a>
         </nav>
       </div>
 
@@ -218,5 +1032,29 @@
   </section>
 
   <script src="./script.js" defer></script>
+
+  <!-- ======================================
+     GLOBAL CTA — HOW CAN I HELP
+     ====================================== -->
+<section class="site-cta">
+  <div class="site-cta__inner">
+
+    <h2 class="site-cta__title">How can I help</h2>
+
+    <div class="site-cta__links">
+      <a href="./contact.html" class="site-cta__link">
+        <span>Work together</span>
+        <span class="site-cta__arrow">↗</span>
+      </a>
+
+      <a href="./contact.html" class="site-cta__link">
+        <span>Just say hello</span>
+        <span class="site-cta__arrow">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
 </body>
 </html>
