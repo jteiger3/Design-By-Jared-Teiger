@@ -1,18 +1,196 @@
-<section class="project-updating">
-  <div class="project-updating__inner">
-    <h1>This Project Is Currently Being Updated</h1>
-    <p>
-  Great work takes iteration.  
-  This project is currently being refined and will be published soon.
-</p>
-    <p>
-      We're refining the story, visuals, and details.  
-      In the meantime, explore some featured work below.
-    </p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nightflare — YES AND DESIGN STUDIO</title>
 
-    <div class="project-updating__buttons">
-      <a href="./project-star-wars.html" class="btn-primary">View Star Wars</a>
-      <a href="./project-helloreal.html" class="btn-secondary">View Helloreal</a>
+  <!-- Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Global site styles -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Page styles (scoped) -->
+  <style>
+    /* ===============================
+       PROJECT — UPDATING PAGE
+       =============================== */
+
+    .updating-wrap{
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 70px) 44px 80px;
+      text-align: center;
+    }
+
+    .updating-inner{
+      max-width: 760px;
+      width: 100%;
+    }
+
+    .updating-kicker{
+      font-size: 13px;
+      letter-spacing: .12em;
+      color: rgba(0,0,0,.55);
+      margin-bottom: 18px;
+    }
+
+    .updating-title{
+      margin: 0 0 18px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.04;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: rgba(0,0,0,.95);
+    }
+
+    .updating-copy{
+      margin: 0 auto 34px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(0,0,0,.72);
+      max-width: 52ch;
+      white-space: pre-line;
+    }
+
+    .updating-actions{
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .upd-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      padding: 12px 18px;
+      border-radius: 999px;
+
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+
+      transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+      will-change: transform;
+    }
+
+    .upd-btn:hover{ transform: translateY(-1px); }
+
+    .upd-btn--primary{
+      background: rgba(0,0,0,.92);
+      color: #fff;
+      border: 1px solid rgba(0,0,0,.92);
+    }
+
+    .upd-btn--secondary{
+      background: transparent;
+      color: rgba(0,0,0,.9);
+      border: 1px solid rgba(0,0,0,.22);
+    }
+
+    @media (max-width: 760px){
+      .updating-wrap{
+        padding: calc(var(--nav-h) + 54px) 18px 70px;
+      }
+      .updating-copy{
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body data-page="project">
+
+  <!-- NAV (same as your other pages) -->
+  <header class="nav nav--overlay" id="nav">
+    <div class="nav__bar" id="navBar">
+      <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <a class="brand" href="./index.html" aria-label="Go to home">
+        <span class="brand__first">YES</span><span class="brand__last">AND</span>
+      </a>
+
+      <a class="icon-btn linkedin" href="https://www.linkedin.com/in/jared-teiger/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        in
+      </a>
     </div>
-  </div>
-</section>
+  </header>
+
+  <!-- MAIN -->
+  <main class="updating-wrap">
+    <div class="updating-inner">
+      <div class="updating-kicker">CASE STUDY</div>
+
+      <h1 class="updating-title">In Progress</h1>
+
+      <p class="updating-copy">
+Great work takes iteration.  
+This project is currently being refined and will be published soon.
+      </p>
+
+      <div class="updating-actions">
+        <a class="upd-btn upd-btn--primary" href="./project-star-wars.html">
+          View Star Wars <span aria-hidden="true">↗</span>
+        </a>
+
+        <a class="upd-btn upd-btn--secondary" href="./project-helloreal.html">
+          View Helloreal <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- MENU OVERLAY (same as your other pages) -->
+  <section class="menu" id="menuOverlay" aria-hidden="true">
+    <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="menu__left">
+        <div class="menu__toprow">
+          <button class="icon-btn close" id="closeBtn" aria-label="Close menu">
+            <span class="close__line"></span>
+            <span class="close__line"></span>
+          </button>
+        </div>
+
+        <nav class="menu__nav" aria-label="Primary">
+          <a class="menu__link" href="./about.html" data-preview="./assets/about.jpg">About Me</a>
+          <a class="menu__link" href="./what-i-do.html" data-preview="./assets/process.jpg">What I Do</a>
+          <a class="menu__link" href="./contact.html" data-preview="./assets/get-in-touch.jpg">Get in Touch</a>
+
+          <div class="menu__section-title">CASE STUDIES</div>
+
+          <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
+          <a class="pill" href="./project-fellow.html" data-preview="./assets/fellow.jpg">Fellow</a>
+          <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">Magimates</a>
+          <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
+          <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
+          <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
+          <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">Social Queue</a>
+        </nav>
+      </div>
+
+      <div class="menu__right">
+        <div class="preview" id="menuPreview" role="img" aria-label="Project preview"></div>
+      </div>
+    </div>
+
+    <button class="menu__backdrop" id="backdropBtn" aria-label="Close menu (backdrop)"></button>
+  </section>
+
+  <!-- SCRIPT -->
+  <script src="./script.js" defer></script>
+
+</body>
+</html>
