@@ -1,116 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Nightflare — YES AND DESIGN STUDIO</title>
-
-  <!-- Roboto -->
+  <meta name="description" content="Nightflare by Jared Teiger: an illuminated vest concept shaped by firefighter feedback. Explore the research, sewing, lighting experiments, and removable LED unit.">
+  <meta name="author" content="Jared Teiger — YES AND DESIGN STUDIO">
+  <link rel="canonical" href="https://www.yesanddesign.studio/project-nightflare.html">
+  <meta property="og:title" content="Nightflare | YES AND DESIGN STUDIO">
+  <meta property="og:description" content="From firefighter research to a sewn vest and removable LED unit: the design process behind Nightflare.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.yesanddesign.studio/project-nightflare.html">
+  <meta property="og:image" content="https://www.yesanddesign.studio/assets/nightflare/hero-1600.webp">
+  <meta property="og:image:alt" content="The Nightflare prototype worn by a firefighter during an evening photo session.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nightflare — Illuminated Vest Concept">
+  <meta name="twitter:description" content="A vest prototype developed through first-responder research, soft-goods construction, and lighting experiments.">
+  <meta name="twitter:image" content="https://www.yesanddesign.studio/assets/nightflare/hero-1600.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Global site styles -->
-  <link rel="stylesheet" href="./styles.css" />
-
-  <!-- Page styles (scoped) -->
-  <style>
-    /* ===============================
-       PROJECT — UPDATING PAGE
-       =============================== */
-
-    .updating-wrap{
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: calc(var(--nav-h) + 70px) 44px 80px;
-      text-align: center;
-    }
-
-    .updating-inner{
-      max-width: 760px;
-      width: 100%;
-    }
-
-    .updating-kicker{
-      font-size: 13px;
-      letter-spacing: .12em;
-      color: rgba(0,0,0,.55);
-      margin-bottom: 18px;
-    }
-
-    .updating-title{
-      margin: 0 0 18px;
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.04;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: rgba(0,0,0,.95);
-    }
-
-    .updating-copy{
-      margin: 0 auto 34px;
-      font-size: 18px;
-      line-height: 1.7;
-      color: rgba(0,0,0,.72);
-      max-width: 52ch;
-      white-space: pre-line;
-    }
-
-    .updating-actions{
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .upd-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      padding: 12px 18px;
-      border-radius: 999px;
-
-      font-size: 14px;
-      text-decoration: none;
-      cursor: pointer;
-
-      transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
-      will-change: transform;
-    }
-
-    .upd-btn:hover{ transform: translateY(-1px); }
-
-    .upd-btn--primary{
-      background: rgba(0,0,0,.92);
-      color: #fff;
-      border: 1px solid rgba(0,0,0,.92);
-    }
-
-    .upd-btn--secondary{
-      background: transparent;
-      color: rgba(0,0,0,.9);
-      border: 1px solid rgba(0,0,0,.22);
-    }
-
-    @media (max-width: 760px){
-      .updating-wrap{
-        padding: calc(var(--nav-h) + 54px) 18px 70px;
-      }
-      .updating-copy{
-        font-size: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./nightflare.css">
+  <link rel="stylesheet" href="./case-study-footer.css">
 </head>
-
-<body data-page="project">
-
-  <!-- NAV (same as your other pages) -->
+<body data-page="project" class="nightflare-page">
+  <a class="skip-link" href="#project-content">Skip to case study</a>
   <header class="nav nav--overlay" id="nav">
     <div class="nav__bar" id="navBar">
       <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
@@ -128,32 +43,197 @@
       </a>
     </div>
   </header>
+  <main id="project-content">
+    <section class="proj-hero" aria-labelledby="project-title">
+      <picture class="proj-hero__picture">
+        <source media="(max-width: 760px)" srcset="./assets/nightflare/hero-mobile-640.webp 640w, ./assets/nightflare/hero-mobile-1440.webp 1440w" sizes="100vw">
+        <img src="./assets/nightflare/hero-2400.webp" srcset="./assets/nightflare/hero-800.webp 800w, ./assets/nightflare/hero-1600.webp 1600w, ./assets/nightflare/hero-2400.webp 2400w" sizes="100vw" width="2400" height="1350" alt="The illuminated Nightflare prototype worn by an Atlanta firefighter during an evening photo session." fetchpriority="high" loading="eager" class="proj-hero__image">
+      </picture>
+      <div class="proj-hero__scrim" aria-hidden="true"></div>
+      <div class="proj-hero__inner">
+        <h1 class="proj-title" id="project-title">Nightflare</h1>
+        <dl class="proj-bar" aria-label="Project summary">
+          <div><dt>Project Type</dt><dd>Industrial &amp; Apparel Design</dd></div>
+          <div><dt>Stage</dt><dd>Functional Prototype · 2023</dd></div>
+          <div><dt>Deliverables</dt><dd>Apparel Design &amp; Lighting Integration</dd></div>
+        </dl>
+      </div>
+    </section>
 
-  <!-- MAIN -->
-  <main class="updating-wrap">
-    <div class="updating-inner">
-      <div class="updating-kicker">CASE STUDY</div>
-
-      <h1 class="updating-title">In Progress</h1>
-
-      <p class="updating-copy">
-Great work takes iteration.  
-This project is currently being refined and will be published soon.
-      </p>
-
-      <div class="updating-actions">
-        <a class="upd-btn upd-btn--primary" href="./project-star-wars.html">
-          View Star Wars <span aria-hidden="true">↗</span>
-        </a>
-
-        <a class="upd-btn upd-btn--secondary" href="./project-helloreal.html">
-          View Helloreal <span aria-hidden="true">↗</span>
-        </a>
+    <section class="proj-section proj-section--intro" aria-labelledby="intro-title">
+      <h2 class="proj-eyebrow" id="intro-title">Introduction</h2>
+      <p class="proj-intro__body">Nightflare explores how active lighting can become part of high-visibility clothing for first responders. The vest combines neon and black fabric, retroreflective details, and a removable LED unit—developed through material experiments, garment construction, and feedback from Atlanta firefighters.</p>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--product">
+        <figure><img src="./assets/nightflare/final-front-1440.webp" srcset="./assets/nightflare/final-front-640.webp 640w, ./assets/nightflare/final-front-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1920" alt="Front of the final vest prototype with neon yellow panels, black shoulders, reflective strips, and a zipper." loading="lazy" decoding="async"><figcaption>Front / Neon, black, and retroreflective material.</figcaption></figure>
+        <figure><img src="./assets/nightflare/final-back-1440.webp" srcset="./assets/nightflare/final-back-640.webp 640w, ./assets/nightflare/final-back-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1920" alt="Rear of the vest with white diffusers covering the shoulder and lower LED strips." loading="lazy" decoding="async"><figcaption>Back / The removable lighting unit.</figcaption></figure>
+        <figure><img src="./assets/nightflare/final-lit-1440.webp" srcset="./assets/nightflare/final-lit-640.webp 640w, ./assets/nightflare/final-lit-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1920" alt="Rear view of the final prototype with red and blue LED strips illuminated." loading="lazy" decoding="async"><figcaption>Illuminated / Red and blue lighting.</figcaption></figure>
       </div>
     </div>
-  </main>
 
-  <!-- MENU OVERLAY (same as your other pages) -->
+    <section class="proj-section" aria-labelledby="research-title">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/nightflare/research-vest-1440.webp" srcset="./assets/nightflare/research-vest-640.webp 640w, ./assets/nightflare/research-vest-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="An Atlanta Fire Rescue high-visibility vest documented during the initial research visit." loading="lazy" decoding="async"><figcaption>Existing apparel documented during the fire-station research.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="research-title">Starting at the Station</h2>
+          <h3>Understand what responders already use.</h3>
+          <p>I began by observing the equipment firefighters use day to day, looking specifically at products with lighting built into their function.</p>
+          <p>Conversations with firefighters raised an opportunity: explore lighting within the safety vest itself for nighttime roadway incidents. I then looked at existing high-visibility vests and how other products incorporated light.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-section" aria-labelledby="vision-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="vision-title">The Vision</h2>
+        <p class="proj-vision__body">Bring light into the vest while keeping the person wearing it at the center of the design.</p>
+      </div>
+    </section>
+    <section class="proj-canvas" aria-labelledby="concept-title">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/nightflare/concepts-1440.webp" srcset="./assets/nightflare/concepts-640.webp 640w, ./assets/nightflare/concepts-1440.webp 1072w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1072" height="1064" alt="Six vest concept drawings comparing reflective strip layouts and contrasting black panels." loading="lazy" decoding="async"><figcaption>Early studies of panel shapes and reflective patterns.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="concept-title">Exploring the Visual Language</h2>
+          <p>I introduced black alongside the familiar neon and grey palette. The darker areas created negative space, breaking up the vest and giving the reflective pattern a clearer relationship to the body.</p>
+          <p>Concept studies explored the balance between the shoulders, torso, and waist, alongside different ways of fastening the vest.</p>
+        </div>
+      </div>
+    </section>
+    <section class="proj-section" aria-labelledby="materials-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="materials-title">Material &amp; Lighting Trials</h2>
+        <p class="proj-vision__body">Test the promising ideas early, then let the results change the direction.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--pair image-grid--trials">
+        <figure><img src="./assets/nightflare/el-tape-1440.webp" srcset="./assets/nightflare/el-tape-640.webp 640w, ./assets/nightflare/el-tape-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="A flexible illuminated EL tape sample held during an early lighting experiment." loading="lazy" decoding="async"><figcaption>EL tape / Flexible and low-profile, but too dim in my early trials.</figcaption></figure>
+        <figure><img src="./assets/nightflare/closure-test-1440.webp" srcset="./assets/nightflare/closure-test-640.webp 640w, ./assets/nightflare/closure-test-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="An existing vest on a dress form fitted with several experimental buckle closures." loading="lazy" decoding="async"><figcaption>Closure study / Testing buckle placement and fastening.</figcaption></figure>
+      </div>
+      <div class="section-copy">
+        <p>I first tried electroluminescent tape for its flexibility and low profile. Its brightness did not meet what I was looking for in these trials, so I moved to LEDs.</p>
+        <p>Magnetic buckles were another early experiment. They felt cumbersome and slow to put on during testing, which helped narrow the fastening direction.</p>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="sewing-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="sewing-title">Learning Through Making</h2>
+        <p class="proj-vision__body">My first sewn vest started with paper, fabric, and trial and error.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--construction">
+        <figure><img src="./assets/nightflare/pattern-1440.webp" srcset="./assets/nightflare/pattern-640.webp 640w, ./assets/nightflare/pattern-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1920" alt="Paper garment patterns laid onto neon yellow fabric before cutting." loading="lazy" decoding="async"><figcaption>01 / Translate the panels into paper patterns.</figcaption></figure>
+        <figure><img src="./assets/nightflare/sewing-1440.webp" srcset="./assets/nightflare/sewing-640.webp 640w, ./assets/nightflare/sewing-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1080" alt="Jared sewing the neon fabric panels at a sewing machine in the studio." loading="lazy" decoding="async"><figcaption>02 / Learn the construction at the sewing machine.</figcaption></figure>
+        <figure><img src="./assets/nightflare/first-vest-1440.webp" srcset="./assets/nightflare/first-vest-640.webp 640w, ./assets/nightflare/first-vest-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1920" alt="The first vest on a dress form with reflective strips and fabric-covered LED elements." loading="lazy" decoding="async"><figcaption>03 / Bring the fabric and lighting together.</figcaption></figure>
+      </div>
+      <div class="section-copy">
+        <p>I had no prior sewing experience when I began this project. Making paper patterns helped me understand how individual flat panels could come together around the body.</p>
+        <p>Assembling the first vest gave me something tangible to refine: panel proportions, reflective placement, and a surface onto which I could attach the lighting.</p>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="lights-title">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/nightflare/first-lights-1440.webp" srcset="./assets/nightflare/first-lights-640.webp 640w, ./assets/nightflare/first-lights-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="The first vest worn in the studio with blue lights on both shoulders." loading="lazy" decoding="async"><figcaption>First illuminated prototype, before the back-mounted unit was consolidated.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="lights-title">Making the Light Wearable</h2>
+          <h3>A soft housing for the electronics.</h3>
+          <p>A class brainstorm led to what we called “LED ravioli”: sandwiching the LEDs between black backing cloth and a white diffuser. This gave me a way to incorporate the strips into a soft garment.</p>
+          <p>I coded four lighting options—blue, red, white, and a flashing red-and-blue mode—and explored laser-cut patterns in the reflective material. The first vest became a platform for trying both the lighting and the visual language.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-section" aria-labelledby="feedback-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="feedback-title">Returning for Feedback</h2>
+        <p class="proj-vision__body">The biggest shift came from how firefighters wanted to use and maintain the vest.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/nightflare/feedback-1440.webp" srcset="./assets/nightflare/feedback-640.webp 640w, ./assets/nightflare/feedback-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="Jared showing the illuminated first prototype to a firefighter outside Station 11." loading="lazy" decoding="async"><figcaption>Returning to Station 11 with the first working vest.</figcaption></figure>
+        <div class="offset-copy feedback-copy">
+          <p>After completing the first vest, I took it to Station 11. The feedback moved the project beyond appearance and into everyday handling.</p>
+          <dl class="feedback-list">
+            <div><dt>Too many pieces to remove</dt><dd>Detaching individual LED elements felt like a hassle. I consolidated them into one compact unit.</dd></div>
+            <div><dt>Focus the lighting on the back</dt><dd>Firefighters saw little need for side LEDs and recommended rear lighting. Opinions on a front light were mixed.</dd></div>
+            <div><dt>Consider the rest of the equipment</dt><dd>They raised charging habits, radio attachment, and adjustability—questions that informed the next build and its future improvements.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="iteration-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="iteration-title">The Next Iteration</h2>
+        <p class="proj-vision__body">Simplify the back. Consolidate the lights. Make the unit removable.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <figure class="workshop-wide"><img src="./assets/nightflare/refining-1440.webp" srcset="./assets/nightflare/refining-640.webp 640w, ./assets/nightflare/refining-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(100vw - 88px)" width="1440" height="1080" alt="Jared refining the reflective pattern on the final vest panels at a studio worktable." loading="lazy" decoding="async"><figcaption>Developing the final panel layout and reflective pattern.</figcaption></figure>
+      <div class="section-copy">
+        <p>I felt the earlier back design was too crowded. In the next iteration, black panels emphasized the shoulders while the reflective strips followed the shape of the lower torso.</p>
+        <p>The lighting moved into a compact pack attached to the back with hook-and-loop fasteners. The shoulder arrangement remained, with two additional strips extending into the lower part of the unit.</p>
+      </div>
+    </div>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--pair">
+        <figure><img src="./assets/nightflare/module-1440.webp" srcset="./assets/nightflare/module-640.webp 640w, ./assets/nightflare/module-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="The compact LED assembly opened on a worktable, with its wiring and portable battery visible." loading="lazy" decoding="async"><figcaption>Inside the unit / LED strips, wiring, and portable power.</figcaption></figure>
+        <figure><img src="./assets/nightflare/module-worn-1440.webp" srcset="./assets/nightflare/module-worn-640.webp 640w, ./assets/nightflare/module-worn-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1080" alt="The consolidated lighting unit worn on the back during an illuminated studio check." loading="lazy" decoding="async"><figcaption>On the body / Checking the consolidated lighting arrangement.</figcaption></figure>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="outcome-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="outcome-title">The Final Prototype</h2>
+        <p class="proj-vision__body">A sewn garment and a working lighting unit, developed as one wearable system.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/nightflare/field-day-1440.webp" srcset="./assets/nightflare/field-day-640.webp 640w, ./assets/nightflare/field-day-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="A firefighter wearing the final Nightflare prototype while handling equipment beside a fire engine." loading="lazy" decoding="async"><figcaption>The final prototype photographed with Atlanta firefighters.</figcaption></figure>
+        <div class="offset-copy">
+          <h3>From the studio back to the station.</h3>
+          <p>The final vest uses neon and black cotton canvas with retroreflective details. Its lighting unit combines NeoPixel LED strips, a control button, and a rechargeable portable battery.</p>
+          <p>Photographing the prototype with firefighters brought the garment back into the context that started the project: people moving around equipment, vehicles, and changing light.</p>
+          <p class="project-thanks">With thanks to Atlanta Fire Department Stations 11 and 15 for their time, feedback, and participation.</p>
+        </div>
+      </div>
+    </div>
+    <div class="proj-canvas">
+      <figure class="workshop-wide"><img src="./assets/nightflare/field-night-1440.webp" srcset="./assets/nightflare/field-night-640.webp 640w, ./assets/nightflare/field-night-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(100vw - 88px)" width="1440" height="810" alt="A firefighter wearing the illuminated Nightflare prototype in front of a fire engine at night." loading="lazy" decoding="async"><figcaption>Nighttime prototype photography at the fire station.</figcaption></figure>
+    </div>
+
+    <section class="proj-section" aria-labelledby="learning-title">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/nightflare/repair-1440.webp" srcset="./assets/nightflare/repair-640.webp 640w, ./assets/nightflare/repair-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="Jared repairing wiring inside the lighting unit at the worktable." loading="lazy" decoding="async"><figcaption>Repairing an internal connection exposed the need for easier access.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="learning-title">What I Would Develop Next</h2>
+          <h3>Design for the repair, too.</h3>
+          <p>When a wire disconnected inside the integrated unit, getting to it required opening the assembly. That experience made access to the electronics an important next step.</p>
+          <p>My final review identified further work on battery access, waterproofing, front-to-back weight balance, radio-clip placement, and the visibility of the power button. I also wanted to study light placement when the wearer bends or kneels.</p>
+          <p>Those next steps focus on how the vest is worn, powered, and maintained.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="recognition" aria-labelledby="recognition-title">
+      <div class="recognition__inner">
+        <div>
+          <h2 class="proj-eyebrow" id="recognition-title">Recognition</h2>
+          <p class="recognition__title">LIT Lighting Design Awards<br>Winner 2023</p>
+        </div>
+        <div class="recognition__copy">
+          <p>Nightflare was recognized in the Other Lighting Products category.</p>
+          <a class="award-link" href="https://litawards.com/winners/winner.php?id=3791&amp;mode=win" target="_blank" rel="noopener">View the award entry <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
   <section class="menu" id="menuOverlay" aria-hidden="true">
     <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="menu__left">
@@ -172,10 +252,10 @@ This project is currently being refined and will be published soon.
           <div class="menu__section-title">CASE STUDIES</div>
 
           <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
-          <a class="pill" href="./project-fellow.html" data-preview="./assets/fellow.jpg">Fellow</a>
+          <a class="pill" href="./project-fellow.html" data-preview="./assets/Fellow_image_18.jpg">Fellow</a>
           <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">Magimates</a>
           <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
-          <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
+          <a class="pill" href="./project-nightflare.html" aria-current="page" data-preview="./assets/nightflare.jpg">Nightflare</a>
           <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
           <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">Social Queue</a>
         </nav>
@@ -188,9 +268,15 @@ This project is currently being refined and will be published soon.
 
     <button class="menu__backdrop" id="backdropBtn" aria-label="Close menu (backdrop)"></button>
   </section>
-
-  <!-- SCRIPT -->
+  <footer class="site-cta" aria-labelledby="footer-title">
+    <div class="site-cta__inner">
+      <h2 class="site-cta__title" id="footer-title">How can I help</h2>
+      <div class="site-cta__links">
+        <a href="./contact.html" class="site-cta__link"><span>Work together</span><span class="site-cta__arrow" aria-hidden="true">↗</span></a>
+        <a href="./contact.html" class="site-cta__link"><span>Just say hello</span><span class="site-cta__arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </footer>
   <script src="./script.js" defer></script>
-
 </body>
 </html>
