@@ -151,6 +151,7 @@
 .fellow-page .interaction-steps h3, .fellow-page .next-grid h3 { font-size: 21px; font-weight: 400; line-height: 1.35; margin: 16px 0 12px; }
 .fellow-page .interaction-steps p, .fellow-page .next-grid p { font-size: 15px; line-height: 1.75; color: #444; margin: 0; }
 .fellow-page .prototype-note { border-top: 1px solid #ccc; padding-top: 20px; font-size: 14px; }
+.fellow-page .whisk-stack { display: grid; gap: 28px; }
 .fellow-page .offset-stack img { max-height: 480px; object-fit: cover; }
 .fellow-page .image-grid--assembly img { aspect-ratio: 3/4; object-fit: cover; }
 .fellow-page .image-grid--engineering { align-items: center; }
