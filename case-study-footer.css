@@ -1,0 +1,55 @@
+/* Shared by every case study; matches the original Star Wars / Helloreal footer. */
+body[data-page="project"] .site-cta {
+  padding: 120px 44px;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+body[data-page="project"] .site-cta__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  align-items: center;
+  gap: 40px;
+}
+body[data-page="project"] .site-cta__title {
+  margin: 0;
+  font-size: clamp(28px,3vw,40px);
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0,0,0,.95);
+}
+body[data-page="project"] .site-cta__links {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+body[data-page="project"] .site-cta__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 16px;
+  line-height: normal;
+  color: rgba(0,0,0,.85);
+  text-decoration: none;
+  padding: 0 0 8px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  transition: border-color .25s ease, color .25s ease;
+}
+body[data-page="project"] .site-cta__link:hover {
+  border-bottom-color: rgba(0,0,0,.85);
+  color: #000;
+}
+body[data-page="project"] .site-cta__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+body[data-page="project"] .site-cta__arrow { font-size:16px; transform:translateY(-1px); }
+@media(max-width:760px) {
+  body[data-page="project"] .site-cta { padding:80px 18px; }
+  body[data-page="project"] .site-cta__inner { grid-template-columns:minmax(0,1fr); gap:32px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  body[data-page="project"] .site-cta__link { transition:none; }
+}
