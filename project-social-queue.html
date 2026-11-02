@@ -1,116 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Social Queue — YES AND DESIGN STUDIO</title>
-
-  <!-- Roboto -->
+  <meta name="description" content="Social Queue is a team design research project exploring playful robotic interactions in waiting lines. Follow the concepts, mechanisms, fabrication, and campus study.">
+  <meta name="author" content="Jared Teiger — YES AND DESIGN STUDIO">
+  <link rel="canonical" href="https://www.yesanddesign.studio/project-social-queue.html">
+  <meta property="og:title" content="Social Queue | YES AND DESIGN STUDIO">
+  <meta property="og:description" content="From a familiar queueing post to an invitation to play: the design process behind Social Queue.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.yesanddesign.studio/project-social-queue.html">
+  <meta property="og:image" content="https://www.yesanddesign.studio/assets/social-queue/hero-1600.webp">
+  <meta property="og:image:alt" content="Participants interacting with a Social Queue robot during the campus study.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Social Queue — Making Waiting More Social">
+  <meta name="twitter:description" content="A team exploration of robotic movement, shared play, and the waiting-line experience.">
+  <meta name="twitter:image" content="https://www.yesanddesign.studio/assets/social-queue/hero-1600.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Global site styles -->
-  <link rel="stylesheet" href="./styles.css" />
-
-  <!-- Page styles (scoped) -->
-  <style>
-    /* ===============================
-       PROJECT — UPDATING PAGE
-       =============================== */
-
-    .updating-wrap{
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: calc(var(--nav-h) + 70px) 44px 80px;
-      text-align: center;
-    }
-
-    .updating-inner{
-      max-width: 760px;
-      width: 100%;
-    }
-
-    .updating-kicker{
-      font-size: 13px;
-      letter-spacing: .12em;
-      color: rgba(0,0,0,.55);
-      margin-bottom: 18px;
-    }
-
-    .updating-title{
-      margin: 0 0 18px;
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.04;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: rgba(0,0,0,.95);
-    }
-
-    .updating-copy{
-      margin: 0 auto 34px;
-      font-size: 18px;
-      line-height: 1.7;
-      color: rgba(0,0,0,.72);
-      max-width: 52ch;
-      white-space: pre-line;
-    }
-
-    .updating-actions{
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .upd-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      padding: 12px 18px;
-      border-radius: 999px;
-
-      font-size: 14px;
-      text-decoration: none;
-      cursor: pointer;
-
-      transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
-      will-change: transform;
-    }
-
-    .upd-btn:hover{ transform: translateY(-1px); }
-
-    .upd-btn--primary{
-      background: rgba(0,0,0,.92);
-      color: #fff;
-      border: 1px solid rgba(0,0,0,.92);
-    }
-
-    .upd-btn--secondary{
-      background: transparent;
-      color: rgba(0,0,0,.9);
-      border: 1px solid rgba(0,0,0,.22);
-    }
-
-    @media (max-width: 760px){
-      .updating-wrap{
-        padding: calc(var(--nav-h) + 54px) 18px 70px;
-      }
-      .updating-copy{
-        font-size: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./social-queue.css">
 </head>
-
-<body data-page="project">
-
-  <!-- NAV (same as your other pages) -->
+<body data-page="project" class="social-queue-page">
+  <a class="skip-link" href="#project-content">Skip to case study</a>
   <header class="nav nav--overlay" id="nav">
     <div class="nav__bar" id="navBar">
       <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
@@ -128,32 +42,189 @@
       </a>
     </div>
   </header>
+  <main id="project-content">
+    <section class="proj-hero" aria-labelledby="project-title">
+      <picture class="proj-hero__picture">
+        <source media="(max-width: 760px)" srcset="./assets/social-queue/final-640.webp 640w, ./assets/social-queue/final-1440.webp 1440w" sizes="100vw">
+        <img src="./assets/social-queue/hero-2400.webp" srcset="./assets/social-queue/hero-800.webp 800w, ./assets/social-queue/hero-1600.webp 1600w, ./assets/social-queue/hero-2400.webp 2142w" sizes="100vw" width="2142" height="1427" alt="Social Queue: a bending robotic tentacle integrated into a queueing post." fetchpriority="high" loading="eager" class="proj-hero__image">
+      </picture>
+      <div class="proj-hero__scrim" aria-hidden="true"></div>
+      <div class="proj-hero__inner">
+        <h1 class="proj-title" id="project-title">Social Queue</h1>
+        <dl class="proj-bar" aria-label="Project summary">
+          <div><dt>Project Type</dt><dd>Interaction &amp; Industrial Design</dd></div>
+          <div><dt>Context</dt><dd>Team Research Project · Fall 2024</dd></div>
+          <div><dt>Deliverables</dt><dd>Robotic Prototypes &amp; Field Study</dd></div>
+        </dl>
+      </div>
+    </section>
 
-  <!-- MAIN -->
-  <main class="updating-wrap">
-    <div class="updating-inner">
-      <div class="updating-kicker">CASE STUDY</div>
-
-      <h1 class="updating-title">In Progress</h1>
-
-      <p class="updating-copy">
-Great work takes iteration.  
-This project is currently being refined and will be published soon.
-      </p>
-
-      <div class="updating-actions">
-        <a class="upd-btn upd-btn--primary" href="./project-star-wars.html">
-          View Star Wars <span aria-hidden="true">↗</span>
-        </a>
-
-        <a class="upd-btn upd-btn--secondary" href="./project-helloreal.html">
-          View Helloreal <span aria-hidden="true">↗</span>
-        </a>
+    <section class="proj-section proj-section--intro" aria-labelledby="intro-title">
+      <h2 class="proj-eyebrow" id="intro-title">Introduction</h2>
+      <p class="proj-intro__body">What if waiting in line gave people something to share? Social Queue turns a familiar queueing post into a playful robotic object. Its bending tentacle invites people to reach out, experiment, and interact with one another.</p>
+      <p class="proj-context">A team project by Jared Teiger, Yixiao Zhang, and Sadie Martin<br>Georgia Institute of Technology · ID 4071 Invention Studio · Fall 2024</p>
+      <div class="project-role"><h3>My contribution</h3><p>I contributed most heavily to prototyping, 3D modeling, and coding the robot for the experiment. I also supported the initial research and helped conduct the testing.</p></div>
+    </section>
+    <div class="proj-canvas">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/social-queue/final-1440.webp" srcset="./assets/social-queue/final-640.webp 640w, ./assets/social-queue/final-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="The finished blue tentacle prototype mounted inside a black queueing post with fabric belts." loading="lazy" decoding="async"><figcaption>The final prototype integrated into the waiting-line environment.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow">The Starting Question</h2>
+          <h3>Can an ordinary waiting line become a more social place?</h3>
+          <p>Our team set out to explore whether robotic interaction could make waiting more enjoyable and change how long a wait felt. The queueing post offered a familiar starting point: already visible, within reach, and part of the space.</p>
+          <p>We developed working prototypes and built a full waiting-line setup to study what people would do with them. The project combined physical making with observation, interviews, and analysis.</p>
+        </div>
       </div>
     </div>
-  </main>
 
-  <!-- MENU OVERLAY (same as your other pages) -->
+    <section class="proj-section" aria-labelledby="concept-title">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/social-queue/concept-sketch-1440.webp" srcset="./assets/social-queue/concept-sketch-640.webp 640w, ./assets/social-queue/concept-sketch-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="998" alt="Early sketches showing a queueing post spinning, bending, and expressing different behaviors." loading="lazy" decoding="async"><figcaption>Early studies of movement and personality.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="concept-title">Giving the Post a Personality</h2>
+          <p>We explored spinning, bending, and a whack-a-mole interaction. Each concept used movement to invite a different response from the person waiting beside it.</p>
+          <p>The first prototypes focused on mechanical feasibility. The whack-a-mole direction proved difficult to make robust, so we brought the spinning and bending concepts forward for testing.</p>
+        </div>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--pair image-grid--concepts">
+        <figure><img src="./assets/social-queue/spinning-1440.webp" srcset="./assets/social-queue/spinning-640.webp 640w, ./assets/social-queue/spinning-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="960" alt="The spinning-pole prototype with a cardboard cylinder, exposed wiring, and a pressure-sensitive pad." loading="lazy" decoding="async"><figcaption><strong>Spinning pole</strong>A passing person triggered the spin; pressing the pad stopped it.</figcaption></figure>
+        <figure><img src="./assets/social-queue/bending-1440.webp" srcset="./assets/social-queue/bending-640.webp 640w, ./assets/social-queue/bending-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="960" alt="The bending-pole prototype made from cardboard vertebrae, a flexible spine, and motors on a printed base." loading="lazy" decoding="async"><figcaption><strong>Bending pole</strong>A manually controlled tentacle followed a person’s hand.</figcaption></figure>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="testing-title">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/social-queue/concept-test-1440.webp" srcset="./assets/social-queue/concept-test-640.webp 640w, ./assets/social-queue/concept-test-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1080" alt="A participant trying the spinning-pole prototype at a table during early concept testing." loading="lazy" decoding="async"><figcaption>Concept testing with the two early prototypes.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="testing-title">Letting People Interpret the Object</h2>
+          <h3>The bending pole opened up more ways to play.</h3>
+          <p>We tested both concepts with 14 people on campus. Participants interacted freely, described the prototypes, and rated their level of interaction.</p>
+          <p>The bending pole received an average rating of 3.8 out of 5, compared with 2.8 for the spinning pole. People described it as curious, silly, and playful, and some began to imagine games involving others in line.</p>
+          <p>That response shifted our direction. We moved away from prescribing one emotion and kept the form abstract, leaving room for people to interpret its behavior.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-section" aria-labelledby="build-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="build-title">Building the Environment</h2>
+        <p class="proj-vision__body">To test the experience, we needed to build the line around it.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--construction">
+        <figure><img src="./assets/social-queue/cutting-1440.webp" srcset="./assets/social-queue/cutting-640.webp 640w, ./assets/social-queue/cutting-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="960" alt="Cutting a length of PVC pipe for the custom queueing posts." loading="lazy" decoding="async"><figcaption>01 / Cut the PVC posts to length.</figcaption></figure>
+        <figure><img src="./assets/social-queue/cnc-1440.webp" srcset="./assets/social-queue/cnc-640.webp 640w, ./assets/social-queue/cnc-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1080" alt="A CNC router cutting circular MDF bases for the queueing posts." loading="lazy" decoding="async"><figcaption>02 / CNC the circular MDF bases.</figcaption></figure>
+        <figure><img src="./assets/social-queue/stanchions-1440.webp" srcset="./assets/social-queue/stanchions-640.webp 640w, ./assets/social-queue/stanchions-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1080" alt="A group of unfinished PVC queueing posts with MDF bases and printed top housings." loading="lazy" decoding="async"><figcaption>03 / Assemble the posts and printed housings.</figcaption></figure>
+      </div>
+      <div class="section-copy">
+        <p>We made custom stanchions to control the height, spacing, and geometry of the setup. PVC pipes and CNC-cut MDF bases formed the structure; 3D-printed tops held the queueing belts.</p>
+        <p>The robotic version had to fit into the same visual language. Its housing brought the electronics inside the post, making the tentacle the focus of the interaction.</p>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="iteration-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="iteration-title">Refining the Mechanism</h2>
+        <p class="proj-vision__body">From a tabletop experiment to a compact, repeatable movement.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <figure><img src="./assets/social-queue/iteration-1440.webp" srcset="./assets/social-queue/iteration-640.webp 640w, ./assets/social-queue/iteration-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(100vw - 88px)" width="1440" height="1080" alt="Jared working on a printed tentacle mechanism at the studio worktable." loading="lazy" decoding="async"><figcaption>Developing the bending mechanism through hands-on iterations.</figcaption></figure>
+      <div class="section-copy">
+        <p>My work centered on prototyping, 3D modeling, and coding the robot. As a team, we tested different spine materials, motor arrangements, and cable layouts, replacing cardboard vertebrae with printed parts as the prototype became more compact.</p>
+        <p>The final version used two servos to pull cables through the vertebrae: one for forward and backward motion, the other for side-to-side movement. A flexible pipe-cleaner spine allowed the tentacle to bend.</p>
+      </div>
+    </div>
+    <section class="proj-section" aria-labelledby="integration-title">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/social-queue/mechanism-1440.webp" srcset="./assets/social-queue/mechanism-640.webp 640w, ./assets/social-queue/mechanism-1440.webp 1037w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1037" height="990" alt="Exploded CAD rendering showing the tentacle, two servos, electronics carrier, and cylindrical outer housing." loading="lazy" decoding="async"><figcaption>An exploded view of the integrated assembly.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="integration-title">Making Everything Fit</h2>
+          <h3>A two-inch envelope for the mechanism.</h3>
+          <p>The post set a tight constraint for the motors, controller, and battery. Modeling the internal assembly helped us organize the components and align the cable-driven mechanism.</p>
+          <p>We also explored camera-based hand tracking. For the final study, we prioritized two working prototypes and used concealed joystick control—a “Wizard of Oz” setup in which a team member operated each robot.</p>
+        </div>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--pair image-grid--details">
+        <figure><img src="./assets/social-queue/electronics-1440.webp" srcset="./assets/social-queue/electronics-640.webp 640w, ./assets/social-queue/electronics-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="The opened cylindrical prototype housing showing internal wiring and a portable battery." loading="lazy" decoding="async"><figcaption>Inside the post / Packing the electronics into the housing.</figcaption></figure>
+        <figure><img src="./assets/social-queue/controller-1440.webp" srcset="./assets/social-queue/controller-640.webp 640w, ./assets/social-queue/controller-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="A hand using the joystick while the blue tentacle bends toward it." loading="lazy" decoding="async"><figcaption>Behind the interaction / A joystick gave the operator direct control.</figcaption></figure>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="modes-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="modes-title">Three Ways to Engage</h2>
+        <p class="proj-vision__body">The same form could invite, follow, or retreat.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--modes">
+        <figure><img src="./assets/social-queue/attract-1440.webp" srcset="./assets/social-queue/attract-640.webp 640w, ./assets/social-queue/attract-1440.webp 1206w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1206" height="1350" alt="A person looking at the upright tentacle during an interaction demonstration." loading="lazy" decoding="async"><figcaption><strong>Attract</strong>Slow, side-to-side motion invited attention when no one was interacting.</figcaption></figure>
+        <figure><img src="./assets/social-queue/friendly-1440.webp" srcset="./assets/social-queue/friendly-640.webp 640w, ./assets/social-queue/friendly-1440.webp 1206w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1206" height="1475" alt="The tentacle bending toward an outstretched hand." loading="lazy" decoding="async"><figcaption><strong>Friendly</strong>The tentacle followed the person’s hand, encouraging exploration.</figcaption></figure>
+        <figure><img src="./assets/social-queue/escape-1440.webp" srcset="./assets/social-queue/escape-640.webp 640w, ./assets/social-queue/escape-1440.webp 1206w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1206" height="1431" alt="The tentacle bending away from a hand held above it." loading="lazy" decoding="async"><figcaption><strong>Escape</strong>A quick retreat from the hand introduced surprise and a playful challenge.</figcaption></figure>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="study-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="study-title">Putting the Line to the Test</h2>
+        <p class="proj-vision__body">Observe the interaction in context, then ask people about the experience.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/social-queue/study-plan-1440.webp" srcset="./assets/social-queue/study-plan-640.webp 640w, ./assets/social-queue/study-plan-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="871" alt="Study layout with two robots along a queue, a remote operator beside each, and an interview station at the exit." loading="lazy" decoding="async"><figcaption>The study layout: waiting line, robot operators, and interview station.</figcaption></figure>
+        <div class="offset-copy">
+          <h3>Two conditions. The same waiting task.</h3>
+          <p>We recruited 29 participants for the robot condition and 10 for a control condition without the robots. In the robot condition, one tentacle used Escape behavior and the other used Friendly behavior; either could switch to Attract between interactions.</p>
+          <p>Participants joined a staged waiting line and completed an interview afterward. We reviewed video observations and interview responses to understand play, social interaction, enjoyment, and perceived waiting time.</p>
+        </div>
+      </div>
+    </div>
+    <div class="proj-canvas">
+      <figure><img src="./assets/social-queue/study-setup-1440.webp" srcset="./assets/social-queue/study-setup-640.webp 640w, ./assets/social-queue/study-setup-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(100vw - 88px)" width="1440" height="960" alt="The assembled waiting line with black queueing posts, two robotic tentacles, cameras, and operator seating." loading="lazy" decoding="async"><figcaption>The physical setup prepared for the campus study.</figcaption></figure>
+    </div>
+
+    <section class="proj-section" aria-labelledby="observations-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="observations-title">What People Made of It</h2>
+        <p class="proj-vision__body">The most interesting interactions were the ones we hadn’t scripted.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--pair image-grid--people">
+        <figure><img src="./assets/social-queue/shared-play-1440.webp" srcset="./assets/social-queue/shared-play-640.webp 640w, ./assets/social-queue/shared-play-1440.webp 1375w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1375" height="1350" alt="Two participants watching and reaching toward a blue tentacle together." loading="lazy" decoding="async"><figcaption>Shared curiosity / Watching and trying the robot together.</figcaption></figure>
+        <figure><img src="./assets/social-queue/group-play-1440.webp" srcset="./assets/social-queue/group-play-640.webp 640w, ./assets/social-queue/group-play-1440.webp 877w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="877" height="702" alt="Participants smiling, watching, and reaching toward a robot while moving through the waiting line." loading="lazy" decoding="async"><figcaption>A shared activity / The robot gave people something to respond to in the line.</figcaption></figure>
+      </div>
+    </div>
+    <section class="proj-section" aria-labelledby="findings-title">
+      <h2 class="proj-eyebrow" id="findings-title">What We Learned</h2>
+      <div class="findings-grid">
+        <div><span class="finding-number" aria-hidden="true">01</span><h3>Watching was an invitation.</h3><p>People learned from seeing someone else interact. Observation could become curiosity, then a first attempt at play.</p></div>
+        <div><span class="finding-number" aria-hidden="true">02</span><h3>Simple behavior left room for invention.</h3><p>Participants tried pointing, grabbing, using both hands, and moving around the tentacle. Some created a rock-paper-scissors game or danced with it.</p></div>
+        <div><span class="finding-number" aria-hidden="true">03</span><h3>Play could become social.</h3><p>People compared ideas, taught others how to play, and coordinated their movements. The object became a shared point of interest.</p></div>
+      </div>
+    </section>
+    <section class="study-reflection" aria-labelledby="reflection-title">
+      <div class="reflection-inner">
+        <div><h2 class="proj-eyebrow" id="reflection-title">Reading the Results</h2><p class="reflection-title">Promising interactions.<br>An open research question.</p></div>
+        <div class="offset-copy">
+          <p>Our observations suggested opportunities for enjoyment and social connection. They did not establish that Social Queue shortened perceived waiting time: participants in both conditions often underestimated their wait.</p>
+          <p>The study used a small campus sample and a staged queue. Testing in naturally occurring lines, with broader participants and a stronger way to measure time perception, would help us understand where the idea works best.</p>
+        </div>
+      </div>
+    </section>
+    <section class="proj-section project-credits" aria-labelledby="credits-title">
+      <h2 class="proj-eyebrow" id="credits-title">Project Team &amp; Acknowledgements</h2>
+      <p>Jared Teiger · Yixiao Zhang · Sadie Martin</p>
+      <p class="proj-context">Developed as a course project at Georgia Tech. Yixiao focused on writing the research paper.<br>With thanks to Dr. Yixiao Wang and teaching assistant Mingqi Wang for their guidance.</p>
+    </section>
+  </main>
   <section class="menu" id="menuOverlay" aria-hidden="true">
     <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="menu__left">
@@ -172,12 +243,12 @@ This project is currently being refined and will be published soon.
           <div class="menu__section-title">CASE STUDIES</div>
 
           <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
-          <a class="pill" href="./project-fellow.html" data-preview="./assets/fellow.jpg">Fellow</a>
+          <a class="pill" href="./project-fellow.html" data-preview="./assets/Fellow_image_18.jpg">Fellow</a>
           <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">Magimates</a>
           <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
           <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
           <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
-          <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">Social Queue</a>
+          <a class="pill" href="./project-social-queue.html" aria-current="page" data-preview="./assets/social-queue.jpg">Social Queue</a>
         </nav>
       </div>
 
@@ -188,9 +259,15 @@ This project is currently being refined and will be published soon.
 
     <button class="menu__backdrop" id="backdropBtn" aria-label="Close menu (backdrop)"></button>
   </section>
-
-  <!-- SCRIPT -->
+  <footer class="site-cta">
+    <div class="site-cta__inner">
+      <h2 class="site-cta__title">How can I help</h2>
+      <div class="site-cta__links">
+        <a href="./contact.html" class="site-cta__link"><span>Work together</span><span aria-hidden="true">↗</span></a>
+        <a href="./project-helloreal.html" class="site-cta__link"><span>Explore Helloreal</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </footer>
   <script src="./script.js" defer></script>
-
 </body>
 </html>
