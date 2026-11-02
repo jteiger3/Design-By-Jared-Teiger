@@ -1,116 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sapele Serenade — YES AND DESIGN STUDIO</title>
-
-  <!-- Roboto -->
+  <meta name="description" content="The design and making of Sapele Serenade, a handcrafted lounge chair by Jared Teiger. From sketches and woven studies to a Sapele hardwood frame and a 2023 SIT Design Award.">
+  <meta name="author" content="Jared Teiger — YES AND DESIGN STUDIO">
+  <link rel="canonical" href="https://www.yesanddesign.studio/project-sapele-serenade.html">
+  <meta property="og:title" content="Sapele Serenade | YES AND DESIGN STUDIO">
+  <meta property="og:description" content="A lounge chair shaped through sketches, scale models, woodworking, and hand weaving.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.yesanddesign.studio/project-sapele-serenade.html">
+  <meta property="og:image" content="https://www.yesanddesign.studio/assets/sapele/hero-1600.webp">
+  <meta property="og:image:alt" content="Sapele Serenade lounge chair with a warm wood frame and blue woven seat and backrest.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sapele Serenade — Handcrafted Lounge Chair">
+  <meta name="twitter:description" content="Explore Jared Teiger’s process from early concepts to a finished Sapele hardwood lounge chair.">
+  <meta name="twitter:image" content="https://www.yesanddesign.studio/assets/sapele/hero-1600.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Global site styles -->
-  <link rel="stylesheet" href="./styles.css" />
-
-  <!-- Page styles (scoped) -->
-  <style>
-    /* ===============================
-       PROJECT — UPDATING PAGE
-       =============================== */
-
-    .updating-wrap{
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: calc(var(--nav-h) + 70px) 44px 80px;
-      text-align: center;
-    }
-
-    .updating-inner{
-      max-width: 760px;
-      width: 100%;
-    }
-
-    .updating-kicker{
-      font-size: 13px;
-      letter-spacing: .12em;
-      color: rgba(0,0,0,.55);
-      margin-bottom: 18px;
-    }
-
-    .updating-title{
-      margin: 0 0 18px;
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.04;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: rgba(0,0,0,.95);
-    }
-
-    .updating-copy{
-      margin: 0 auto 34px;
-      font-size: 18px;
-      line-height: 1.7;
-      color: rgba(0,0,0,.72);
-      max-width: 52ch;
-      white-space: pre-line;
-    }
-
-    .updating-actions{
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .upd-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      padding: 12px 18px;
-      border-radius: 999px;
-
-      font-size: 14px;
-      text-decoration: none;
-      cursor: pointer;
-
-      transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
-      will-change: transform;
-    }
-
-    .upd-btn:hover{ transform: translateY(-1px); }
-
-    .upd-btn--primary{
-      background: rgba(0,0,0,.92);
-      color: #fff;
-      border: 1px solid rgba(0,0,0,.92);
-    }
-
-    .upd-btn--secondary{
-      background: transparent;
-      color: rgba(0,0,0,.9);
-      border: 1px solid rgba(0,0,0,.22);
-    }
-
-    @media (max-width: 760px){
-      .updating-wrap{
-        padding: calc(var(--nav-h) + 54px) 18px 70px;
-      }
-      .updating-copy{
-        font-size: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./sapele-serenade.css">
 </head>
-
-<body data-page="project">
-
-  <!-- NAV (same as your other pages) -->
+<body data-page="project" class="sapele-page">
+  <a class="skip-link" href="#project-content">Skip to case study</a>
   <header class="nav nav--overlay" id="nav">
     <div class="nav__bar" id="navBar">
       <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
@@ -129,31 +43,184 @@
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="updating-wrap">
-    <div class="updating-inner">
-      <div class="updating-kicker">CASE STUDY</div>
+  <main id="project-content">
+    <!-- The established project hero and three-column summary. -->
+    <section class="proj-hero" aria-labelledby="project-title">
+      <picture class="proj-hero__picture">
+        <source media="(max-width: 760px)" srcset="./assets/sapele/context-640.webp 640w, ./assets/sapele/context-1440.webp 1440w" sizes="100vw">
+        <img src="./assets/sapele/hero-2400.webp" srcset="./assets/sapele/hero-800.webp 800w, ./assets/sapele/hero-1600.webp 1600w, ./assets/sapele/hero-2400.webp 2400w" sizes="100vw" width="2400" height="1800" alt="Sapele Serenade lounge chair: a sculpted hardwood frame with a blue woven seat and backrest." fetchpriority="high" loading="eager" class="proj-hero__image">
+      </picture>
+      <div class="proj-hero__scrim" aria-hidden="true"></div>
+      <div class="proj-hero__inner">
+        <h1 class="proj-title" id="project-title">Sapele<br>Serenade</h1>
+        <dl class="proj-bar" aria-label="Project summary">
+          <div><dt>Project Type</dt><dd>Furniture Design</dd></div>
+          <div><dt>Stage</dt><dd>Academic Studio · Spring 2023</dd></div>
+          <div><dt>Deliverables</dt><dd>Full-scale Handcrafted Lounge Chair</dd></div>
+        </dl>
+      </div>
+    </section>
 
-      <h1 class="updating-title">In Progress</h1>
+    <section class="proj-section proj-section--intro" aria-labelledby="intro-title">
+      <h2 class="proj-eyebrow" id="intro-title">Introduction</h2>
+      <p class="proj-intro__body">Sapele Serenade brings together a sculpted Sapele hardwood frame and a hand-woven seat and backrest. Designed for lounging, the chair pairs the warmth of wood with an open, tactile surface—developed through sketches, physical models, and hands-on making.</p>
+      <p class="proj-context">Jared Teiger · Georgia Institute of Technology<br>Sophomore Industrial Design Studio · Professor Stephen Chininis</p>
+    </section>
 
-      <p class="updating-copy">
-Great work takes iteration.  
-This project is currently being refined and will be published soon.
-      </p>
+    <section class="proj-canvas" aria-labelledby="brief-title">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/sapele/context-1440.webp" srcset="./assets/sapele/context-640.webp 640w, ./assets/sapele/context-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="The completed chair on concrete steps, its warm wood and blue weave lit by sunlight." loading="lazy" decoding="async"></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="brief-title">The Brief</h2>
+          <h3>A chair to build, sit in, and live with.</h3>
+          <p>The studio assignment called for a full-scale working chair with considered ergonomics and no upholstery. The challenge was to develop the seat, back, and structure together, then carry the design through to a finished physical object.</p>
+          <p>My mood studies drew on Spanish architecture, natural sunlight, and the muted tones of arid environments. Woven lounge seating offered a way to connect those references to a material and a making process.</p>
+        </div>
+      </div>
+    </section>
 
-      <div class="updating-actions">
-        <a class="upd-btn upd-btn--primary" href="./project-star-wars.html">
-          View Star Wars <span aria-hidden="true">↗</span>
-        </a>
+    <section class="proj-section" aria-labelledby="vision-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="vision-title">The Vision</h2>
+        <p class="proj-vision__body">Bring the warmth of a crafted wood frame and the texture of hand weaving into one inviting lounge chair.</p>
+      </div>
+    </section>
 
-        <a class="upd-btn upd-btn--secondary" href="./project-helloreal.html">
-          View Helloreal <span aria-hidden="true">↗</span>
-        </a>
+    <section class="proj-canvas" aria-labelledby="exploration-title">
+      <div class="offset-inner offset-inner--sketches">
+        <figure><img src="./assets/sapele/early-sketches-1440.webp" srcset="./assets/sapele/early-sketches-640.webp 640w, ./assets/sapele/early-sketches-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1113" alt="A page of early chair sketches exploring sharp angles, folded planes, and different frame profiles." loading="lazy" decoding="async"><figcaption>Early exploration from the project process book.</figcaption></figure>
+        <div class="offset-stack">
+          <figure><img src="./assets/sapele/profile-sketch-1440.webp" srcset="./assets/sapele/profile-sketch-640.webp 640w, ./assets/sapele/profile-sketch-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1113" alt="Side-profile sketch exploring an angled backrest and an arched opening between the chair legs." loading="lazy" decoding="async"></figure>
+          <div class="offset-copy">
+            <h2 class="proj-eyebrow" id="exploration-title">Finding the Form</h2>
+            <p>I began with a brutalist direction: sharp angles, sheet metal, and wood. As the project developed, I shifted toward a warmer wood frame with woven surfaces.</p>
+            <p>The next sketches explored how the backrest, seat, and legs could read as a continuous profile. Openings beneath the seat gave each concept a different balance between solid structure and negative space.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-section" aria-labelledby="models-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="models-title">Concept Development</h2>
+        <p class="proj-vision__body">Move from a drawn silhouette to a form that can be seen from every angle.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--models">
+        <figure><img src="./assets/sapele/model-01-1440.webp" srcset="./assets/sapele/model-01-640.webp 640w, ./assets/sapele/model-01-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1440" alt="Small woven chair model with a low angular frame." loading="lazy" decoding="async"><figcaption>01 / A low, angular frame.</figcaption></figure>
+        <figure><img src="./assets/sapele/model-02-1440.webp" srcset="./assets/sapele/model-02-640.webp 640w, ./assets/sapele/model-02-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1440" alt="Small woven chair model with a loop-shaped opening in its side frame." loading="lazy" decoding="async"><figcaption>02 / Opening up the side profile.</figcaption></figure>
+        <figure><img src="./assets/sapele/model-03-1440.webp" srcset="./assets/sapele/model-03-640.webp 640w, ./assets/sapele/model-03-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 36px), calc(33vw - 46px)" width="1440" height="1440" alt="Small woven chair model with an arched opening between the legs." loading="lazy" decoding="async"><figcaption>03 / An arched transition between the legs.</figcaption></figure>
+      </div>
+      <div class="section-copy">
+        <p>Physical scale models let me compare the frame profiles beyond the side view. The woven seat and back became part of those studies, so the surface and structure developed together.</p>
+        <p>Across the concepts, the central question stayed the same: how could the frame support a relaxed seating posture while keeping a clear, expressive silhouette?</p>
       </div>
     </div>
+
+    <section class="proj-section" aria-labelledby="scale-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="scale-title">From Model to Full Scale</h2>
+        <p class="proj-vision__body">Resolve the proportions in CAD, then bring them into the room.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="offset-inner">
+        <figure><img src="./assets/sapele/full-scale-1440.webp" srcset="./assets/sapele/full-scale-640.webp 640w, ./assets/sapele/full-scale-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="Full-scale rough chair frame in the studio." loading="lazy" decoding="async"><figcaption>The rough full-scale frame, before the final hardwood build.</figcaption></figure>
+        <div class="offset-stack">
+          <figure><img src="./assets/sapele/cad-1440.webp" srcset="./assets/sapele/cad-640.webp 640w, ./assets/sapele/cad-1440.webp 1355w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1355" height="1137" alt="Three-quarter CAD view of the chair frame, showing its curved side profiles and crossbars." loading="lazy" decoding="async"><figcaption>Digital development of the frame and crossbars.</figcaption></figure>
+          <div class="offset-copy">
+            <p>I worked between dimensioned CAD studies and a rough full-scale model to develop the seat, backrest, and frame proportions. The physical build brought the design out of the screen and into human scale.</p>
+            <p>With the overall direction established, the work moved toward refining the frame and preparing it for construction in Sapele hardwood.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="weave-title">
+      <div class="offset-inner offset-inner--study offset-inner--center">
+        <figure><img src="./assets/sapele/weave-studies-1440.webp" srcset="./assets/sapele/weave-studies-640.webp 640w, ./assets/sapele/weave-studies-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1113" alt="Six small woven samples comparing different interlacing patterns." loading="lazy" decoding="async"><figcaption>Pattern studies from the process book.</figcaption></figure>
+        <div class="offset-copy">
+          <h2 class="proj-eyebrow" id="weave-title">Developing the Surface</h2>
+          <h3>The weave is part of the design.</h3>
+          <p>Small woven samples explored how changes in the over-and-under pattern affected the surface. Those studies continued into larger samples and the chair models.</p>
+          <p>In the finished chair, blue webbing contrasts with the reddish-brown Sapele. The repeated pattern gives the seat and backrest a shared rhythm while leaving the wood frame visible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-section" aria-labelledby="fabrication-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="fabrication-title">Fabrication</h2>
+        <p class="proj-vision__body">From shaped hardwood to a complete frame, one connection and surface at a time.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <figure class="workshop-wide"><img src="./assets/sapele/shaping-1440.webp" srcset="./assets/sapele/shaping-640.webp 640w, ./assets/sapele/shaping-1440.webp 1440w" sizes="calc(100vw - 88px)" width="1440" height="809" alt="Jared working by hand on the chair’s curved wooden side frame in the workshop." loading="lazy" decoding="async"><figcaption>Shaping the side frame.<span class="photo-credit">Photo: Iretomide Olayeye</span></figcaption></figure>
+      <div class="section-copy">
+        <p>The workshop sequence followed the design from hardwood components through shaping, joinery, and assembly. The side frames established the silhouette; crossbars connected them into a complete chair.</p>
+        <p>After assembly, the surfaces were refined and finished before the woven seat and back were added. This stage translated the clean lines of the models into the details of a handmade object.</p>
+      </div>
+    </div>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--pair image-grid--workshop">
+        <figure><img src="./assets/sapele/glue-up-1440.webp" srcset="./assets/sapele/glue-up-640.webp 640w, ./assets/sapele/glue-up-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1080" alt="Wooden chair components held in clamps during frame assembly." loading="lazy" decoding="async"><figcaption>Assembling and clamping the frame.</figcaption></figure>
+        <figure><img src="./assets/sapele/finishing-1440.webp" srcset="./assets/sapele/finishing-640.webp 640w, ./assets/sapele/finishing-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="809" alt="Jared refining the assembled wooden chair frame on a workshop bench." loading="lazy" decoding="async"><figcaption>Refining the assembled frame.<span class="photo-credit">Photo: Iretomide Olayeye</span></figcaption></figure>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="handwork-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="handwork-title">Weaving the Chair</h2>
+        <p class="proj-vision__body">An open frame becomes a place to sit.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--pair">
+        <figure><img src="./assets/sapele/weaving-1440.webp" srcset="./assets/sapele/weaving-640.webp 640w, ./assets/sapele/weaving-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="Blue webbing being woven across the seat, with loose strips extending from its front edge." loading="lazy" decoding="async"><figcaption>Building the woven seat across the finished frame.</figcaption></figure>
+        <figure><img src="./assets/sapele/handwork-1440.webp" srcset="./assets/sapele/handwork-640.webp 640w, ./assets/sapele/handwork-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="Jared working on the woven backrest of the chair beside a studio window." loading="lazy" decoding="async"><figcaption>Handwork on the backrest.<span class="photo-credit">Photo: Emely Castro</span></figcaption></figure>
+      </div>
+      <div class="section-copy">
+        <p>The webbing wraps around the frame and interlaces across the seat and back. The in-progress photographs show how individual strips gradually become a continuous surface.</p>
+        <p>Wood and weave meet along the edges, making the construction visible in the finished chair.</p>
+      </div>
+    </div>
+
+    <section class="proj-section" aria-labelledby="outcome-title">
+      <div class="proj-vision">
+        <h2 class="proj-eyebrow" id="outcome-title">Sapele Serenade</h2>
+        <p class="proj-vision__body">Warm hardwood. A woven surface. A form made for slowing down.</p>
+      </div>
+    </section>
+    <div class="proj-canvas">
+      <div class="image-grid image-grid--pair">
+        <figure><img src="./assets/sapele/final-front-1440.webp" srcset="./assets/sapele/final-front-640.webp 640w, ./assets/sapele/final-front-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="The finished Sapele Serenade chair seen from the front, showing the blue woven seat and angled backrest." loading="lazy" decoding="async"></figure>
+        <figure><img src="./assets/sapele/final-back-1440.webp" srcset="./assets/sapele/final-back-640.webp 640w, ./assets/sapele/final-back-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="Rear view of the completed chair showing the woven backrest and sculpted Sapele frame." loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+    <div class="proj-canvas">
+      <div class="offset-inner offset-inner--center">
+        <figure><img src="./assets/sapele/seated-1440.webp" srcset="./assets/sapele/seated-640.webp 640w, ./assets/sapele/seated-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="A person seated in Sapele Serenade, showing the full-scale chair in use." loading="lazy" decoding="async"></figure>
+        <div class="offset-stack">
+          <figure><img src="./assets/sapele/weave-detail-1440.webp" srcset="./assets/sapele/weave-detail-640.webp 640w, ./assets/sapele/weave-detail-1440.webp 1440w" sizes="(max-width: 900px) calc(100vw - 36px), calc(50vw - 66px)" width="1440" height="1920" alt="Close view of the blue interlaced webbing wrapped around the warm wooden frame." loading="lazy" decoding="async"></figure>
+          <div class="offset-copy">
+            <p>The finished chair brings the project’s two material ideas together: a continuous wood profile and a patterned woven surface. Its character comes from the relationship between those elements and the handwork that connects them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="recognition" aria-labelledby="recognition-title">
+      <div class="recognition__inner">
+        <div>
+          <h2 class="proj-eyebrow" id="recognition-title">Recognition</h2>
+          <p class="recognition__title">SIT Design Award<br>Winner 2023</p>
+        </div>
+        <p class="recognition__copy">Sapele Serenade received a 2023 SIT Furniture Design Award in the Furniture Design — Lounge Chair category.<br>Lead designer: Jared Teiger · Georgia Institute of Technology</p>
+      </div>
+    </section>
   </main>
 
-  <!-- MENU OVERLAY (same as your other pages) -->
   <section class="menu" id="menuOverlay" aria-hidden="true">
     <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="menu__left">
@@ -172,11 +239,11 @@ This project is currently being refined and will be published soon.
           <div class="menu__section-title">CASE STUDIES</div>
 
           <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
-          <a class="pill" href="./project-fellow.html" data-preview="./assets/fellow.jpg">Fellow</a>
+          <a class="pill" href="./project-fellow.html" data-preview="./assets/Fellow_image_18.jpg">Fellow</a>
           <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">Magimates</a>
           <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
           <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
-          <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
+          <a class="pill" href="./project-sapele-serenade.html" aria-current="page" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
           <a class="pill" href="./project-social-queue.html" data-preview="./assets/social-queue.jpg">Social Queue</a>
         </nav>
       </div>
@@ -189,8 +256,15 @@ This project is currently being refined and will be published soon.
     <button class="menu__backdrop" id="backdropBtn" aria-label="Close menu (backdrop)"></button>
   </section>
 
-  <!-- SCRIPT -->
+  <footer class="site-cta">
+    <div class="site-cta__inner">
+      <h2 class="site-cta__title">How can I help</h2>
+      <div class="site-cta__links">
+        <a href="./contact.html" class="site-cta__link"><span>Work together</span><span aria-hidden="true">↗</span></a>
+        <a href="./project-helloreal.html" class="site-cta__link"><span>Explore Helloreal</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </footer>
   <script src="./script.js" defer></script>
-
 </body>
 </html>
