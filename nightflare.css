@@ -102,12 +102,6 @@
 .nightflare-page .recognition__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 .nightflare-page .recognition__title { margin: 0; font-size: clamp(26px, 3vw, 40px); line-height: 1.2; font-weight: 400; }
 .nightflare-page .recognition__copy { font-size: 16px; line-height: 1.75; color: #444; max-width: 47ch; margin: 0; }
-.nightflare-page .site-cta { padding: 100px 44px; border-top: 1px solid rgba(0,0,0,.08); }
-.nightflare-page .site-cta__inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.nightflare-page .site-cta__title { margin: 0; font-size: clamp(28px, 3vw, 40px); font-weight: 400; }
-.nightflare-page .site-cta__links { display: flex; flex-direction: column; gap: 22px; }
-.nightflare-page .site-cta__link { display: flex; justify-content: space-between; gap: 20px; padding: 8px 0; font-size: 16px; border-bottom: 1px solid #aaa; }
-.nightflare-page .site-cta__link:hover { border-color: #111; }
 @media (max-width: 900px) {
   .nightflare-page .offset-inner { grid-template-columns: 1fr; gap: 30px; }
   .nightflare-page .offset-copy { max-width: 62ch; }
@@ -129,6 +123,4 @@
   .nightflare-page .section-copy { grid-template-columns: 1fr; gap: 18px; }
   .nightflare-page .recognition { margin: 48px 18px 72px; padding: 30px 24px; }
   .nightflare-page .recognition__inner { grid-template-columns: 1fr; gap: 24px; }
-  .nightflare-page .site-cta { padding: 72px 18px; }
-  .nightflare-page .site-cta__inner { grid-template-columns: 1fr; gap: 32px; }
 }
