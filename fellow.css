@@ -151,7 +151,13 @@
 .fellow-page .interaction-steps h3, .fellow-page .next-grid h3 { font-size: 21px; font-weight: 400; line-height: 1.35; margin: 16px 0 12px; }
 .fellow-page .interaction-steps p, .fellow-page .next-grid p { font-size: 15px; line-height: 1.75; color: #444; margin: 0; }
 .fellow-page .prototype-note { border-top: 1px solid #ccc; padding-top: 20px; font-size: 14px; }
-.fellow-page .whisk-stack { display: grid; gap: 28px; }
+.fellow-page .whisk-section { padding: 32px 44px; scroll-margin-top: var(--nav-h); }
+.fellow-page .whisk-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); gap: clamp(24px,3.5vw,48px); align-items: center; }
+.fellow-page .whisk-row > figure { grid-column: 1; grid-row: 1; }
+.fellow-page .whisk-row > .offset-copy { grid-column: 2; grid-row: 1; }
+.fellow-page .whisk-row + .whisk-row { margin-top: 20px; padding-top: 20px; border-top: 1px solid #d9dcd6; }
+.fellow-page .whisk-photo img { aspect-ratio: 3/2; object-fit: cover; object-position: 50% 35%; }
+.fellow-page .whisk-section figcaption { padding-top: 8px; }
 .fellow-page .offset-stack img { max-height: 480px; object-fit: cover; }
 .fellow-page .image-grid--assembly img { aspect-ratio: 3/4; object-fit: cover; }
 .fellow-page .image-grid--engineering { align-items: center; }
@@ -167,6 +173,9 @@
 }
 @media (max-width: 760px) {
   .fellow-page .proj-hero__image { object-position: 50% 15%; }
+  .fellow-page .whisk-section { padding: 36px 18px; }
+  .fellow-page .whisk-row { grid-template-columns: 1fr; gap: 20px; }
+  .fellow-page .whisk-row > figure, .fellow-page .whisk-row > .offset-copy { grid-column: auto; grid-row: auto; }
   .fellow-page .sketch-grid { margin-top: 34px; }
   .fellow-page .image-grid--engineering { grid-template-columns: 1fr 1fr; gap: 18px; }
   .fellow-page .interaction-steps, .fellow-page .next-grid { grid-template-columns: 1fr; gap: 30px; }
