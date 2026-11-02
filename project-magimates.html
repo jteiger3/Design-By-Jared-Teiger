@@ -1,116 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Magimates — YES AND DESIGN STUDIO</title>
-
-  <!-- Roboto -->
+  <meta name="description" content="From a playful MagSafe stand to a launched brand. Jared Teiger’s Magimates case study spans product design, prototyping, branding, packaging, and launch visuals.">
+  <meta name="author" content="Jared Teiger — YES AND DESIGN STUDIO">
+  <link rel="canonical" href="https://www.yesanddesign.studio/project-magimates.html">
+  <meta property="og:title" content="Magimates | YES AND DESIGN STUDIO">
+  <meta property="og:description" content="Building a product, a character family, and a business around a little everyday joy.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.yesanddesign.studio/project-magimates.html">
+  <meta property="og:image" content="https://www.yesanddesign.studio/assets/magimates/hero-1600.webp">
+  <meta property="og:image:alt" content="White and black bear-shaped Magimates stands, one holding an iPhone.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Global site styles -->
-  <link rel="stylesheet" href="./styles.css" />
-
-  <!-- Page styles (scoped) -->
-  <style>
-    /* ===============================
-       PROJECT — UPDATING PAGE
-       =============================== */
-
-    .updating-wrap{
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: calc(var(--nav-h) + 70px) 44px 80px;
-      text-align: center;
-    }
-
-    .updating-inner{
-      max-width: 760px;
-      width: 100%;
-    }
-
-    .updating-kicker{
-      font-size: 13px;
-      letter-spacing: .12em;
-      color: rgba(0,0,0,.55);
-      margin-bottom: 18px;
-    }
-
-    .updating-title{
-      margin: 0 0 18px;
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.04;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: rgba(0,0,0,.95);
-    }
-
-    .updating-copy{
-      margin: 0 auto 34px;
-      font-size: 18px;
-      line-height: 1.7;
-      color: rgba(0,0,0,.72);
-      max-width: 52ch;
-      white-space: pre-line;
-    }
-
-    .updating-actions{
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .upd-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      padding: 12px 18px;
-      border-radius: 999px;
-
-      font-size: 14px;
-      text-decoration: none;
-      cursor: pointer;
-
-      transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
-      will-change: transform;
-    }
-
-    .upd-btn:hover{ transform: translateY(-1px); }
-
-    .upd-btn--primary{
-      background: rgba(0,0,0,.92);
-      color: #fff;
-      border: 1px solid rgba(0,0,0,.92);
-    }
-
-    .upd-btn--secondary{
-      background: transparent;
-      color: rgba(0,0,0,.9);
-      border: 1px solid rgba(0,0,0,.22);
-    }
-
-    @media (max-width: 760px){
-      .updating-wrap{
-        padding: calc(var(--nav-h) + 54px) 18px 70px;
-      }
-      .updating-copy{
-        font-size: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./magimates.css">
 </head>
-
-<body data-page="project">
-
-  <!-- NAV (same as your other pages) -->
+<body data-page="project" class="magimates-page">
+  <a class="mg-skip" href="#project-content">Skip to case study</a>
   <header class="nav nav--overlay" id="nav">
     <div class="nav__bar" id="navBar">
       <button class="icon-btn burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
@@ -128,32 +39,93 @@
       </a>
     </div>
   </header>
-
-  <!-- MAIN -->
-  <main class="updating-wrap">
-    <div class="updating-inner">
-      <div class="updating-kicker">CASE STUDY</div>
-
-      <h1 class="updating-title">In Progress</h1>
-
-      <p class="updating-copy">
-Great work takes iteration.  
-This project is currently being refined and will be published soon.
-      </p>
-
-      <div class="updating-actions">
-        <a class="upd-btn upd-btn--primary" href="./project-star-wars.html">
-          View Star Wars <span aria-hidden="true">↗</span>
-        </a>
-
-        <a class="upd-btn upd-btn--secondary" href="./project-helloreal.html">
-          View Helloreal <span aria-hidden="true">↗</span>
-        </a>
+  <main id="project-content">
+    <section class="mg-hero" aria-labelledby="project-title">
+      <div class="mg-wrap mg-hero-heading">
+        <div><p class="mg-kicker">Product · Brand · Venture</p><h1 id="project-title">Magimates</h1></div>
+        <p class="mg-hero-line">A little character.<br> A whole new way to charge.</p>
       </div>
-    </div>
-  </main>
+      <div class="mg-hero-art"><img src="./assets/magimates/hero-1920.webp" srcset="./assets/magimates/hero-800.webp 800w, ./assets/magimates/hero-1600.webp 1600w, ./assets/magimates/hero-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="White and black bear-shaped Magimates stands, one holding an iPhone." loading="eager" fetchpriority="high"></div>
+      <dl class="mg-wrap mg-meta">
+        <div><dt>Project type</dt><dd>Product &amp; Brand Design</dd></div>
+        <div><dt>Stage</dt><dd>Launched Venture · Began 2024</dd></div>
+        <div><dt>Deliverables</dt><dd>Product, Packaging &amp; Launch Visuals</dd></div>
+      </dl>
+    </section>
 
-  <!-- MENU OVERLAY (same as your other pages) -->
+    <section class="mg-wrap mg-intro" aria-labelledby="intro-title">
+      <div><p class="mg-kicker">The idea</p><h2 id="intro-title">Make the everyday<br>a little more joyful.</h2></div>
+      <div class="mg-intro-copy"><p class="mg-lead">Magimates turns a MagSafe charging puck into a small companion for your desk or bedside table. What began as a bear-shaped stand grew into a family of characters—and a business I built with cofounder Zach Teiger.</p><p>I carried the idea from 3D models and physical prototypes through the identity, packaging, and imagery customers would see at launch.</p></div>
+      <div class="mg-credits"><div><h3>My contribution</h3><p>Product design, prototyping, packaging, branding, website visualization, and all still imagery.</p></div><div><h3>Built together</h3><p>Zach Teiger led operations and business development. We shared the creation of marketing videos.</p></div></div>
+    </section>
+
+    <nav class="mg-chapters mg-wrap" aria-label="Case study chapters"><a href="#product"><span>01</span> Product</a><a href="#brand"><span>02</span> Brand</a><a href="#packaging"><span>03</span> Packaging</a><a href="#launch"><span>04</span> Launch</a></nav>
+
+    <section id="product" class="mg-wrap mg-chapter" aria-labelledby="product-title">
+      <header class="mg-section-head"><div><p class="mg-kicker">01 / Product design</p><h2 id="product-title">A character built<br>around a constraint.</h2></div><p>The circular charging puck became the face. The rest of the form had to hold a phone at a useful angle, guide the cable through the body, and still read as a friendly animal.</p></header>
+      <div class="mg-cad-grid">
+        <figure class=""><img src="./assets/magimates/bear-cad-1245.webp" srcset="./assets/magimates/bear-cad-640.webp 640w, ./assets/magimates/bear-cad-1245.webp 1245w" sizes="(max-width: 700px) calc(50vw - 24px), (max-width: 1280px) 25vw, 300px" width="1245" height="1452" alt="Early CAD model of the bear stand with its circular charger recess and bow tie." loading="lazy" decoding="async"><figcaption>The first bear: a round face, seated posture, and a small bow tie.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/rear-cad-1180.webp" srcset="./assets/magimates/rear-cad-640.webp 640w, ./assets/magimates/rear-cad-1180.webp 1180w" sizes="(max-width: 700px) calc(50vw - 24px), (max-width: 1280px) 25vw, 300px" width="1180" height="1425" alt="Rear CAD view showing openings through the bear stand." loading="lazy" decoding="async"><figcaption>The functional side: openings for the charger and cable.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/dog-cad-1440.webp" srcset="./assets/magimates/dog-cad-640.webp 640w, ./assets/magimates/dog-cad-1440.webp 1440w" sizes="(max-width: 700px) calc(50vw - 24px), (max-width: 1280px) 25vw, 300px" width="1440" height="1425" alt="Dog-shaped CAD concept with a circular charger recess and floppy ears." loading="lazy" decoding="async"><figcaption>Translating the same interface into a dog.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/owl-cad-982.webp" srcset="./assets/magimates/owl-cad-640.webp 640w, ./assets/magimates/owl-cad-982.webp 982w" sizes="(max-width: 700px) calc(50vw - 24px), (max-width: 1280px) 25vw, 300px" width="982" height="1190" alt="Owl-shaped CAD concept with pointed ears and a circular charger recess." loading="lazy" decoding="async"><figcaption>An owl study explored how far the family could grow.</figcaption></figure>
+      </div>
+      <div class="mg-process-row">
+        <div class="mg-process-copy"><p class="mg-kicker">Model → Make → Refine</p><h3>Fit first.<br>Personality throughout.</h3><p>The early work explored both 3D printing and resin molds. Printing became the production direction because it offered lower costs and more consistent results for the small batches we were making.</p><p>Physical iterations brought the design back to the details: seating the puck, feeding the cable, and removing the charger without losing the character’s simple silhouette.</p></div>
+        <figure class=""><img src="./assets/magimates/printing-1440.webp" srcset="./assets/magimates/printing-640.webp 640w, ./assets/magimates/printing-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="1920" alt="Several dark dog-shaped Magimates stands being made together on a 3D printer." loading="lazy" decoding="async"><figcaption>Small-batch printing made iteration and production part of the same workflow.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/fitting-1440.webp" srcset="./assets/magimates/fitting-640.webp 640w, ./assets/magimates/fitting-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="1440" alt="Hands fitting a MagSafe charging puck into the white bear stand." loading="lazy" decoding="async"><figcaption>Checking the interaction with the actual charger, not just the CAD model.</figcaption></figure>
+      </div>
+      <div class="mg-family-head"><h3>One interface.<br>Four personalities.</h3><p>The launch family used two animal forms and two finishes. Each kept the same charging interaction while giving customers a character to choose.</p></div>
+      <div class="mg-family-grid">
+        <figure class=""><img src="./assets/magimates/toto-906.webp" srcset="./assets/magimates/toto-640.webp 640w, ./assets/magimates/toto-906.webp 906w" sizes="(max-width: 700px) calc(50vw - 24px), (max-width: 1280px) 25vw, 300px" width="906" height="906" alt="Black dog-shaped Magimates stand rendered on white." loading="lazy" decoding="async"><figcaption><strong>Toto</strong><span>Black dog</span></figcaption></figure>
+        <figure class=""><img src="./assets/magimates/polar-906.webp" srcset="./assets/magimates/polar-640.webp 640w, ./assets/magimates/polar-906.webp 906w" sizes="(max-width: 700px) calc(50vw - 24px), (max-width: 1280px) 25vw, 300px" width="906" height="906" alt="White bear-shaped Magimates stand rendered on white." loading="lazy" decoding="async"><figcaption><strong>Polar</strong><span>White bear</span></figcaption></figure>
+        <figure class=""><img src="./assets/magimates/bolt-906.webp" srcset="./assets/magimates/bolt-640.webp 640w, ./assets/magimates/bolt-906.webp 906w" sizes="(max-width: 700px) calc(50vw - 24px), (max-width: 1280px) 25vw, 300px" width="906" height="906" alt="White dog-shaped Magimates stand rendered on white." loading="lazy" decoding="async"><figcaption><strong>Bolt</strong><span>White dog</span></figcaption></figure>
+        <figure class=""><img src="./assets/magimates/smokey-906.webp" srcset="./assets/magimates/smokey-640.webp 640w, ./assets/magimates/smokey-906.webp 906w" sizes="(max-width: 700px) calc(50vw - 24px), (max-width: 1280px) 25vw, 300px" width="906" height="906" alt="Black bear-shaped Magimates stand rendered on white." loading="lazy" decoding="async"><figcaption><strong>Smokey</strong><span>Black bear</span></figcaption></figure>
+      </div>
+      <p class="mg-note">Product visualizations of the launch family. The stand houses a separate MagSafe charger.</p>
+    </section>
+
+    <section id="brand" class="mg-band" aria-labelledby="brand-title"><div class="mg-wrap mg-chapter">
+      <header class="mg-section-head"><div><p class="mg-kicker">02 / Brand identity</p><h2 id="brand-title">From an object<br>to a recognizable mate.</h2></div><p>“Find your mate. Find your joy.” gave the brand a voice as playful as the product. I developed the identity and still imagery to make the characters feel familiar across a screen, a package, and a desk.</p></header>
+      <div class="mg-brand-row"><div class="mg-brand-mark"><img src="./assets/magimates/logo-1440.webp" srcset="./assets/magimates/logo-640.webp 640w, ./assets/magimates/logo-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="720" alt="Magimates wordmark with a smiling bear symbol." loading="lazy" decoding="async"><p>Find your mate. Find your joy.</p></div><div class="mg-brand-copy"><h3>A face you remember.</h3><p>The smiling bear mark carries the product’s rounded forms into a simple graphic. Character names, soft color fields, and close-up product views gave the family a consistent visual language.</p><p>That language could stretch from clear catalog imagery to more expressive campaign compositions.</p></div></div>
+      <div class="mg-social-grid">
+        <figure class=""><img src="./assets/magimates/social-polar-1080.webp" srcset="./assets/magimates/social-polar-640.webp 640w, ./assets/magimates/social-polar-1080.webp 1080w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 33vw, 400px" width="1080" height="1350" alt="White bear charging stand on a blue plinth against a pastel blue background." loading="lazy" decoding="async"><figcaption>A calm color field lets the silhouette lead.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/social-detail-1080.webp" srcset="./assets/magimates/social-detail-640.webp 640w, ./assets/magimates/social-detail-1080.webp 1080w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 33vw, 400px" width="1080" height="1350" alt="Close-up composition of several bear stand faces on a purple background." loading="lazy" decoding="async"><figcaption>Close crops turn the product geometry into a graphic.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/social-smokey-1080.webp" srcset="./assets/magimates/social-smokey-640.webp 640w, ./assets/magimates/social-smokey-1080.webp 1080w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 33vw, 400px" width="1080" height="1350" alt="Dark bear stand floating with a charging cable against a pale yellow background." loading="lazy" decoding="async"><figcaption>The cable becomes part of the visual story.</figcaption></figure>
+      </div>
+      <p class="mg-note">Brand and social visualizations by Jared Teiger.</p>
+    </div></section>
+
+    <section id="packaging" class="mg-wrap mg-chapter" aria-labelledby="packaging-title">
+      <header class="mg-section-head"><div><p class="mg-kicker">03 / Packaging &amp; setup</p><h2 id="packaging-title">The first meeting<br>starts inside the box.</h2></div><p>I designed the packaging as an extension of the character: a clear outer identity, an insert shaped around the product, and illustrated guidance for the first setup.</p></header>
+      <div class="mg-pack-feature">
+        <figure class=""><img src="./assets/magimates/package-render-1285.webp" srcset="./assets/magimates/package-render-640.webp 640w, ./assets/magimates/package-render-1285.webp 1285w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1285" height="1055" alt="Visualization of two white Magimates boxes with animal line drawings and smiling bear branding." loading="lazy" decoding="async"><figcaption>Packaging visualization: character illustrations, the wordmark, and an opening thank-you message.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/package-final-1440.webp" srcset="./assets/magimates/package-final-640.webp 640w, ./assets/magimates/package-final-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="1920" alt="Finished black dog and bear Magimates stands sitting on their printed boxes." loading="lazy" decoding="async"><figcaption>The design made physical: finished products and printed packaging.</figcaption></figure>
+      </div>
+      <div class="mg-subhead"><h3>Test the structure.<br>Then build the experience.</h3><p>Hand-cut cardboard trials tested how the product sat inside the box and how it could be lifted out. Those trials connected the packaging graphics to the practical work of making, packing, and sending a physical product.</p></div>
+      <div class="mg-pack-process">
+        <figure class=""><img src="./assets/magimates/package-work-1440.webp" srcset="./assets/magimates/package-work-640.webp 640w, ./assets/magimates/package-work-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 33vw, 400px" width="1440" height="1080" alt="Cutting mat with cardboard packaging studies, tools, and several Magimates stands." loading="lazy" decoding="async"><figcaption>01 / Working through the structure.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/package-insert-1440.webp" srcset="./assets/magimates/package-insert-640.webp 640w, ./assets/magimates/package-insert-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 33vw, 400px" width="1440" height="1920" alt="Flat cardboard insert with cutouts and fold lines beside a ruler." loading="lazy" decoding="async"><figcaption>02 / Shaping the insert around the stand.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/package-fit-1440.webp" srcset="./assets/magimates/package-fit-640.webp 640w, ./assets/magimates/package-fit-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 33vw, 400px" width="1440" height="1920" alt="A hand lifting a Magimates stand and its cardboard insert out of a box." loading="lazy" decoding="async"><figcaption>03 / Testing the lift-out interaction.</figcaption></figure>
+      </div>
+      <div class="mg-setup-row"><div><p class="mg-kicker">After the unboxing</p><h3>Make the first<br>interaction clear.</h3><p>The instruction card breaks inserting and releasing the MagSafe puck into two short sequences. The same physical details developed in the product—cable routing, fit, and access—become the information the customer needs first.</p></div><figure class=""><img src="./assets/magimates/instructions-992.webp" srcset="./assets/magimates/instructions-640.webp 640w, ./assets/magimates/instructions-992.webp 992w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="992" height="1400" alt="Illustrated four-step instructions for inserting and releasing a MagSafe charger from the bear stand." loading="lazy" decoding="async"><figcaption>The original illustrated setup card.</figcaption></figure></div>
+    </section>
+
+    <section id="launch" class="mg-band mg-band--blue" aria-labelledby="launch-title"><div class="mg-wrap mg-chapter">
+      <header class="mg-section-head"><div><p class="mg-kicker">04 / Marketing &amp; launch</p><h2 id="launch-title">Give the product<br>a world to live in.</h2></div><p>The launch needed imagery that could explain the function and express the brand. I created the still visuals for the website and marketing, while Zach and I worked together on video content.</p></header>
+      <div class="mg-launch-row"><div><h3>From product view<br>to everyday use.</h3><p>Clean renders made the characters easy to compare. Photography showed how the stand held a phone in a real setting. Together, they gave the storefront both a clear product story and a sense of personality.</p><p>Video work extended that story through setup demonstrations, unboxing, and character-led content.</p></div><figure class=""><img src="./assets/magimates/website-1440.webp" srcset="./assets/magimates/website-640.webp 640w, ./assets/magimates/website-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="2160" alt="A white Magimates stand holding a phone displaying the Magimates storefront." loading="lazy" decoding="async"><figcaption>The storefront shown on the product itself.</figcaption></figure><figure class=""><img src="./assets/magimates/lifestyle-1440.webp" srcset="./assets/magimates/lifestyle-640.webp 640w, ./assets/magimates/lifestyle-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="2160" alt="A white Magimates stand holding a charging phone on an outdoor wooden table." loading="lazy" decoding="async"><figcaption>Product photography brings the charging interaction into a real setting.</figcaption></figure></div>
+      <div class="mg-subhead"><h3>Exploring a larger presence.</h3><p>Campaign mockups tested how the identity could work at a larger scale: simple messages, generous product views, and color that gives each character room to stand out.</p></div>
+      <div class="mg-campaign-grid">
+        <figure class=""><img src="./assets/magimates/campaign-pastel-1440.webp" srcset="./assets/magimates/campaign-pastel-640.webp 640w, ./assets/magimates/campaign-pastel-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="1152" alt="Concept billboard mockup featuring white bear stands on pastel blocks." loading="lazy" decoding="async"><figcaption>Campaign concept / Pastel product composition.</figcaption></figure>
+        <figure class=""><img src="./assets/magimates/campaign-green-1440.webp" srcset="./assets/magimates/campaign-green-640.webp 640w, ./assets/magimates/campaign-green-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="1080" alt="Concept transit advertisement with black bear stands on a green field and the words choose your mate." loading="lazy" decoding="async"><figcaption>Campaign concept / “Choose your mate.”</figcaption></figure>
+      </div>
+    </div></section>
+
+    <section class="mg-wrap mg-chapter mg-business" aria-labelledby="business-title">
+      <div class="mg-business-main"><div><p class="mg-kicker">Building the venture</p><h2 id="business-title">Beyond a finished design.</h2><p class="mg-lead">A product becomes a business when the design has to work repeatedly—for making, presenting, packing, and selling.</p><p>With Zach leading operations and business development, I connected the product and visual identity across the customer experience. Magimates launched through its own website and Etsy, established a social presence, and made its first sales.</p><p>Small-batch production also made the constraints tangible. Printing offered flexibility, but production time became a capacity challenge. The next question was how to keep the product consistent beyond the first batches.</p></div><figure class=""><img src="./assets/magimates/batch-1440.webp" srcset="./assets/magimates/batch-640.webp 640w, ./assets/magimates/batch-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1280px) 50vw, 600px" width="1440" height="1080" alt="A batch of printed Magimates boxes arranged together by a window." loading="lazy" decoding="async"><figcaption>From one object to a repeatable product and packaging system.</figcaption></figure></div>
+      <div class="mg-learning-grid"><div><span>01</span><h3>Design for the whole journey.</h3><p>The product, setup card, package, and storefront all need to explain the same idea.</p></div><div><span>02</span><h3>Make production part of design.</h3><p>Material choices and print time affect what a small business can reliably deliver.</p></div><div><span>03</span><h3>Build a family, not a single image.</h3><p>A consistent interface and visual language let new characters feel like they belong.</p></div></div>
+    </section>
+    <footer class="mg-footer mg-wrap"><p class="mg-kicker">Have a product in mind?</p><a href="./contact.html">Let’s make it real. <span aria-hidden="true">↗</span></a><div><a href="./project-helloreal.html">Explore Helloreal <span aria-hidden="true">↗</span></a><a href="#project-content">Back to top ↑</a></div></footer>
+  </main>
   <section class="menu" id="menuOverlay" aria-hidden="true">
     <div class="menu__inner" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="menu__left">
@@ -172,8 +144,8 @@ This project is currently being refined and will be published soon.
           <div class="menu__section-title">CASE STUDIES</div>
 
           <a class="pill" href="./project-star-wars.html" data-preview="./assets/star-wars.jpg">Star Wars</a>
-          <a class="pill" href="./project-fellow.html" data-preview="./assets/fellow.jpg">Fellow</a>
-          <a class="pill" href="./project-magimates.html" data-preview="./assets/magimates.jpg">Magimates</a>
+          <a class="pill" href="./project-fellow.html" data-preview="./assets/Fellow_image_18.jpg">Fellow</a>
+          <a class="pill" href="./project-magimates.html" aria-current="page" data-preview="./assets/magimates.jpg">Magimates</a>
           <a class="pill" href="./project-helloreal.html" data-preview="./assets/helloreal.jpg">Helloreal</a>
           <a class="pill" href="./project-nightflare.html" data-preview="./assets/nightflare.jpg">Nightflare</a>
           <a class="pill" href="./project-sapele-serenade.html" data-preview="./assets/sapele-serenade.jpg">Sapele Serenade</a>
@@ -188,9 +160,6 @@ This project is currently being refined and will be published soon.
 
     <button class="menu__backdrop" id="backdropBtn" aria-label="Close menu (backdrop)"></button>
   </section>
-
-  <!-- SCRIPT -->
   <script src="./script.js" defer></script>
-
 </body>
 </html>
